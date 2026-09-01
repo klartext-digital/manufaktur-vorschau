@@ -40,16 +40,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* buttons */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95em 1.7em;border-radius:var(--r-pill);
+/* CTA hover: Concept-Theme "btn-fill" — runder Fill-Kreis sweept gebogen hoch, Text invertiert mit Delay */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95em 1.9em;border-radius:var(--r-pill);
   font-weight:600;font-size:.9rem;letter-spacing:.01em;cursor:pointer;border:1.5px solid transparent;overflow:hidden;isolation:isolate;
-  transition:color .4s cubic-bezier(.65,0,.35,1),border-color .4s,transform .35s,box-shadow .35s}
+  transition:color .35s ease .08s,border-color .4s ease,box-shadow .4s ease}
 .btn>*{position:relative;z-index:1}
-.btn::before{content:"";position:absolute;inset:0;z-index:0;transform:translateY(101%);transition:transform .5s cubic-bezier(.65,0,.35,1)}
-.btn:hover{transform:translateY(-2px)}
-.btn:hover::before{transform:translateY(0)}
-.btn .arrow{transition:transform .4s cubic-bezier(.65,0,.35,1)}
+.btn::before{content:"";position:absolute;z-index:0;left:50%;bottom:0;width:160%;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,105%);transition:transform .6s cubic-bezier(.52,.01,.16,1);background:var(--ink)}
+.btn:hover::before{transform:translate(-50%,12%)}
+.btn .arrow{transition:transform .45s cubic-bezier(.52,.01,.16,1)}
 .btn:hover .arrow{transform:translateX(5px)}
-.btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}.btn-gold:hover{color:#fff;box-shadow:0 14px 30px -14px rgba(23,22,20,.5)}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}.btn-gold:hover{color:#fff}
 .btn-dark{background:var(--ink);color:#fff}.btn-dark::before{background:var(--gold)}.btn-dark:hover{color:#fff}
 .btn-outline{background:transparent;border-color:var(--ink);color:var(--ink)}.btn-outline::before{background:var(--ink)}.btn-outline:hover{color:#fff;border-color:var(--ink)}
 .btn-light{background:#fff;color:var(--ink)}.btn-light::before{background:var(--gold)}.btn-light:hover{color:#fff}
