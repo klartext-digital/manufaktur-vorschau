@@ -14,7 +14,7 @@
   --gold:#A9821F; --gold-2:#C09A34; --gold-bright:#D8B25C;  /* brand gold (from logo) */
   --green:#4B7A44; --green-2:#3C6537;                       /* NEU badge, like reference */
   --line:rgba(23,22,20,.12); --line-2:rgba(255,255,255,.16);
-  --maxw:1560px; --pad:clamp(16px,4vw,60px);
+  --maxw:none; --pad:clamp(16px,2.6vw,52px);
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
@@ -42,14 +42,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 /* buttons */
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95em 1.7em;border-radius:var(--r-pill);
   font-weight:600;font-size:.9rem;letter-spacing:.01em;cursor:pointer;border:1.5px solid transparent;overflow:hidden;isolation:isolate;
-  transition:color .35s,border-color .35s,transform .3s}
+  transition:color .4s cubic-bezier(.65,0,.35,1),border-color .4s,transform .35s,box-shadow .35s}
 .btn>*{position:relative;z-index:1}
-.btn::before{content:"";position:absolute;inset:0;z-index:0;transform:scaleX(0);transform-origin:left;transition:transform .42s cubic-bezier(.6,.05,.2,.95)}
-.btn:hover::before{transform:scaleX(1)}
-.btn .arrow{transition:transform .35s}.btn:hover .arrow{transform:translateX(5px)}
-.btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}.btn-gold:hover{color:#fff}
+.btn::before{content:"";position:absolute;inset:0;z-index:0;transform:translateY(101%);transition:transform .5s cubic-bezier(.65,0,.35,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover::before{transform:translateY(0)}
+.btn .arrow{transition:transform .4s cubic-bezier(.65,0,.35,1)}
+.btn:hover .arrow{transform:translateX(5px)}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}.btn-gold:hover{color:#fff;box-shadow:0 14px 30px -14px rgba(23,22,20,.5)}
 .btn-dark{background:var(--ink);color:#fff}.btn-dark::before{background:var(--gold)}.btn-dark:hover{color:#fff}
-.btn-outline{background:transparent;border-color:var(--ink);color:var(--ink)}.btn-outline::before{background:var(--ink)}.btn-outline:hover{color:#fff}
+.btn-outline{background:transparent;border-color:var(--ink);color:var(--ink)}.btn-outline::before{background:var(--ink)}.btn-outline:hover{color:#fff;border-color:var(--ink)}
 .btn-light{background:#fff;color:var(--ink)}.btn-light::before{background:var(--gold)}.btn-light:hover{color:#fff}
 .btn-block{width:100%}
 
@@ -86,7 +88,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* HERO full-bleed rounded */
 .hero{padding-top:14px}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
-.hero-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 20%;z-index:-2;will-change:transform}
+.hero-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 32%;z-index:-2;will-change:transform}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,var(--cream-1) 0%,rgba(251,246,236,.92) 30%,rgba(251,246,236,.55) 50%,rgba(251,246,236,0) 72%)}
 .hero-copy{padding:clamp(30px,5vw,72px);max-width:620px}
@@ -306,7 +308,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 <section class="hero">
   <div class="wrap">
     <div class="hero-card reveal">
-      <img class="bg" id="heroImg" src="img/chef.jpg" alt="Stephan mit handverlesenen Vanilleschoten">
+      <img class="bg" id="heroImg" src="img/hero-wide.jpg" alt="Stephan mit handverlesenen Vanilleschoten">
       <div class="vrail">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5zm5-1.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0zM7 4h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
