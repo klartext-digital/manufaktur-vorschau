@@ -220,6 +220,27 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .news input{flex:1;min-width:220px;padding:1em 1.3em;border-radius:var(--r-pill);border:1px solid var(--line);background:#fff;font:inherit}
 .news input:focus{outline:none;border-color:var(--gold)}
 
+/* FAQ */
+.faq{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(30px,5vw,80px);align-items:start}
+.faq-head{position:sticky;top:calc(var(--head-h) + 24px)}
+.eyebrow-b{display:inline-flex;gap:.55em;align-items:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+.eyebrow-b::before{content:"["}.eyebrow-b::after{content:"]"}
+.faq-head h2{font-size:var(--title);margin:.25em 0 .35em}
+.faq-head p{color:var(--ink-soft);margin:0 0 1.6em;max-width:34ch}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;
+  padding:26px 4px;font-family:Fraunces,serif;font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:500;transition:color .2s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover,.faq-item[open] summary{color:var(--gold)}
+.faq-ico{position:relative;width:20px;height:20px;flex-shrink:0}
+.faq-ico::before,.faq-ico::after{content:"";position:absolute;background:currentColor;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.faq-ico::before{top:9px;left:0;width:20px;height:2px}
+.faq-ico::after{left:9px;top:0;width:2px;height:20px}
+.faq-item[open] .faq-ico::after{transform:scaleY(0)}
+.faq-a{padding:0 4px 28px;color:var(--ink-soft);max-width:62ch;line-height:1.7}
+@media(max-width:900px){.faq{grid-template-columns:1fr}.faq-head{position:static}}
+
 /* trust strip */
 .tstrip{border-top:1px solid var(--line)}
 .tstrip .wrap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;padding-block:36px}
@@ -435,6 +456,44 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <div class="voice"><div class="stars">★★★★★</div><p>„Die aromatischste Vanille, mit der ich je in der Patisserie gearbeitet habe."</p><b>Restaurant-Küche</b> · <em>Zürich</em></div>
       <div class="voice"><div class="stars">★★★★★</div><p>„Qualität und Herkunft stimmen — man schmeckt den Unterschied sofort."</p><b>Confiserie</b> · <em>Luzern</em></div>
       <div class="voice"><div class="stars">★★★★★</div><p>„Endlich ein Schweizer Anbieter, dem man bei Vanille wirklich vertraut."</p><b>Privatkundin</b> · <em>Bern</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faq reveal">
+    <div class="faq-head">
+      <span class="eyebrow-b">Häufige Fragen</span>
+      <h2 class="serif">Gut zu wissen</h2>
+      <p>Die Fragen, die uns am häufigsten gestellt werden — kurz und ehrlich beantwortet.</p>
+      <a class="btn btn-outline" href="#"><span>Noch Fragen? Kontakt</span> <span class="arrow">→</span></a>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Warum ist eure Vanille teurer als aus dem Supermarkt?<span class="faq-ico"></span></summary>
+        <div class="faq-a">Weil echte Qualität ihren Preis hat: Wir kaufen direkt bei unseren Partnerfarmen zu fairen Preisen, verzichten auf Zwischenhändler und selektieren jede Schote von Hand. Das Ergebnis ist ein Vanillin-Gehalt von bis zu 2,63 % — rund doppelt so viel wie im Branchenschnitt.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Wie bewahre ich Vanilleschoten richtig auf?<span class="faq-ico"></span></summary>
+        <div class="faq-a">Am besten luftdicht, kühl und dunkel — zum Beispiel im mitgelieferten Glas. So bleiben die Schoten monatelang aromatisch und geschmeidig. Bitte nicht im Kühlschrank lagern, dort können sie austrocknen und schimmeln.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Woher stammt eure Vanille?<span class="faq-ico"></span></summary>
+        <div class="faq-a">Aus drei Herkünften: Planifolia (Madagaskar), Tahitensis und die seltene Pompona. Wir kennen jede Farm und jede Familie persönlich und besuchen sie regelmässig — abgefüllt und veredelt wird alles in unserer Manufaktur in Schlieren bei Zürich.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Was bedeutet der Vanillin-Gehalt von 2,63 %?<span class="faq-ico"></span></summary>
+        <div class="faq-a">Vanillin ist der wichtigste Aromastoff der Vanille. 2,63 % ist der höchste je bei uns gemessene Wert — deutlich über dem Branchenschnitt von rund 1,4 %. Kurz gesagt: intensiveres Aroma, weniger Schote pro Rezept nötig.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Wie verwende ich Vanillepaste und -pulver?<span class="faq-ico"></span></summary>
+        <div class="faq-a">Die Paste ist ideal für Cremes, Glacé und Teige — ein Teelöffel ersetzt etwa eine Schote. Das Pulver eignet sich perfekt zum Backen und für Getränke, da es sich fein verteilt und schön dunkel färbt.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Wie schnell wird geliefert?<span class="faq-ico"></span></summary>
+        <div class="faq-a">Bestellungen versenden wir werktags innerhalb von 24 Stunden aus Schlieren. Ab CHF 60 Bestellwert ist der Versand innerhalb der Schweiz kostenlos.</div>
+      </details>
     </div>
   </div>
 </section>
