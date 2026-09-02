@@ -18,7 +18,7 @@
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
-  --topbar-h:38px; --head-h:76px;
+  --topbar-h:44px; --head-h:94px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -41,8 +41,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 
 /* buttons */
 /* CTA hover: Concept-Theme "btn-fill" — runder Fill-Kreis sweept gebogen hoch, Text invertiert mit Delay */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.95em 1.9em;border-radius:var(--r-pill);
-  font-weight:600;font-size:.9rem;letter-spacing:.01em;cursor:pointer;border:1.5px solid transparent;overflow:hidden;isolation:isolate;
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:1.15em 2.4em;border-radius:var(--r-pill);
+  font-weight:600;font-size:1rem;letter-spacing:.01em;cursor:pointer;border:1.5px solid transparent;overflow:hidden;isolation:isolate;
   transition:color .35s ease .08s,border-color .4s ease,box-shadow .4s ease}
 .btn>*{position:relative;z-index:1}
 .btn::before{content:"";position:absolute;z-index:0;left:50%;bottom:0;width:160%;aspect-ratio:1;border-radius:50%;
@@ -57,7 +57,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .btn-block{width:100%}
 
 /* top bar */
-.topbar{background:var(--ink);color:var(--cream-1);height:var(--topbar-h);font-size:.76rem;letter-spacing:.03em}
+.topbar{background:var(--ink);color:var(--cream-1);height:var(--topbar-h);font-size:.82rem;letter-spacing:.03em}
 .topbar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .tb-soc{display:flex;gap:14px}
 .tb-soc a{opacity:.72;transition:opacity .2s,color .2s}.tb-soc a:hover{opacity:1;color:var(--gold-bright)}
@@ -73,14 +73,14 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,253,249,.9);backdro
   border-bottom:1px solid transparent;transition:box-shadow .3s,border-color .3s;height:var(--head-h)}
 header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(--line)}
 .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand img{height:34px;width:auto}
-.menu{display:flex;gap:30px;font-size:.92rem;font-weight:500}
+.brand img{height:42px;width:auto}
+.menu{display:flex;gap:38px;font-size:1.02rem;font-weight:500}
 .menu a{position:relative;padding:6px 0;display:inline-flex;align-items:center;gap:5px}
 .menu a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--gold);transition:width .3s}
 .menu a:hover::after{width:100%}
 .menu .cap{width:10px;height:10px;stroke:currentColor;stroke-width:1.6;fill:none}
-.nav-ico{display:flex;gap:16px;align-items:center}
-.ico{width:22px;height:22px;stroke:var(--ink);stroke-width:1.5;fill:none;cursor:pointer;transition:transform .2s,stroke .2s}
+.nav-ico{display:flex;gap:22px;align-items:center}
+.ico{width:26px;height:26px;stroke:var(--ink);stroke-width:1.5;fill:none;cursor:pointer;transition:transform .2s,stroke .2s}
 .ico:hover{transform:scale(1.12);stroke:var(--gold)}
 .cart-dot{position:relative}
 .cart-dot b{position:absolute;top:-7px;right:-8px;background:var(--gold);color:#fff;font-size:.58rem;font-weight:700;width:15px;height:15px;border-radius:50%;display:grid;place-items:center;font-family:Inter}
