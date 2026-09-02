@@ -45,9 +45,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
   font-weight:600;font-size:1rem;letter-spacing:.01em;cursor:pointer;border:1.5px solid transparent;overflow:hidden;isolation:isolate;
   transition:color .35s ease .08s,border-color .4s ease,box-shadow .4s ease}
 .btn>*{position:relative;z-index:1}
-.btn::before{content:"";position:absolute;z-index:0;left:50%;bottom:0;width:160%;aspect-ratio:1;border-radius:50%;
-  transform:translate(-50%,105%);transition:transform .6s cubic-bezier(.52,.01,.16,1);background:var(--ink)}
-.btn:hover::before{transform:translate(-50%,12%)}
+.btn::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:150%;height:240%;border-radius:50%;
+  transform:translate(-50%,-50%) translateY(112%);transition:transform .6s cubic-bezier(.52,.01,.16,1);background:var(--ink)}
+.btn:hover::before{transform:translate(-50%,-50%) translateY(0)}
 .btn .arrow{transition:transform .45s cubic-bezier(.52,.01,.16,1)}
 .btn:hover .arrow{transform:translateX(5px)}
 .btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}.btn-gold:hover{color:#fff}
