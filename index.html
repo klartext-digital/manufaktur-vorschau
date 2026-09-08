@@ -6,7 +6,7 @@
 <title>The Vanilla — Manufaktur (Redesign-Vorschau)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream-0:#FFFDF9; --cream-1:#FBF6EC; --cream-2:#F4EEDF; --cream-3:#ECE3D0;
@@ -176,12 +176,12 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .pattr svg{width:18px;height:18px;stroke:var(--ink-soft);stroke-width:1.4;fill:none;opacity:.7}
 
 /* vanillin video scroll section */
-.filmwrap{position:relative;height:360vh;background:var(--ink)}
+.filmwrap{position:relative;height:280vh;background:var(--ink)}
 .filmstick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .filmcanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;background:var(--ink)}
 .film-scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 48%,rgba(8,6,4,.15),rgba(8,6,4,.5) 66%,rgba(8,6,4,.72) 100%)}
 .film-txt{position:absolute;z-index:2;color:#F5EEDF;opacity:0;transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.3,1)}
-.film-txt .serif,.film-txt h2{font-family:Fraunces,serif;font-weight:400}
+.film-txt .serif,.film-txt h2{font-family:"Playfair Display",Georgia,serif;font-weight:500}
 .film-left{left:clamp(20px,5vw,96px);top:50%;transform:translateY(calc(-50% + 34px));max-width:min(36vw,440px)}
 .film-left.in{opacity:1;transform:translateY(-50%)}
 .film-stat{font-size:clamp(3rem,7vw,6rem);line-height:.88;font-weight:500}
@@ -633,7 +633,7 @@ const film=document.getElementById('vanillin');
 const canvas=document.getElementById('filmCanvas');
 if(film&&canvas){
   const ctx=canvas.getContext('2d');
-  const FRAMES=96, PAD=3, BASE='media/seq/f';
+  const FRAMES=151, PAD=3, BASE='media/seq/f';
   const imgs=new Array(FRAMES);
   let curIdx=-1, targetP=0, rafPending=false;
   for(let i=0;i<FRAMES;i++){
