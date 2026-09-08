@@ -14,11 +14,11 @@
   --gold:#A9821F; --gold-2:#C09A34; --gold-bright:#D8B25C;  /* brand gold (from logo) */
   --green:#4B7A44; --green-2:#3C6537;                       /* NEU badge, like reference */
   --line:rgba(23,22,20,.12); --line-2:rgba(255,255,255,.16);
-  --maxw:none; --pad:clamp(16px,2.6vw,52px);
+  --maxw:none; --pad:clamp(22px,2.8vw,56px);
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
-  --topbar-h:44px; --head-h:94px;
+  --topbar-h:44px; --head-h:100px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -73,7 +73,8 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,253,249,.9);backdro
   border-bottom:1px solid transparent;transition:box-shadow .3s,border-color .3s;height:var(--head-h)}
 header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(--line)}
 .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand img{height:42px;width:auto}
+.brand{padding-left:clamp(0px,1vw,18px)}
+.brand img{height:54px;width:auto}
 .menu{display:flex;gap:38px;font-size:1.02rem;font-weight:500}
 .menu a{position:relative;padding:6px 0;display:inline-flex;align-items:center;gap:5px}
 .menu a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--gold);transition:width .3s}
