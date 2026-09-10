@@ -6,7 +6,7 @@
 <title>The Vanilla — Manufaktur (Redesign-Vorschau)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream-0:#FFFDF9; --cream-1:#FBF6EC; --cream-2:#F4EEDF; --cream-3:#ECE3D0;
@@ -238,12 +238,18 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .qstats b{display:block;font-family:Fraunces,serif;font-size:2rem;color:#fff;line-height:1}
 .qstats span{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
-/* statement */
-.stmt{position:relative;background:var(--ink-2);color:var(--cream-1);border-radius:var(--r-xl);overflow:hidden;text-align:center}
-.stmt-inner{padding:clamp(56px,10vw,140px) clamp(20px,6vw,90px)}
-.stmt p{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.9rem,5vw,4.2rem);line-height:1.14;margin:0;max-width:20ch;margin-inline:auto;letter-spacing:-.015em}
-.stmt .hl{color:var(--ink);background:var(--gold-bright);padding:.02em .26em;border-radius:.3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.stmt .accent{display:block;margin-top:clamp(18px,3vw,32px);font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,2vw,1.6rem);color:var(--gold-bright)}
+/* statement — full-bleed bold typographic */
+.stmtsec{position:relative;background:#241C12;color:var(--cream-1);overflow:hidden;isolation:isolate;min-height:92vh;min-height:92svh;display:flex;align-items:center}
+.stmtsec::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 28% 42%,rgba(216,178,92,.16),transparent 58%),radial-gradient(ellipse at 90% 90%,rgba(216,178,92,.08),transparent 55%)}
+.stmtsec .doodle{position:absolute;stroke:var(--gold-bright);stroke-width:1.4;fill:none;opacity:.22;z-index:0;pointer-events:none}
+.stmtsec .d1{top:-3%;right:-2%;width:min(30vw,400px);transform:rotate(10deg)}
+.stmtsec .d2{bottom:-5%;left:-2%;width:min(26vw,340px);transform:rotate(-12deg)}
+.stmt-in{position:relative;z-index:1;width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(30px,6vw,84px)}
+.stmt-in .eyebrow{color:var(--gold-bright);display:block;margin-bottom:clamp(16px,2.5vw,28px)}
+.stmt-big{font-family:"Playfair Display",Fraunces,serif;font-weight:600;font-size:clamp(2.3rem,6.2vw,6rem);line-height:1.05;letter-spacing:-.02em;margin:0;max-width:19ch}
+.stmt-big .hl{color:#241C12;background:var(--gold-bright);padding:.03em .24em;border-radius:.26em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.stmt-accent{font-family:"Caveat",cursive;font-weight:700;color:var(--gold-bright);font-size:clamp(1.8rem,3.6vw,3.1rem);display:inline-block;margin-top:.35em;transform:rotate(-2.5deg)}
+@media(max-width:640px){.stmtsec{min-height:auto;padding-block:clamp(64px,16vw,110px)}.stmt-big{max-width:none}}
 
 /* testimonials */
 .tst{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -266,37 +272,37 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 @media(max-width:560px){.tst{grid-template-columns:1fr}}
 
 /* comparison */
-.cmp{position:relative;background:var(--ink);color:var(--cream-1);border-radius:var(--r-xl);overflow:hidden}
-.cmp .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;filter:blur(3px);z-index:0}
-.cmp .scrim{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% -10%,rgba(216,178,92,.22),transparent 55%),linear-gradient(180deg,rgba(18,14,9,.55),rgba(18,14,9,.9))}
-.cmp-inner{position:relative;z-index:1;padding:clamp(34px,6vw,80px)}
-.cmp-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,50px)}
+.cmpsec{position:relative;background:#1B1610;color:var(--cream-1);overflow:hidden;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+.cmpsec .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:blur(4px);z-index:0}
+.cmpsec .scrim{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 4%,rgba(216,178,92,.2),transparent 55%),linear-gradient(180deg,rgba(18,14,9,.62),rgba(18,14,9,.93))}
+.cmp-in{position:relative;z-index:1;width:100%;max-width:1060px;margin:0 auto;padding:clamp(26px,5vw,60px)}
+.cmp-head{text-align:center;margin-bottom:clamp(22px,3.4vw,44px)}
 .cmp-head .eyebrow{color:var(--gold-bright)}
-.cmp-head h2{font-size:clamp(2rem,4.4vw,3.4rem);color:#fff;margin:.25em 0 .3em}.cmp-head h2 .g{color:var(--gold-bright)}
+.cmp-head h2{font-size:clamp(2rem,4.6vw,3.7rem);color:#fff;margin:.2em 0 .25em;line-height:1.05}.cmp-head h2 .g{color:var(--gold-bright)}
 .cmp-head p{color:rgba(255,255,255,.72);margin:0}
-.ctable{max-width:940px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr}
-.ctable>div{padding:16px 14px;border-bottom:1px solid var(--line-2)}
-.ccrit{display:flex;align-items:center;font-weight:600;min-width:0}
-.chdr{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;text-align:center;font-weight:600}
-.chdr.tv b{font-family:Fraunces,serif;color:#fff;font-size:1.18rem}
-.chdr .mark{width:30px;height:30px;fill:var(--gold-bright)}
-.chdr.other{color:rgba(255,255,255,.72);font-size:.95rem}
-.cell{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
-.cell .ic{width:26px;height:26px;fill:none;stroke-width:2}
+.ctable{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr;align-items:stretch}
+.ctable .glow{position:absolute;z-index:0;top:-16px;bottom:-16px;left:calc(1.3/3.3*100%);width:calc(1/3.3*100%);border-radius:24px;border:1.5px solid var(--gold);background:linear-gradient(180deg,rgba(216,178,92,.22),rgba(216,178,92,.05));box-shadow:0 34px 80px -34px rgba(216,178,92,.55)}
+.ctable>div{position:relative;z-index:1;padding:clamp(11px,1.7vw,18px) 16px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.ctable>div:nth-last-child(-n+3){border-bottom:0}
+.ccrit{font-weight:600;font-size:clamp(.95rem,1.3vw,1.08rem);min-width:0}
+.chdr{flex-direction:column;justify-content:flex-end;text-align:center;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.14)}
+.chdr.tv b{font-family:Fraunces,serif;color:#fff;font-size:clamp(1.15rem,1.8vw,1.4rem)}
+.chdr .mark{width:32px;height:32px;fill:var(--gold-bright)}
+.chdr.other{color:rgba(255,255,255,.72);font-size:clamp(.9rem,1.3vw,1rem)}
+.cell{justify-content:center;gap:9px}
+.cell .ic{width:22px;height:22px;fill:none;stroke-width:2.3;flex-shrink:0}
 .ic-yes{stroke:var(--gold-bright)}.ic-no{stroke:rgba(255,255,255,.4)}
-.cell small{font-size:.82rem;line-height:1.25}
+.cell small{font-size:clamp(.84rem,1.15vw,.96rem);line-height:1.2}
 .cell.yes small{color:#fff;font-weight:600}.cell.no small{color:rgba(255,255,255,.5)}
-.col-tv{background:linear-gradient(180deg,rgba(216,178,92,.14),rgba(216,178,92,.03));border-left:1.5px solid var(--gold);border-right:1.5px solid var(--gold)}
-.ctable>.chdr.col-tv{border-top:1.5px solid var(--gold);border-top-left-radius:var(--r-md);border-top-right-radius:var(--r-md);padding-top:22px}
-.ctable>.col-tv.last{border-bottom:1.5px solid var(--gold);border-bottom-left-radius:var(--r-md);border-bottom-right-radius:var(--r-md)}
 @media(max-width:640px){
-  .ctable{grid-template-columns:1fr;max-width:420px}
+  .cmpsec{min-height:auto;padding-block:clamp(50px,12vw,80px)}
+  .ctable{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  .ctable .glow{display:none}
   .ctable>div{border:none;padding:5px 8px}
   .chdr{display:none}
-  .ccrit{font-family:Fraunces,serif;font-weight:500;font-size:1.08rem;padding:16px 8px 4px;border-top:1px solid var(--line-2)}
+  .ccrit{font-family:Fraunces,serif;font-weight:500;font-size:1.1rem;padding:18px 8px 4px;border-top:1px solid rgba(255,255,255,.12)}
   .ctable>.ccrit:first-child{border-top:0}
-  .col-tv{border:none;background:none}
-  .cell{flex-direction:row;justify-content:flex-start;text-align:left;gap:9px}
+  .cell{justify-content:flex-start;gap:10px}
   .cell::before{width:112px;flex-shrink:0;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
   .cell.col-tv::before{content:"The Vanilla";color:var(--gold-bright)}
   .cell.col-other::before{content:"Herkömmlich"}
@@ -560,58 +566,55 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 </section>
 
 <!-- STATEMENT -->
-<section class="sec" id="statement" style="padding-top:0">
-  <div class="wrap">
-    <div class="stmt reveal">
-      <div class="stmt-inner">
-        <p>Für <span class="hl">echte Vanille</span> gibt es keine Abkürzung — nur Herkunft, Geduld und <span class="hl">Handarbeit</span>.<span class="accent">Und genau das schmeckt man.</span></p>
-      </div>
-    </div>
+<section class="stmtsec reveal" id="statement">
+  <svg class="doodle d1" viewBox="0 0 200 200"><path d="M100 40c14 8 20 22 18 40-2 20-18 34-38 34s-36-14-38-34c-2-18 4-32 18-40"/><path d="M100 40c-6-14-2-28 10-36M100 40c6-14 2-28-10-36M62 78C46 74 34 62 34 46M138 78c16-4 28-16 28-32"/><circle cx="100" cy="96" r="8"/><path d="M100 120c0 26-2 44-2 44M92 150c-14 6-26 4-34-4M108 150c14 6 26 4 34-4"/></svg>
+  <svg class="doodle d2" viewBox="0 0 200 200"><path d="M30 60c30 10 70 10 100 30s40 60 30 80"/><path d="M40 50l-14 4 6 14M158 174l14-4-6-14"/><path d="M60 40c8-10 22-12 32-4"/></svg>
+  <div class="stmt-in">
+    <span class="eyebrow">Unser Versprechen</span>
+    <h2 class="stmt-big">Für <span class="hl">echte Vanille</span> gibt es keine Abkürzung — nur Herkunft, Geduld und <span class="hl">Handarbeit</span>.</h2>
+    <span class="stmt-accent">Und genau das schmeckt man.</span>
   </div>
 </section>
 
 <!-- COMPARISON -->
-<section class="sec" id="vergleich" style="padding-top:0">
-  <div class="wrap">
-    <div class="cmp reveal">
-      <img class="bgimg" src="img/header-vanille.jpg" alt="">
-      <div class="scrim"></div>
-      <div class="cmp-inner">
-        <div class="cmp-head">
-          <span class="eyebrow">Der Unterschied</span>
-          <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
-          <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
-        </div>
-        <div class="ctable">
-          <div class="ccrit"></div>
-          <div class="chdr tv col-tv"><svg class="mark" viewBox="0 0 24 24"><path d="M12 1l2.2 6.3L20.7 8l-4.8 4.2 1.8 6.6L12 15.6 6.3 18.8l1.8-6.6L3.3 8l6.5-.7z"/></svg><b>The Vanilla</b></div>
-          <div class="chdr other">Herkömmliche<br>Vanille</div>
+<section class="cmpsec reveal" id="vergleich">
+  <img class="bgimg" src="img/header-vanille.jpg" alt="">
+  <div class="scrim"></div>
+  <div class="cmp-in">
+    <div class="cmp-head">
+      <span class="eyebrow">Der Unterschied</span>
+      <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
+      <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
+    </div>
+    <div class="ctable">
+      <div class="glow"></div>
+      <div class="ccrit"></div>
+      <div class="chdr tv col-tv"><svg class="mark" viewBox="0 0 24 24"><path d="M12 1l2.2 6.3L20.7 8l-4.8 4.2 1.8 6.6L12 15.6 6.3 18.8l1.8-6.6L3.3 8l6.5-.7z"/></svg><b>The Vanilla</b></div>
+      <div class="chdr other">Herkömmliche<br>Vanille</div>
 
-          <div class="ccrit">Vanillin-Gehalt</div>
-          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>bis 2,63 %</small></div>
-          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>~1,4 %</small></div>
+      <div class="ccrit">Vanillin-Gehalt</div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>bis 2,63 %</small></div>
+      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>~1,4 %</small></div>
 
-          <div class="ccrit">Aroma</div>
-          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>voll &amp; echt</small></div>
-          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>künstlich verstärkt</small></div>
+      <div class="ccrit">Aroma</div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>voll &amp; echt</small></div>
+      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>künstlich verstärkt</small></div>
 
-          <div class="ccrit">Herkunft</div>
-          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>direkt von der Farm</small></div>
-          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>anonyme Zwischenhändler</small></div>
+      <div class="ccrit">Herkunft</div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>direkt von der Farm</small></div>
+      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>anonyme Zwischenhändler</small></div>
 
-          <div class="ccrit">Verarbeitung</div>
-          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>handverlesen · Schlieren</small></div>
-          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>industriell</small></div>
+      <div class="ccrit">Verarbeitung</div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>handverlesen · Schlieren</small></div>
+      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>industriell</small></div>
 
-          <div class="ccrit">Fairness</div>
-          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>fair gehandelt</small></div>
-          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>unklar</small></div>
+      <div class="ccrit">Fairness</div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>fair gehandelt</small></div>
+      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>unklar</small></div>
 
-          <div class="ccrit">Frische</div>
-          <div class="cell yes col-tv last"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>frische, kleine Chargen</small></div>
-          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>lange gelagert</small></div>
-        </div>
-      </div>
+      <div class="ccrit">Frische</div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>frische, kleine Chargen</small></div>
+      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>lange gelagert</small></div>
     </div>
   </div>
 </section>
