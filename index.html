@@ -238,6 +238,70 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .qstats b{display:block;font-family:Fraunces,serif;font-size:2rem;color:#fff;line-height:1}
 .qstats span{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
+/* statement */
+.stmt{position:relative;background:var(--ink-2);color:var(--cream-1);border-radius:var(--r-xl);overflow:hidden;text-align:center}
+.stmt-inner{padding:clamp(56px,10vw,140px) clamp(20px,6vw,90px)}
+.stmt p{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.9rem,5vw,4.2rem);line-height:1.14;margin:0;max-width:20ch;margin-inline:auto;letter-spacing:-.015em}
+.stmt .hl{color:var(--ink);background:var(--gold-bright);padding:.02em .26em;border-radius:.3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.stmt .accent{display:block;margin-top:clamp(18px,3vw,32px);font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,2vw,1.6rem);color:var(--gold-bright)}
+
+/* testimonials */
+.tst{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.tcard{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);display:flex;flex-direction:column;min-width:0;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
+.tcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(23,22,20,.32)}
+.tphoto{aspect-ratio:4/3;overflow:hidden;background:#f3ecdd}
+.tphoto img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tcard:hover .tphoto img{transform:scale(1.04)}
+.tbody{padding:16px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tmeta .stars{color:var(--gold);letter-spacing:1px;font-size:.92rem}
+.tname{display:inline-flex;align-items:center;gap:6px;background:var(--cream-2);border-radius:var(--r-pill);padding:4px 11px;font-size:.82rem;font-weight:600}
+.tname .verif{width:15px;height:15px;fill:var(--gold)}
+.tquote{font-family:Fraunces,serif;font-size:1.05rem;line-height:1.5;margin:0}
+.tprod{margin-top:auto;display:flex;align-items:center;gap:12px;background:var(--cream-1);border:1px solid var(--line);border-radius:var(--r-md);padding:10px 12px}
+.tprod .pi{width:42px;height:42px;object-fit:contain;border-radius:8px;background:radial-gradient(circle,#fff,#f3ecdd);flex-shrink:0}
+.tprod .pt{min-width:0}.tprod .pt b{font-size:.85rem;display:block;line-height:1.2}.tprod .pt span{font-size:.78rem;color:var(--gold);font-weight:600}
+.tprod .date{margin-left:auto;font-size:.7rem;color:var(--ink-soft);white-space:nowrap;text-align:right}
+@media(max-width:900px){.tst{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tst{grid-template-columns:1fr}}
+
+/* comparison */
+.cmp{position:relative;background:var(--ink);color:var(--cream-1);border-radius:var(--r-xl);overflow:hidden}
+.cmp .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;filter:blur(3px);z-index:0}
+.cmp .scrim{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% -10%,rgba(216,178,92,.22),transparent 55%),linear-gradient(180deg,rgba(18,14,9,.55),rgba(18,14,9,.9))}
+.cmp-inner{position:relative;z-index:1;padding:clamp(34px,6vw,80px)}
+.cmp-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,50px)}
+.cmp-head .eyebrow{color:var(--gold-bright)}
+.cmp-head h2{font-size:clamp(2rem,4.4vw,3.4rem);color:#fff;margin:.25em 0 .3em}.cmp-head h2 .g{color:var(--gold-bright)}
+.cmp-head p{color:rgba(255,255,255,.72);margin:0}
+.ctable{max-width:940px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr}
+.ctable>div{padding:16px 14px;border-bottom:1px solid var(--line-2)}
+.ccrit{display:flex;align-items:center;font-weight:600;min-width:0}
+.chdr{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;text-align:center;font-weight:600}
+.chdr.tv b{font-family:Fraunces,serif;color:#fff;font-size:1.18rem}
+.chdr .mark{width:30px;height:30px;fill:var(--gold-bright)}
+.chdr.other{color:rgba(255,255,255,.72);font-size:.95rem}
+.cell{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.cell .ic{width:26px;height:26px;fill:none;stroke-width:2}
+.ic-yes{stroke:var(--gold-bright)}.ic-no{stroke:rgba(255,255,255,.4)}
+.cell small{font-size:.82rem;line-height:1.25}
+.cell.yes small{color:#fff;font-weight:600}.cell.no small{color:rgba(255,255,255,.5)}
+.col-tv{background:linear-gradient(180deg,rgba(216,178,92,.14),rgba(216,178,92,.03));border-left:1.5px solid var(--gold);border-right:1.5px solid var(--gold)}
+.ctable>.chdr.col-tv{border-top:1.5px solid var(--gold);border-top-left-radius:var(--r-md);border-top-right-radius:var(--r-md);padding-top:22px}
+.ctable>.col-tv.last{border-bottom:1.5px solid var(--gold);border-bottom-left-radius:var(--r-md);border-bottom-right-radius:var(--r-md)}
+@media(max-width:640px){
+  .ctable{grid-template-columns:1fr;max-width:420px}
+  .ctable>div{border:none;padding:5px 8px}
+  .chdr{display:none}
+  .ccrit{font-family:Fraunces,serif;font-weight:500;font-size:1.08rem;padding:16px 8px 4px;border-top:1px solid var(--line-2)}
+  .ctable>.ccrit:first-child{border-top:0}
+  .col-tv{border:none;background:none}
+  .cell{flex-direction:row;justify-content:flex-start;text-align:left;gap:9px}
+  .cell::before{width:112px;flex-shrink:0;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .cell.col-tv::before{content:"The Vanilla";color:var(--gold-bright)}
+  .cell.col-other::before{content:"Herkömmlich"}
+}
+
 /* recipes full-bleed */
 .recipes{position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate;min-height:min(72vh,620px);display:flex;
   align-items:center;justify-content:center;text-align:center;color:var(--ink)}
@@ -495,6 +559,63 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
   </div>
 </section>
 
+<!-- STATEMENT -->
+<section class="sec" id="statement" style="padding-top:0">
+  <div class="wrap">
+    <div class="stmt reveal">
+      <div class="stmt-inner">
+        <p>Für <span class="hl">echte Vanille</span> gibt es keine Abkürzung — nur Herkunft, Geduld und <span class="hl">Handarbeit</span>.<span class="accent">Und genau das schmeckt man.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="sec" id="vergleich" style="padding-top:0">
+  <div class="wrap">
+    <div class="cmp reveal">
+      <img class="bgimg" src="img/header-vanille.jpg" alt="">
+      <div class="scrim"></div>
+      <div class="cmp-inner">
+        <div class="cmp-head">
+          <span class="eyebrow">Der Unterschied</span>
+          <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
+          <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
+        </div>
+        <div class="ctable">
+          <div class="ccrit"></div>
+          <div class="chdr tv col-tv"><svg class="mark" viewBox="0 0 24 24"><path d="M12 1l2.2 6.3L20.7 8l-4.8 4.2 1.8 6.6L12 15.6 6.3 18.8l1.8-6.6L3.3 8l6.5-.7z"/></svg><b>The Vanilla</b></div>
+          <div class="chdr other">Herkömmliche<br>Vanille</div>
+
+          <div class="ccrit">Vanillin-Gehalt</div>
+          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>bis 2,63 %</small></div>
+          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>~1,4 %</small></div>
+
+          <div class="ccrit">Aroma</div>
+          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>voll &amp; echt</small></div>
+          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>künstlich verstärkt</small></div>
+
+          <div class="ccrit">Herkunft</div>
+          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>direkt von der Farm</small></div>
+          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>anonyme Zwischenhändler</small></div>
+
+          <div class="ccrit">Verarbeitung</div>
+          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>handverlesen · Schlieren</small></div>
+          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>industriell</small></div>
+
+          <div class="ccrit">Fairness</div>
+          <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>fair gehandelt</small></div>
+          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>unklar</small></div>
+
+          <div class="ccrit">Frische</div>
+          <div class="cell yes col-tv last"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>frische, kleine Chargen</small></div>
+          <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>lange gelagert</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RECIPES full-bleed -->
 <section class="sec" id="recipes" style="padding-top:0">
   <div class="wrap">
@@ -513,12 +634,8 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 <!-- VOICES -->
 <section class="sec" id="story" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head center reveal"><div><span class="eyebrow">Stimmen</span><h2>Vertrauen, das man schmeckt</h2><p>Wir kennen jede Farm, jede Familie und jede Schote persönlich — keine Zwischenhändler, keine Kompromisse.</p></div></div>
-    <div class="voices reveal">
-      <div class="voice"><div class="stars">★★★★★</div><p>„Die aromatischste Vanille, mit der ich je in der Patisserie gearbeitet habe."</p><b>Restaurant-Küche</b> · <em>Zürich</em></div>
-      <div class="voice"><div class="stars">★★★★★</div><p>„Qualität und Herkunft stimmen — man schmeckt den Unterschied sofort."</p><b>Confiserie</b> · <em>Luzern</em></div>
-      <div class="voice"><div class="stars">★★★★★</div><p>„Endlich ein Schweizer Anbieter, dem man bei Vanille wirklich vertraut."</p><b>Privatkundin</b> · <em>Bern</em></div>
-    </div>
+    <div class="sec-head center reveal"><div><span class="eyebrow">★★★★★ 4,9 · über 2'000 Bewertungen</span><h2>Echte Stimmen. Echter Genuss.</h2><p>Was unsere Kundinnen und Kunden sagen.</p></div></div>
+    <div class="tst reveal" id="tst"></div>
   </div>
 </section>
 
@@ -678,6 +795,26 @@ if(film&&canvas){
   addEventListener('resize',()=>{ resize(); onScroll(); });
   resize(); onScroll();
 }
+
+// Testimonials
+const testimonials=[
+ {img:"tst1.jpg",name:"Sarah M.",age:34,q:"Die aromatischste Vanille, die ich je hatte. Meine Desserts schmecken plötzlich nach mehr.",pi:"p-paste.png",prod:"Bourbon Vanillepaste",price:"CHF 22.00",date:"20. März 2026"},
+ {img:"tst2.jpg",name:"Marco R.",age:45,q:"Als Hobbybäcker merke ich den Unterschied sofort — voll, echt, kein Kunstaroma.",pi:"p-schoten.png",prod:"Bourbon Vanilleschoten",price:"ab CHF 36.00",date:"14. Juni 2026"},
+ {img:"tst3.jpg",name:"Lena K.",age:28,q:"Ein Teelöffel und der ganze Teig duftet. Absolute Empfehlung!",pi:"p-pulver.png",prod:"Gourmet Vanillepulver",price:"CHF 31.50",date:"2. Mai 2026"},
+ {img:"tst4.jpg",name:"Thomas B.",age:52,q:"Endlich Schweizer Qualität, der man vertraut. Herkunft und Aroma top.",pi:"p-set.png",prod:"The Vanilla 4-erlei",price:"CHF 32.50",date:"9. Februar 2026"},
+ {img:"tst5.jpg",name:"Rita H.",age:61,q:"Verschenke die Sets regelmässig — kommt immer hervorragend an.",pi:"p-geschenk.png",prod:"Geschenkpackung",price:"CHF 32.50",date:"28. November 2025"},
+ {img:"tst6.jpg",name:"David O.",age:31,q:"Sogar im Kaffee ein Genuss. Qualität schmeckt man einfach.",pi:"p-paste.png",prod:"Bourbon Vanillepaste",price:"CHF 22.00",date:"5. Januar 2026"}
+];
+const tstEl=document.getElementById('tst');
+if(tstEl){tstEl.innerHTML=testimonials.map(t=>`
+ <article class="tcard">
+   <div class="tphoto"><img src="img/${t.img}" alt="${t.name}" loading="lazy"></div>
+   <div class="tbody">
+     <div class="tmeta"><span class="stars">★★★★★</span><span class="tname">${t.name}, ${t.age} <svg class="verif" viewBox="0 0 24 24"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3.2 16l1-2.8-1-2.8 2.4-1.8 1-2.8 3 .2z"/><path d="M8.5 12l2.2 2.2 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.6"/></svg></span></div>
+     <p class="tquote">„${t.q}"</p>
+     <div class="tprod"><img class="pi" src="img/${t.pi}" alt=""><div class="pt"><b>${t.prod}</b><span>${t.price}</span></div><span class="date">Gekauft am<br>${t.date}</span></div>
+   </div>
+ </article>`).join('');}
 
 // Smooth scroll site-wide (Lenis) — inertial, makes the frame-scrub fluid
 if(window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){

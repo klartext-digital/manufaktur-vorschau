@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanillepaste — The Vanilla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream-0:#FFFDF9;--cream-1:#FBF6EC;--cream-2:#F4EEDF;--cream-3:#ECE3D0;
+  --ink:#171614;--ink-2:#26241F;--ink-soft:#67635B;
+  --gold:#A9821F;--gold-2:#C09A34;--gold-bright:#D8B25C;--green:#4B7A44;--red:#B4472F;
+  --line:rgba(23,22,20,.12);--line-2:rgba(255,255,255,.16);
+  --maxw:1360px;--pad:clamp(16px,3vw,48px);--r:14px;--r-md:20px;--r-lg:28px;--r-pill:100px;
+  --topbar-h:44px;--head-h:82px;
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background:var(--cream-1);background-image:linear-gradient(180deg,var(--cream-0),var(--cream-1) 60%);overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.01em;margin:0}
+.serif{font-family:Fraunces,serif}.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:1.15em 2em;border-radius:var(--r-pill);
+  font-weight:600;font-size:1rem;cursor:pointer;border:1.5px solid transparent;overflow:hidden;isolation:isolate;
+  transition:color .3s,border-color .3s,box-shadow .3s,transform .25s;width:100%}
+.btn>*{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:150%;height:240%;border-radius:50%;
+  transform:translate(-50%,-50%) translateY(112%);transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.btn:hover::before{transform:translate(-50%,-50%) translateY(0)}.btn:hover{transform:translateY(-1px)}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark::before{background:var(--gold)}.btn-dark:hover{color:#fff}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold::before{background:var(--ink)}.btn-gold:hover{color:#fff}
+.btn .arrow{transition:transform .35s}.btn:hover .arrow{transform:translateX(4px)}
+/* top bar + header (wie Startseite) */
+.topbar{background:var(--ink);color:var(--cream-1);height:var(--topbar-h);font-size:.8rem}
+.topbar .wrap{height:100%;display:flex;align-items:center;justify-content:center;gap:8px}
+.topbar b{color:var(--gold-bright)}
+header{position:sticky;top:0;z-index:100;background:rgba(255,253,249,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);height:var(--head-h)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand img{height:48px}
+.menu{display:flex;gap:30px;font-size:.95rem;font-weight:500}
+.menu a{padding:6px 0;position:relative}.menu a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--gold);transition:width .3s}.menu a:hover::after{width:100%}
+.nav-ico{display:flex;gap:18px;align-items:center}
+.ico{width:24px;height:24px;stroke:var(--ink);stroke-width:1.5;fill:none;cursor:pointer;transition:stroke .2s,transform .2s}.ico:hover{stroke:var(--gold);transform:scale(1.1)}
+.burger{display:none}
+/* breadcrumb */
+.crumb{font-size:.85rem;color:var(--ink-soft);padding-top:22px}
+.crumb a:hover{color:var(--gold)}.crumb span{color:var(--ink)}
+/* PDP layout */
+.pdp{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);padding-block:26px clamp(50px,7vw,96px);align-items:start}
+/* gallery */
+.gallery{position:sticky;top:calc(var(--head-h) + 20px)}
+.gmain{position:relative;background:radial-gradient(circle at 50% 40%,#fff,#f3ecdd);border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1;
+  display:grid;place-items:center;border:1px solid rgba(23,22,20,.06)}
+.gmain img{width:100%;height:100%;object-fit:cover}
+.gmain img.contain{object-fit:contain;padding:8%}
+.gbadge{position:absolute;top:16px;left:16px;background:var(--gold);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill)}
+.gthumbs{display:flex;gap:12px;margin-top:14px;overflow-x:auto;scrollbar-width:none}.gthumbs::-webkit-scrollbar{display:none}
+.gthumbs button{flex:0 0 84px;height:84px;border-radius:var(--r);overflow:hidden;border:2px solid transparent;background:#fff;cursor:pointer;padding:0;transition:border-color .2s}
+.gthumbs button.active{border-color:var(--gold)}
+.gthumbs img{width:100%;height:100%;object-fit:cover}
+/* buy box */
+.buy{min-width:0}
+.social{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px 8px 8px;font-size:.85rem}
+.social .avs{display:flex}.social .avs span{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold-bright),var(--gold));margin-left:-8px;border:2px solid #fff;display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700}
+.social .avs span:first-child{margin-left:0}
+.social b{font-weight:700}
+.rating{display:flex;align-items:center;gap:8px;margin:18px 0 6px;font-size:.85rem;color:var(--ink-soft)}
+.rating .stars{color:var(--gold);letter-spacing:1px;font-size:1rem}
+.buy h1{font-size:clamp(2.2rem,4vw,3.2rem);margin:.1em 0 .1em}
+.subtitle{color:var(--ink-soft);font-size:1.05rem;margin-bottom:18px}
+.hr{height:1px;background:var(--line);margin:18px 0}
+.price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.price .now{font-size:1.9rem;font-weight:700}
+.price .was{color:var(--ink-soft);text-decoration:line-through;font-size:1.1rem}
+.price .save{background:var(--ink);color:#fff;font-size:.75rem;font-weight:700;padding:5px 11px;border-radius:var(--r-pill)}
+.benefits{list-style:none;padding:0;margin:20px 0 8px;display:flex;flex-direction:column;gap:12px}
+.benefits li{display:flex;align-items:center;gap:12px;font-size:.98rem;font-weight:500}
+.benefits svg{width:22px;height:22px;flex-shrink:0;fill:var(--gold)}
+.stock{display:flex;align-items:center;gap:9px;color:var(--red);font-weight:600;font-size:.9rem;margin:14px 0 4px}
+.stock .dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.bundles{margin:20px 0 6px;display:flex;flex-direction:column;gap:10px}
+.bundle-lbl{text-align:center;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:6px}
+.bundle{display:flex;align-items:center;gap:14px;border:1.5px solid var(--line);border-radius:var(--r-md);padding:14px 16px;cursor:pointer;background:#fff;transition:border-color .2s,box-shadow .2s;position:relative}
+.bundle:hover{border-color:var(--gold-2)}
+.bundle.sel{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.bundle .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex-shrink:0;display:grid;place-items:center}
+.bundle.sel .radio{border-color:var(--ink)}.bundle.sel .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.bundle img{width:46px;height:46px;object-fit:contain;border-radius:8px;background:radial-gradient(circle,#fff,#f3ecdd)}
+.bundle .bt{flex:1;min-width:0}.bundle .bt b{display:block;font-size:.98rem}.bundle .bt span{font-size:.82rem;color:var(--ink-soft)}
+.bundle .bp{text-align:right}.bundle .bp b{font-size:1.02rem}.bundle .bp span{display:block;font-size:.8rem;color:var(--ink-soft);text-decoration:line-through}
+.bundle .tag{position:absolute;top:-10px;right:14px;background:var(--gold);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-pill)}
+.buycta{margin-top:16px}
+.pays{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 0;flex-wrap:wrap}
+.pays span{background:#fff;border:1px solid var(--line);border-radius:6px;padding:5px 9px;font-size:.64rem;font-weight:700;letter-spacing:.03em;color:var(--ink-soft)}
+.deliver{text-align:center;font-size:.85rem;color:var(--ink-soft);margin-bottom:14px}.deliver b{color:var(--ink)}
+.timeline{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;position:relative;margin:18px 4px 8px}
+.timeline::before{content:"";position:absolute;top:22px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
+.tstep{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;flex:1;position:relative;z-index:1}
+.tstep .ci{width:44px;height:44px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.tstep svg{width:20px;height:20px;stroke:#fff;stroke-width:1.6;fill:none}
+.tstep b{font-size:.82rem}.tstep span{font-size:.74rem;color:var(--ink-soft)}
+.charity{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;margin-top:16px;font-size:.86rem;color:var(--ink-soft)}
+.charity svg{width:26px;height:26px;stroke:var(--gold);stroke-width:1.4;fill:none;flex-shrink:0}
+.charity b{color:var(--ink)}
+/* accordions */
+.acc{margin-top:20px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 2px;font-family:Fraunces,serif;font-size:1.1rem;font-weight:500}
+.acc summary::-webkit-details-marker{display:none}
+.acc .ico-pm{position:relative;width:18px;height:18px;flex-shrink:0}
+.acc .ico-pm::before,.acc .ico-pm::after{content:"";position:absolute;background:var(--ink);transition:transform .3s}
+.acc .ico-pm::before{top:8px;left:0;width:18px;height:2px}.acc .ico-pm::after{left:8px;top:0;width:2px;height:18px}
+.acc details[open] .ico-pm::after{transform:scaleY(0)}
+.acc details[open] summary{color:var(--gold)}
+.acc .body{padding:0 2px 20px;color:var(--ink-soft);line-height:1.7;font-size:.95rem}
+.acc .body ul{margin:.4em 0;padding-left:1.1em}
+/* related */
+.rel{padding-block:clamp(40px,6vw,80px);border-top:1px solid var(--line)}
+.rel h2{font-size:clamp(1.8rem,3.4vw,2.6rem);text-align:center;margin-bottom:32px}
+.relgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.rcard{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);transition:transform .35s,box-shadow .35s}
+.rcard:hover{transform:translateY(-6px);box-shadow:0 24px 46px -26px rgba(23,22,20,.3)}
+.rcard .m{aspect-ratio:1;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 50% 40%,#fff,#f5efe1)}
+.rcard .m img{max-height:100%;width:auto;object-fit:contain}
+.rcard .b{padding:16px 18px 20px}.rcard h3{font-family:Inter;font-weight:600;font-size:.98rem;margin:0 0 4px}
+.rcard .p{color:var(--gold);font-weight:700}
+/* footer */
+footer{background:var(--ink);color:var(--cream-1);padding-block:clamp(44px,6vw,72px) 26px}
+.f-top{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:30px}
+.f-brand img{height:44px;margin-bottom:14px}.f-brand p{color:rgba(255,255,255,.6);max-width:32ch;font-size:.9rem;margin:0}
+footer h4{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+footer a{color:rgba(255,255,255,.72);font-size:.9rem}footer a:hover{color:#fff}
+.f-bottom{border-top:1px solid var(--line-2);margin-top:40px;padding-top:20px;font-size:.8rem;color:rgba(255,255,255,.5);text-align:center}
+@media(max-width:900px){
+  .pdp{grid-template-columns:1fr;gap:26px}
+  .gallery{position:static}
+  .menu,.topbar .wrap b~*{}
+  .menu{display:none}.burger{display:grid;place-items:center}
+  .relgrid{grid-template-columns:1fr 1fr}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){.relgrid{grid-template-columns:1fr 1fr}.f-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">Kostenloser Versand ab CHF 60 · <b>−20% mit Code VANILLE20</b> · Handverlesen in der Schweiz</div></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="img/logo.png" alt="The Vanilla"></a>
+    <nav class="menu">
+      <a href="index.html#shop">Shop</a><a href="#">Vanillewissen</a><a href="index.html#recipes">Rezepte</a><a href="#">Über uns</a><a href="#">Geschenke</a>
+    </nav>
+    <div class="nav-ico">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 2H2"/></svg>
+      <svg class="ico burger" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </div>
+  </div>
+</header>
+
+<div class="wrap crumb"><a href="index.html">Shop</a> / <a href="index.html#shop">Vanillepaste</a> / <span>Bourbon Vanillepaste 100 g</span></div>
+
+<main class="wrap pdp">
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="gmain">
+      <span class="gbadge">Bestseller</span>
+      <img id="gmain" class="contain" src="img/p-paste.png" alt="Bourbon Vanillepaste">
+    </div>
+    <div class="gthumbs" id="gthumbs">
+      <button class="active" data-src="img/p-paste.png" data-fit="contain"><img src="img/p-paste.png" alt=""></button>
+      <button data-src="img/recipes.jpg" data-fit="cover"><img src="img/recipes.jpg" alt=""></button>
+      <button data-src="img/hero.jpg" data-fit="cover"><img src="img/hero.jpg" alt=""></button>
+      <button data-src="img/header-vanille.jpg" data-fit="cover"><img src="img/header-vanille.jpg" alt=""></button>
+      <button data-src="img/p-pulver.png" data-fit="contain"><img src="img/p-pulver.png" alt=""></button>
+    </div>
+  </section>
+
+  <!-- BUY BOX -->
+  <section class="buy">
+    <div class="social">
+      <span class="avs"><span>SM</span><span>LR</span><span>+</span></span>
+      <div><b>Sarah, Marco</b> &amp; <b>2.457</b> weitere lieben unsere Vanille</div>
+    </div>
+
+    <div class="rating"><span class="stars">★★★★★</span> 4,9 · <b>über 2'000 Bewertungen</b></div>
+    <h1 class="serif">Bourbon Vanillepaste</h1>
+    <p class="subtitle">Cremige Paste aus echter Bourbon-Vanille · 100 g</p>
+
+    <div class="hr"></div>
+    <div class="price"><span class="now" id="price">CHF 22.00</span><span class="was" id="was">CHF 28.00</span><span class="save" id="save">Spare CHF 6</span></div>
+
+    <p style="color:var(--ink-soft);margin:16px 0 0">Ein Teelöffel ersetzt eine ganze Schote: Die samtige Paste bringt volles, echtes Vanille-Aroma in Cremes, Glacé, Teige und Kaffee — ganz ohne künstliche Aromen.</p>
+
+    <ul class="benefits">
+      <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg> 100 % echte Bourbon-Vanille — keine künstlichen Aromen</li>
+      <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg> Höchster Vanillin-Gehalt (bis 2,63 %)</li>
+      <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg> Vielseitig: Backen, Desserts, Glacé & Kaffee</li>
+      <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z"/></svg> Handverlesen & fair — Manufaktur Schlieren ZH</li>
+    </ul>
+
+    <div class="stock"><span class="dot"></span> Nur noch 13 Gläser an Lager</div>
+
+    <div class="bundles" id="bundles">
+      <div class="bundle-lbl">Menge wählen &amp; sparen</div>
+      <label class="bundle sel" data-price="22.00" data-was="28.00">
+        <span class="radio"></span><img src="img/p-paste.png" alt="">
+        <span class="bt"><b>1 Glas</b><span>100 g · zum Probieren</span></span>
+        <span class="bp"><b>CHF 22.00</b><span>CHF 28.00</span></span>
+      </label>
+      <label class="bundle" data-price="59.00" data-was="84.00">
+        <span class="tag">Beliebt · −15%</span>
+        <span class="radio"></span><img src="img/p-paste.png" alt="">
+        <span class="bt"><b>3er-Set</b><span>Vorrat für die ganze Saison</span></span>
+        <span class="bp"><b>CHF 59.00</b><span>CHF 84.00</span></span>
+      </label>
+      <label class="bundle" data-price="99.00" data-was="140.00">
+        <span class="tag">Bestpreis · −29%</span>
+        <span class="radio"></span><img src="img/p-set.png" alt="">
+        <span class="bt"><b>Familienset (5×)</b><span>Maximaler Vorteil</span></span>
+        <span class="bp"><b>CHF 99.00</b><span>CHF 140.00</span></span>
+      </label>
+    </div>
+
+    <div class="buycta"><button class="btn btn-dark"><span>In den Warenkorb</span><span class="arrow">→</span></button></div>
+
+    <div class="pays"><span>VISA</span><span>Mastercard</span><span>AMEX</span><span>TWINT</span><span>PayPal</span><span>Apple&nbsp;Pay</span></div>
+    <div class="deliver">Bestellst du in den nächsten <b id="ctd">10 Std 50 Min</b>, versenden wir noch heute.</div>
+
+    <div class="timeline">
+      <div class="tstep"><span class="ci"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 2H2"/></svg></span><b>Bestellt</b><span>Heute</span></div>
+      <div class="tstep"><span class="ci"><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><b>Versand</b><span>Morgen</span></div>
+      <div class="tstep"><span class="ci"><svg viewBox="0 0 24 24"><path d="M4 8l8-4 8 4-8 4z"/><path d="M4 8v8l8 4 8-4V8"/></svg></span><b>Geliefert</b><span>in 2–3 Tagen</span></div>
+    </div>
+
+    <div class="charity"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg><div>Wir arbeiten <b>direkt mit unseren Partnerfarmen</b> — faire Preise für die Bauern, beste Qualität für dich.</div></div>
+
+    <div class="acc">
+      <details open><summary>Anwendung <span class="ico-pm"></span></summary><div class="body">Ein gehäufter Teelöffel Paste entspricht etwa einer Vanilleschote. Ideal für Crème brûlée, Glacé, Panna cotta, Teige, Joghurt und Kaffee. Einfach unterrühren — die feinen Vanillepünktchen bleiben sichtbar.</div></details>
+      <details><summary>Zutaten &amp; Nährwerte <span class="ico-pm"></span></summary><div class="body">Zutaten: Zucker, Wasser, Glukose, Vanilleextrakt aus gemahlenen Schoten (Orchideen). Ohne künstliche Aromen und Farbstoffe. Kühl &amp; dunkel lagern. 100 g.</div></details>
+      <details><summary>Herkunft &amp; Qualität <span class="ico-pm"></span></summary><div class="body">Handverlesen aus Madagaskar (Planifolia) und veredelt in unserer Manufaktur in Schlieren. Gemessener Vanillin-Gehalt bis 2,63 % — deutlich über dem Branchenschnitt von rund 1,4 %.</div></details>
+      <details><summary>Versand &amp; Rückgabe <span class="ico-pm"></span></summary><div class="body">Versand werktags innerhalb von 24 Stunden. Ab CHF 60 kostenlos innerhalb der Schweiz. 30 Tage Rückgaberecht bei ungeöffneter Ware.</div></details>
+    </div>
+  </section>
+</main>
+
+<!-- RELATED -->
+<section class="rel"><div class="wrap">
+  <h2 class="serif">Das könnte dir auch schmecken</h2>
+  <div class="relgrid">
+    <a class="rcard" href="#"><div class="m"><img src="img/p-schoten.png" alt=""></div><div class="b"><h3>Bourbon Vanilleschoten</h3><div class="p">ab CHF 36.00</div></div></a>
+    <a class="rcard" href="#"><div class="m"><img src="img/p-pulver.png" alt=""></div><div class="b"><h3>Gourmet Vanillepulver</h3><div class="p">CHF 31.50</div></div></a>
+    <a class="rcard" href="#"><div class="m"><img src="img/p-set.png" alt=""></div><div class="b"><h3>The Vanilla 4-erlei</h3><div class="p">CHF 32.50</div></div></a>
+    <a class="rcard" href="#"><div class="m"><img src="img/p-geschenk.png" alt=""></div><div class="b"><h3>Geschenkpackung</h3><div class="p">CHF 32.50</div></div></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="f-top">
+    <div class="f-brand"><img src="img/logo.png" alt="The Vanilla"><p>The Vanilla GmbH Manufaktur · Lättenstrasse 27 · CH-8952 Schlieren / Zürich</p></div>
+    <div><h4>Shop</h4><ul><li><a href="#">Vanilleschoten</a></li><li><a href="#">Vanillepaste</a></li><li><a href="#">Vanillepulver</a></li><li><a href="#">Geschenke</a></li></ul></div>
+    <div><h4>Manufaktur</h4><ul><li><a href="#">Über uns</a></li><li><a href="#">Qualität</a></li><li><a href="#">Rezepte</a></li></ul></div>
+    <div><h4>Service</h4><ul><li><a href="#">Kontakt</a></li><li><a href="#">Versand</a></li><li><a href="#">AGB</a></li></ul></div>
+  </div>
+  <div class="f-bottom">© 2026 The Vanilla GmbH · Redesign-Vorschau</div>
+</div></footer>
+
+<script>
+// gallery
+const gmain=document.getElementById('gmain');
+document.getElementById('gthumbs').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('#gthumbs button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); gmain.src=b.dataset.src; gmain.className=b.dataset.fit==='contain'?'contain':'';
+});
+// bundles
+const price=document.getElementById('price'),was=document.getElementById('was'),save=document.getElementById('save');
+document.getElementById('bundles').addEventListener('click',e=>{
+  const l=e.target.closest('.bundle'); if(!l) return;
+  document.querySelectorAll('.bundle').forEach(x=>x.classList.remove('sel')); l.classList.add('sel');
+  const p=parseFloat(l.dataset.price),w=parseFloat(l.dataset.was);
+  price.textContent='CHF '+p.toFixed(2); was.textContent='CHF '+w.toFixed(2); save.textContent='Spare CHF '+Math.round(w-p);
+});
+// countdown
+let t=10*3600+50*60;const ctd=document.getElementById('ctd');
+setInterval(()=>{t=Math.max(0,t-1);const h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;ctd.textContent=h+' Std '+m+' Min '+String(s).padStart(2,'0')+' Sek';},1000);
+</script>
+</body>
+</html>
