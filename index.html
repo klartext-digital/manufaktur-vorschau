@@ -94,7 +94,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* HERO full-bleed rounded */
 .hero{padding-top:14px}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
-.hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center;z-index:-2;will-change:transform}
+.hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2;will-change:transform}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,rgba(12,9,6,.9) 0%,rgba(12,9,6,.66) 34%,rgba(12,9,6,.18) 58%,rgba(12,9,6,0) 78%)}
 .hero-copy{padding:clamp(30px,5vw,72px);max-width:620px;color:#fff}
@@ -443,7 +443,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 <section class="hero">
   <div class="wrap">
     <div class="hero-card reveal">
-      <video class="bg" id="heroImg" autoplay muted loop playsinline preload="metadata" poster="img/header-stephan.jpg">
+      <video class="bg" id="heroImg" autoplay muted loop playsinline preload="metadata" poster="img/header-poster.jpg">
         <source src="media/header.mp4" type="video/mp4">
       </video>
       <div class="vrail">
