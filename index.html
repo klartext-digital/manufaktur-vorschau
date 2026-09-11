@@ -275,14 +275,16 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .cmpsec{position:relative;background:#1B1610;color:var(--cream-1);overflow:hidden;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;align-items:center}
 .cmpsec .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:blur(4px);z-index:0}
 .cmpsec .scrim{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 4%,rgba(216,178,92,.2),transparent 55%),linear-gradient(180deg,rgba(18,14,9,.62),rgba(18,14,9,.93))}
-.cmp-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:clamp(24px,3.4vw,44px)}
-.cmp-body{display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(24px,4vw,64px);align-items:center}
-.cmp-photo{position:relative;height:min(66vh,620px);min-width:0}
+.cmp-in{position:relative;z-index:1;width:100%;max-width:1060px;margin:0 auto;padding:clamp(24px,3.4vw,44px)}
+.cmp-photo{position:absolute;z-index:0;left:clamp(-130px,-5vw,-50px);top:50%;
+  width:min(42vw,560px);height:min(84vh,780px);
+  transform:translateY(-50%) rotate(45deg);transform-origin:center center;
+  pointer-events:none;user-select:none}
 .cmp-photo img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;
   filter:drop-shadow(0 26px 46px rgba(0,0,0,.5))}
-@media(max-width:920px){
-  .cmp-body{grid-template-columns:1fr;gap:10px}
-  .cmp-photo{height:42vh;max-height:360px;order:-1}
+@media(max-width:960px){
+  .cmpsec{flex-direction:column;min-height:auto;padding-block:clamp(44px,10vw,74px)}
+  .cmp-photo{position:relative;left:auto;top:auto;transform:rotate(20deg);width:auto;height:34vh;max-height:320px;margin:4px auto -4px}
 }
 .cmp-head{text-align:center;margin-bottom:clamp(16px,2.2vw,28px)}
 .cmp-head .eyebrow{color:var(--gold-bright)}
@@ -589,14 +591,13 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 <section class="cmpsec reveal" id="vergleich">
   <img class="bgimg" src="img/header-vanille.jpg" alt="">
   <div class="scrim"></div>
+  <div class="cmp-photo" aria-hidden="true"><img src="img/pod-vanilla.png" alt="Frische Vanilleschote, aufgeschnitten mit Vanillemark, und Vanilleblüte"></div>
   <div class="cmp-in">
     <div class="cmp-head">
       <span class="eyebrow">Der Unterschied</span>
       <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
       <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
     </div>
-    <div class="cmp-body">
-    <div class="cmp-photo" aria-hidden="true"><img src="img/pod-vanilla.png" alt="Frische Vanilleschote, aufgeschnitten mit Vanillemark, und Vanilleblüte"></div>
     <div class="ctable">
       <div class="glow"></div>
       <div class="ccrit"></div>
@@ -626,7 +627,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <div class="ccrit">Frische</div>
       <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>frische, kleine Chargen</small></div>
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>lange gelagert</small></div>
-    </div>
     </div>
   </div>
 </section>
