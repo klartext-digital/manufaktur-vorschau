@@ -94,7 +94,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* HERO full-bleed rounded */
 .hero{padding-top:14px}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
-.hero-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center;z-index:-2;will-change:transform}
+.hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center;z-index:-2;will-change:transform}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,rgba(12,9,6,.9) 0%,rgba(12,9,6,.66) 34%,rgba(12,9,6,.18) 58%,rgba(12,9,6,0) 78%)}
 .hero-copy{padding:clamp(30px,5vw,72px);max-width:620px;color:#fff}
@@ -443,7 +443,9 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 <section class="hero">
   <div class="wrap">
     <div class="hero-card reveal">
-      <img class="bg" id="heroImg" src="img/header-stephan.jpg" alt="Stephan Stemminger mit handverlesenen Vanilleschoten">
+      <video class="bg" id="heroImg" autoplay muted loop playsinline preload="metadata" poster="img/header-stephan.jpg">
+        <source src="media/header.mp4" type="video/mp4">
+      </video>
       <div class="vrail">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5zm5-1.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0zM7 4h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
