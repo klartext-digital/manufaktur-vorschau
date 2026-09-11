@@ -275,8 +275,18 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .cmpsec{position:relative;background:#1B1610;color:var(--cream-1);overflow:hidden;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;align-items:center}
 .cmpsec .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:blur(4px);z-index:0}
 .cmpsec .scrim{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 4%,rgba(216,178,92,.2),transparent 55%),linear-gradient(180deg,rgba(18,14,9,.62),rgba(18,14,9,.93))}
-.cmp-in{position:relative;z-index:1;width:100%;max-width:1060px;margin:0 auto;padding:clamp(26px,5vw,60px)}
-.cmp-head{text-align:center;margin-bottom:clamp(22px,3.4vw,44px)}
+.cmp-in{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:clamp(24px,3.4vw,44px)}
+.cmp-body{display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(24px,4vw,64px);align-items:center}
+.cmp-photo{position:relative;height:min(64vh,600px);min-width:0}
+.cmp-photo img{width:100%;height:100%;object-fit:cover;object-position:28% 50%;display:block;
+  -webkit-mask-image:radial-gradient(100% 116% at 40% 50%,#000 30%,rgba(0,0,0,.34) 60%,transparent 84%);
+          mask-image:radial-gradient(100% 116% at 40% 50%,#000 30%,rgba(0,0,0,.34) 60%,transparent 84%)}
+@media(max-width:920px){
+  .cmp-body{grid-template-columns:1fr;gap:6px}
+  .cmp-photo{height:38vh;max-height:300px;order:-1}
+  .cmp-photo img{object-position:12% 50%;-webkit-mask-image:radial-gradient(120% 130% at 30% 50%,#000 46%,rgba(0,0,0,.45) 70%,transparent 88%);mask-image:radial-gradient(120% 130% at 30% 50%,#000 46%,rgba(0,0,0,.45) 70%,transparent 88%)}
+}
+.cmp-head{text-align:center;margin-bottom:clamp(16px,2.2vw,28px)}
 .cmp-head .eyebrow{color:var(--gold-bright)}
 .cmp-head h2{font-size:clamp(2rem,4.6vw,3.7rem);color:#fff;margin:.2em 0 .25em;line-height:1.05}.cmp-head h2 .g{color:var(--gold-bright)}
 .cmp-head p{color:rgba(255,255,255,.72);margin:0}
@@ -299,7 +309,8 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
   .ctable{grid-template-columns:1fr;max-width:420px;margin:0 auto}
   .ctable .glow{display:none}
   .ctable>div{border:none;padding:5px 8px}
-  .chdr{display:none}
+  .ctable>.chdr{display:none}
+  .ctable>.ccrit:empty{display:none}
   .ccrit{font-family:Fraunces,serif;font-weight:500;font-size:1.1rem;padding:18px 8px 4px;border-top:1px solid rgba(255,255,255,.12)}
   .ctable>.ccrit:first-child{border-top:0}
   .cell{justify-content:flex-start;gap:10px}
@@ -586,6 +597,8 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
       <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
     </div>
+    <div class="cmp-body">
+    <div class="cmp-photo" aria-hidden="true"><img src="img/pod-vanilla.jpg" alt="Frische Vanilleschote, aufgeschnitten mit Vanillemark, Bündel und Vanilleblüte"></div>
     <div class="ctable">
       <div class="glow"></div>
       <div class="ccrit"></div>
@@ -615,6 +628,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <div class="ccrit">Frische</div>
       <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>frische, kleine Chargen</small></div>
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>lange gelagert</small></div>
+    </div>
     </div>
   </div>
 </section>
