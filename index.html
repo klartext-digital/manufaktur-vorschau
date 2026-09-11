@@ -299,8 +299,10 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .chdr.tv b{font-family:Fraunces,serif;color:#fff;font-size:clamp(1.15rem,1.8vw,1.4rem)}
 .chdr .mark{width:32px;height:32px;fill:var(--gold-bright)}
 .chdr.other{color:rgba(255,255,255,.72);font-size:clamp(.9rem,1.3vw,1rem)}
-.cell{justify-content:center;gap:9px}
-.cell .ic{width:22px;height:22px;fill:none;stroke-width:2.3;flex-shrink:0}
+.cell{justify-content:flex-start;gap:12px}
+.cell .ic{width:27px;height:27px;fill:none;stroke-width:2.8;flex-shrink:0}
+.cell .flag{font-size:1.35em;line-height:1;vertical-align:-3px}
+@media(min-width:641px){.ctable>.cell{padding-left:clamp(20px,4.5%,46px)}}
 .ic-yes{stroke:var(--gold-bright)}.ic-no{stroke:rgba(255,255,255,.4)}
 .cell small{font-size:clamp(.84rem,1.15vw,.96rem);line-height:1.2}
 .cell.yes small{color:#fff;font-weight:600}.cell.no small{color:rgba(255,255,255,.5)}
@@ -609,7 +611,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>~1,4 %</small></div>
 
       <div class="ccrit">Aroma</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>voll &amp; echt</small></div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>natürlich &amp; 100 % echt</small></div>
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>künstlich verstärkt</small></div>
 
       <div class="ccrit">Herkunft</div>
@@ -617,16 +619,12 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>anonyme Zwischenhändler</small></div>
 
       <div class="ccrit">Verarbeitung</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>handverlesen · Schlieren</small></div>
+      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>handverlesen in Schlieren&nbsp;<span class="flag">🇨🇭</span></small></div>
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>industriell</small></div>
 
       <div class="ccrit">Fairness</div>
       <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>fair gehandelt</small></div>
       <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>unklar</small></div>
-
-      <div class="ccrit">Frische</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>frische, kleine Chargen</small></div>
-      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>lange gelagert</small></div>
     </div>
   </div>
 </section>
