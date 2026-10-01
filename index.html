@@ -141,18 +141,36 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .sec-head.center{flex-direction:column;text-align:center;align-items:center}
 .sec-head.center p{margin-inline:auto}
 
-/* categories */
-.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
-.cat{position:relative;background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);
-  box-shadow:0 1px 2px rgba(23,22,20,.04);transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s}
-.cat:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(23,22,20,.3)}
-.cat-media{aspect-ratio:1;display:grid;place-items:center;padding:26px;background:radial-gradient(circle at 50% 42%,#fff,#f5efe1)}
-.cat-media img{max-height:100%;width:auto;object-fit:contain;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-.cat:hover .cat-media img{transform:scale(1.06)}
-.cat-body{padding:0 22px 24px;text-align:center}
-.cat-body h3{font-size:1.2rem;margin:0 0 5px;font-weight:500}
-.cat-body span{font-size:.82rem;font-weight:600;color:var(--gold);display:inline-flex;gap:6px;align-items:center}
-.arrow{display:inline-block;transition:transform .35s}.cat:hover .cat-body span .arrow{transform:translateX(4px)}
+/* categories — staged photo cards on a vanilla backdrop */
+.arrow{display:inline-block;transition:transform .35s}
+.shopsec{position:relative;overflow:hidden;background:var(--cream-1)}
+.shopsec .shop-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;z-index:0}
+.shopsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(251,246,236,.42) 0%,rgba(251,246,236,.72) 46%,rgba(251,246,236,.96) 82%)}
+.shopsec>.wrap{position:relative;z-index:1}
+.shop-head{align-items:flex-start}
+.shop-sub{color:var(--ink-soft);margin:.7em 0 0;max-width:46ch}
+.shop-allbtn{align-self:center;white-space:nowrap;display:inline-flex;align-items:center;gap:9px;padding:.9em 1.5em;border-radius:var(--r-pill);
+  border:1.5px solid var(--gold);color:var(--ink);font-weight:600;font-size:.92rem;background:rgba(255,255,255,.5);transition:background .25s,color .25s,border-color .25s}
+.shop-allbtn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}.shop-allbtn:hover .arrow{transform:translateX(4px)}
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.5vw,24px)}
+.cat{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;
+  color:#fff;isolation:isolate;box-shadow:0 20px 44px -26px rgba(23,22,20,.45);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
+.cat:hover{transform:translateY(-8px);box-shadow:0 36px 64px -30px rgba(23,22,20,.55)}
+.cat-media2{position:absolute;inset:0;z-index:-2}
+.cat-media2 img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.cat:hover .cat-media2 img{transform:scale(1.06)}
+.cat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,6,3,.08) 0%,rgba(8,6,3,.12) 38%,rgba(8,6,3,.68) 76%,rgba(8,6,3,.9) 100%)}
+.cat-inner{padding:clamp(20px,1.5vw,28px);display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.cat-ico{width:clamp(46px,3.2vw,56px);height:clamp(46px,3.2vw,56px);border-radius:50%;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  display:grid;place-items:center;margin-bottom:4px;box-shadow:0 10px 22px -8px rgba(0,0,0,.55)}
+.cat-ico svg{width:52%;height:52%;stroke:#1c1407;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cat h3{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.35rem,1.7vw,1.75rem);color:#fff;margin:0;line-height:1.08}
+.cat p{font-size:.92rem;color:rgba(255,255,255,.84);margin:0;max-width:26ch}
+.cat .cbtn{margin-top:9px;display:inline-flex;align-items:center;gap:9px;padding:.72em 1.35em;border-radius:var(--r-pill);
+  border:1.5px solid rgba(255,255,255,.55);color:#fff;font-weight:600;font-size:.86rem;transition:background .25s,color .25s,border-color .25s}
+.cat .cbtn:hover{background:#fff;color:var(--ink);border-color:#fff}
+.cat:hover .cbtn .arrow{transform:translateX(4px)}
 
 /* product cards — Local structure */
 .prods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
@@ -257,8 +275,9 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 @media(max-width:640px){.stmtsec{min-height:auto;padding-block:clamp(64px,16vw,110px)}.stmt-big{max-width:none}}
 
 /* testimonials */
-.tst{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.tcard{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);display:flex;flex-direction:column;min-width:0;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
+.tst{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px 10px}
+.tst::-webkit-scrollbar{display:none}
+.tcard{flex:0 0 calc((100% - 66px)/4);scroll-snap-align:start;background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);display:flex;flex-direction:column;min-width:0;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
 .tcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(23,22,20,.32)}
 .tphoto{aspect-ratio:4/3;overflow:hidden;background:#f3ecdd}
 .tphoto img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
@@ -273,8 +292,12 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .tprod .pi{width:42px;height:42px;object-fit:contain;border-radius:8px;background:radial-gradient(circle,#fff,#f3ecdd);flex-shrink:0}
 .tprod .pt{min-width:0}.tprod .pt b{font-size:.85rem;display:block;line-height:1.2}.tprod .pt span{font-size:.78rem;color:var(--gold);font-weight:600}
 .tprod .date{margin-left:auto;font-size:.7rem;color:var(--ink-soft);white-space:nowrap;text-align:right}
-@media(max-width:900px){.tst{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.tst{grid-template-columns:1fr}}
+.tst-ctrl{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.tst-arrow{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-size:1.5rem;line-height:1;color:var(--ink);display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.tst-arrow:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-2px)}
+@media(max-width:1100px){.tcard{flex-basis:calc((100% - 44px)/3)}}
+@media(max-width:820px){.tcard{flex-basis:calc((100% - 22px)/2)}}
+@media(max-width:560px){.tcard{flex-basis:86%}}
 
 /* comparison */
 .cmpsec{position:relative;background:#1B1610;color:var(--cream-1);overflow:hidden;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;align-items:center}
@@ -499,17 +522,54 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 </div>
 
 <!-- CATEGORIES -->
-<section class="sec" id="shop">
+<section class="sec shopsec" id="shop">
+  <img class="shop-bg" src="img/shop-bg.jpg" alt="">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">Sortiment</span><h2>Shop nach Kategorie</h2></div>
-      <a class="sec-link" href="#">Alle Produkte ansehen →</a>
+    <div class="sec-head shop-head reveal">
+      <div>
+        <span class="eyebrow">Sortiment</span>
+        <h2>Shop nach Kategorie</h2>
+        <p class="shop-sub">Entdecke unsere hochwertigen Vanilleprodukte – direkt von ausgewählten Bauern, mit Leidenschaft und in höchster Qualität.</p>
+      </div>
+      <a class="shop-allbtn" href="#prods">Alle Produkte ansehen <i class="arrow">→</i></a>
     </div>
     <div class="cats reveal">
-      <a class="cat" href="#"><div class="cat-media"><img src="img/p-schoten.png" alt=""></div><div class="cat-body"><h3>Vanilleschoten</h3><span>Jetzt entdecken <i class="arrow">→</i></span></div></a>
-      <a class="cat" href="#"><div class="cat-media"><img src="img/p-paste.png" alt=""></div><div class="cat-body"><h3>Vanillepaste</h3><span>Jetzt entdecken <i class="arrow">→</i></span></div></a>
-      <a class="cat" href="#"><div class="cat-media"><img src="img/p-pulver.png" alt=""></div><div class="cat-body"><h3>Vanillepulver</h3><span>Jetzt entdecken <i class="arrow">→</i></span></div></a>
-      <a class="cat" href="#"><div class="cat-media"><img src="img/p-geschenk.png" alt=""></div><div class="cat-body"><h3>Geschenksets</h3><span>Jetzt entdecken <i class="arrow">→</i></span></div></a>
+      <a class="cat" href="produkt.html">
+        <span class="cat-media2"><img src="img/cat-schoten.jpg" alt="Vanilleschoten"></span>
+        <div class="cat-inner">
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M5 20c0-7.5 5-12.5 13.5-13.5C17.5 15 12.5 20 5 20z"/><path d="M5.5 19.5C9 16 12 14 15 12.8"/></svg></span>
+          <h3>Vanilleschoten</h3>
+          <p>Ganze Bourbon-Vanilleschoten in bester Qualität.</p>
+          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
+        </div>
+      </a>
+      <a class="cat" href="produkt.html">
+        <span class="cat-media2"><img src="img/cat-paste.jpg" alt="Vanillepaste"></span>
+        <div class="cat-inner">
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M7.5 9.5h9v9a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/><path d="M8.5 9.5V6.5h7v3"/><path d="M9.5 4.5h5"/></svg></span>
+          <h3>Vanillepaste</h3>
+          <p>Intensives Aroma, vielseitig einsetzbar.</p>
+          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
+        </div>
+      </a>
+      <a class="cat" href="produkt.html">
+        <span class="cat-media2"><img src="img/cat-pulver.jpg" alt="Vanillepulver"></span>
+        <div class="cat-inner">
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M12 6l6.5 12.5h-13z"/><path d="M9 14.5h6"/></svg></span>
+          <h3>Vanillepulver</h3>
+          <p>Fein gemahlen, für puren Vanillegeschmack.</p>
+          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
+        </div>
+      </a>
+      <a class="cat" href="produkt.html">
+        <span class="cat-media2"><img src="img/cat-geschenk.jpg" alt="Geschenksets"></span>
+        <div class="cat-inner">
+          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M4.5 11h15v8.5h-15z"/><path d="M4.5 7.5h15V11h-15z"/><path d="M12 7.5v12"/><path d="M12 7.5C9.5 7.5 7.8 4 10 3.3c1.8-.5 2 4.2 2 4.2zM12 7.5c2.5 0 4.2-3.5 2-4.2C12.2 2.8 12 7.5 12 7.5z"/></svg></span>
+          <h3>Geschenksets</h3>
+          <p>Hochwertige Sets für besondere Genussmomente.</p>
+          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -519,7 +579,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Kundenlieblinge</span><h2>Unsere Bestseller</h2></div>
-      <a class="sec-link" href="#">Alle Produkte ansehen →</a>
+      <a class="sec-link" href="#prods">Alle Produkte ansehen →</a>
     </div>
     <div class="prods reveal" id="prods"></div>
   </div>
@@ -631,6 +691,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
   <div class="wrap">
     <div class="sec-head center reveal"><div><span class="eyebrow">★★★★★ 4,9 · über 2'000 Bewertungen</span><h2>Echte Stimmen. Echter Genuss.</h2><p>Was unsere Kundinnen und Kunden sagen.</p></div></div>
     <div class="tst reveal" id="tst"></div>
+    <div class="tst-ctrl reveal"><button class="tst-arrow" data-dir="-1" aria-label="Vorherige Bewertungen">&#8249;</button><button class="tst-arrow" data-dir="1" aria-label="Weitere Bewertungen">&#8250;</button></div>
   </div>
 </section>
 
@@ -810,6 +871,12 @@ if(tstEl){tstEl.innerHTML=testimonials.map(t=>`
      <div class="tprod"><img class="pi" src="img/${t.pi}" alt=""><div class="pt"><b>${t.prod}</b><span>${t.price}</span></div><span class="date">Gekauft am<br>${t.date}</span></div>
    </div>
  </article>`).join('');}
+
+// testimonials slider arrows (swipe on touch, buttons on desktop)
+document.querySelectorAll('.tst-arrow').forEach(b=>b.addEventListener('click',()=>{
+  if(!tstEl)return;const card=tstEl.querySelector('.tcard');const step=card?card.offsetWidth+22:320;
+  tstEl.scrollBy({left:(parseInt(b.dataset.dir,10))*step,behavior:'smooth'});
+}));
 
 // Smooth scroll site-wide (Lenis) — inertial, makes the frame-scrub fluid
 if(window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){
