@@ -109,6 +109,8 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,253,249,.9);backdro
 .bundle .bt{flex:1;min-width:0}.bundle .bt b{display:block;font-size:.98rem}.bundle .bt span{font-size:.82rem;color:var(--ink-soft)}
 .bundle .bp{text-align:right}.bundle .bp b{font-size:1.02rem}.bundle .bp span{display:block;font-size:.8rem;color:var(--ink-soft);text-decoration:line-through}
 .bundle .tag{position:absolute;top:-10px;right:14px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-pill)}
+.bundle-lbl-firm{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);color:var(--gold)}
+.bundle .tag.tag-firm{background:var(--ink)}
 .buycta{margin-top:16px}
 .pays{display:flex;align-items:center;justify-content:center;gap:9px;margin:16px 0;flex-wrap:wrap}
 .pays img{height:30px;width:auto;display:block}
@@ -312,6 +314,26 @@ footer a{color:rgba(255,255,255,.72);font-size:.92rem}footer a:hover{color:#fff}
         <span class="bt"><b>Familienset (5×)</b><span>Maximaler Vorteil</span></span>
         <span class="bp"><b>CHF 99.00</b><span>CHF 140.00</span></span>
       </label>
+
+      <div class="bundle-lbl bundle-lbl-firm">Für Firmen – Mengenrabatt ab 50 Stück</div>
+      <label class="bundle" data-price="990.00" data-was="1100.00">
+        <span class="tag tag-firm">Firmen · −10%</span>
+        <span class="radio"></span><span class="bimg"><img src="img/p-paste.png" alt=""></span>
+        <span class="bt"><b>50 Stück</b><span>Firmengeschenke · auf Rechnung</span></span>
+        <span class="bp"><b>CHF 990</b><span>CHF 1'100</span></span>
+      </label>
+      <label class="bundle" data-price="1870.00" data-was="2200.00">
+        <span class="tag tag-firm">Firmen · −15%</span>
+        <span class="radio"></span><span class="bimg"><img src="img/p-paste.png" alt=""></span>
+        <span class="bt"><b>100 Stück</b><span>inkl. Grusskarte auf Wunsch</span></span>
+        <span class="bp"><b>CHF 1'870</b><span>CHF 2'200</span></span>
+      </label>
+      <label class="bundle" data-price="4400.00" data-was="5500.00">
+        <span class="tag tag-firm">Firmen · −20%</span>
+        <span class="radio"></span><span class="bimg"><img src="img/p-paste.png" alt=""></span>
+        <span class="bt"><b>250 Stück</b><span>inkl. Logo-Veredelung</span></span>
+        <span class="bp"><b>CHF 4'400</b><span>CHF 5'500</span></span>
+      </label>
     </div>
 
     <div class="buycta"><button class="btn btn-dark"><span>In den Warenkorb</span><span class="arrow">→</span></button></div>
@@ -336,24 +358,6 @@ footer a{color:rgba(255,255,255,.72);font-size:.92rem}footer a:hover{color:#fff}
   </section>
 </main>
 
-<!-- B2B / FIRMENKUNDEN -->
-<section class="b2bsec reveal" id="b2b"><div class="wrap">
-  <div class="b2b">
-    <div class="b2b-text">
-      <span class="eyebrow">Für Unternehmen</span>
-      <h2 class="serif">Firmengeschenke in <span class="g">grösseren Mengen</span>.</h2>
-      <p>Edle Vanille-Geschenksets für Mitarbeitende, Kundinnen und Geschäftspartner — ab 50 Stück mit gestaffeltem Mengenrabatt, auf Wunsch mit individueller Veredelung und Grusskarte.</p>
-      <a class="btn b2b-cta" href="#"><span>Firmenangebot anfragen</span> <span class="arrow">→</span></a>
-      <span class="b2b-note">Antwort innerhalb von 24 h · Rechnung auf Firma · Lieferung in die ganze Schweiz</span>
-    </div>
-    <div class="b2b-tiers">
-      <div class="tier"><span class="q">ab 50 Stück</span><b>−10 %</b><span class="d">Mengenrabatt</span></div>
-      <div class="tier"><span class="q">ab 100 Stück</span><b>−15 %</b><span class="d">Mengenrabatt</span></div>
-      <div class="tier"><span class="q">ab 250 Stück</span><b>−20 %</b><span class="d">Mengenrabatt</span></div>
-      <div class="tier featured"><span class="q">ab 500 Stück</span><b>−25 %</b><span class="d">+ Logo-Veredelung</span></div>
-    </div>
-  </div>
-</div></section>
 
 <!-- QUALITY / STORY (dunkle Akzent-Section) -->
 <section class="section"><div class="wrap">
@@ -449,7 +453,8 @@ document.getElementById('bundles').addEventListener('click',e=>{
   const l=e.target.closest('.bundle'); if(!l) return;
   document.querySelectorAll('.bundle').forEach(x=>x.classList.remove('sel')); l.classList.add('sel');
   const p=parseFloat(l.dataset.price),w=parseFloat(l.dataset.was);
-  price.textContent='CHF '+p.toFixed(2); was.textContent='CHF '+w.toFixed(2); save.textContent='Spare CHF '+Math.round(w-p);
+  const f=n=>'CHF '+n.toLocaleString('de-CH',{minimumFractionDigits:2,maximumFractionDigits:2});
+  price.textContent=f(p); was.textContent=f(w); save.textContent='Spare CHF '+Math.round(w-p).toLocaleString('de-CH');
 });
 // countdown
 let t=10*3600+50*60;const ctd=document.getElementById('ctd');
