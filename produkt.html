@@ -172,13 +172,25 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,253,249,.9);backdro
 .rcard .b{padding:16px 18px 20px}.rcard h3{font-family:Inter;font-weight:600;font-size:.98rem;margin:0 0 4px}
 .rcard .p{color:var(--gold);font-weight:700}
 /* footer — dark (wie Startseite) */
-footer{background:var(--ink);color:var(--cream-1);padding-block:clamp(44px,6vw,72px) 26px}
-.f-top{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:30px}
-.f-brand img{height:44px;margin-bottom:14px}.f-brand p{color:rgba(255,255,255,.6);max-width:32ch;font-size:.9rem;margin:0}
-footer h4{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);margin:0 0 14px}
-footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
-footer a{color:rgba(255,255,255,.72);font-size:.9rem}footer a:hover{color:#fff}
-.f-bottom{border-top:1px solid var(--line-2);margin-top:40px;padding-top:20px;font-size:.8rem;color:rgba(255,255,255,.5);text-align:center}
+footer{position:relative;color:var(--cream-1);padding-block:clamp(52px,7vw,88px) 26px;overflow:hidden;background:#140f0a;isolation:isolate}
+.fbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+footer::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(18,13,8,.97) 0%,rgba(18,13,8,.9) 40%,rgba(18,13,8,.62) 70%,rgba(18,13,8,.3) 100%)}
+footer>.wrap{position:relative;z-index:1}
+.f-top{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,.9fr));gap:clamp(24px,3vw,52px);align-items:start}
+.f-brand img{height:52px;margin-bottom:10px;display:block}
+.f-brand .f-tag{display:block;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:24px}
+.f-brand .addr{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.65;margin:0 0 22px}
+.f-social{display:flex;gap:12px}
+.f-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;color:rgba(255,255,255,.78);transition:background .25s,border-color .25s,color .25s,transform .25s}
+.f-social a:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-2px)}
+.f-social svg{width:17px;height:17px;fill:currentColor}
+.f-col{border-left:1px solid rgba(255,255,255,.13);padding-left:clamp(20px,2.4vw,40px)}
+footer h4{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);margin:6px 0 18px}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+footer a{color:rgba(255,255,255,.72);font-size:.92rem}footer a:hover{color:#fff}
+.f-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:clamp(36px,4.5vw,60px);padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.8rem;color:rgba(255,255,255,.5)}
+.f-bottom .pays{margin:0}
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
@@ -192,6 +204,8 @@ footer a{color:rgba(255,255,255,.72);font-size:.9rem}footer a:hover{color:#fff}
   .rev-grid{grid-template-columns:1fr}
   .relgrid{grid-template-columns:1fr 1fr}
   .f-top{grid-template-columns:1fr 1fr}
+  .f-col{border-left:0;padding-left:0}
+  footer::after{background:linear-gradient(180deg,rgba(18,13,8,.86),rgba(18,13,8,.96))}
 }
 @media(max-width:520px){.relgrid{grid-template-columns:1fr 1fr}.f-top{grid-template-columns:1fr}}
 /* B2B / Firmenkunden */
@@ -397,14 +411,28 @@ footer a{color:rgba(255,255,255,.72);font-size:.9rem}footer a:hover{color:#fff}
   </div>
 </div></section>
 
-<footer><div class="wrap">
+<footer>
+  <img class="fbg" src="img/footer-bg.jpg" alt="">
+  <div class="wrap">
   <div class="f-top">
-    <div class="f-brand"><img src="img/logo.png" alt="The Vanilla"><p>The Vanilla GmbH Manufaktur · Lättenstrasse 27 · CH-8952 Schlieren / Zürich</p></div>
-    <div><h4>Shop</h4><ul><li><a href="#">Vanilleschoten</a></li><li><a href="#">Vanillepaste</a></li><li><a href="#">Vanillepulver</a></li><li><a href="#">Geschenke</a></li></ul></div>
-    <div><h4>Manufaktur</h4><ul><li><a href="#">Über uns</a></li><li><a href="#">Qualität</a></li><li><a href="#">Rezepte</a></li></ul></div>
-    <div><h4>Service</h4><ul><li><a href="#">Kontakt</a></li><li><a href="#">Versand</a></li><li><a href="#">AGB</a></li></ul></div>
+    <div class="f-brand">
+      <img src="img/logo.png" alt="The Vanilla">
+      <span class="f-tag">The Fine Art of Vanilla</span>
+      <p class="addr">The Vanilla GmbH Manufaktur<br>Lättenstrasse 27 · CH-8952 Schlieren / Zürich</p>
+      <div class="f-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 17.8 6z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h2.6l.4-3H14V4.4c0-.9.3-1.5 1.6-1.5h1.5V.3C16.6.2 15.7 0 14.7 0 12.3 0 11 1.4 11 3.9V6H8.5v3H11v9h3V9z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.4 12 31 31 0 0 0 23 7.5zM9.8 15.3V8.7l5.7 3.3z"/></svg></a>
+      </div>
+    </div>
+    <div class="f-col"><h4>Shop</h4><ul><li><a href="index.html#shop">Vanilleschoten</a></li><li><a href="index.html#shop">Vanillepaste</a></li><li><a href="index.html#shop">Vanillepulver</a></li><li><a href="index.html#gift">Geschenksets</a></li></ul></div>
+    <div class="f-col"><h4>Manufaktur</h4><ul><li><a href="#">Über uns</a></li><li><a href="#">Qualität</a></li><li><a href="#">Vanillewissen</a></li><li><a href="index.html#recipes">Rezepte</a></li></ul></div>
+    <div class="f-col"><h4>Service</h4><ul><li><a href="#">Kontakt</a></li><li><a href="#">Versand</a></li><li><a href="#">Impressum</a></li><li><a href="#">AGB</a></li></ul></div>
   </div>
-  <div class="f-bottom">© 2026 The Vanilla GmbH · Redesign-Vorschau</div>
+  <div class="f-bottom">
+    <span>© 2026 The Vanilla GmbH · Alle Rechte vorbehalten.</span>
+    <div class="pays"><img src="img/pay/visa.svg" alt="Visa"><img src="img/pay/mastercard.svg" alt="Mastercard"><img src="img/pay/amex.svg" alt="American Express"><img src="img/pay/twint.svg" alt="TWINT"><img src="img/pay/paypal.svg" alt="PayPal"><img src="img/pay/applepay.svg" alt="Apple Pay"></div>
+  </div>
 </div></footer>
 
 <script>
