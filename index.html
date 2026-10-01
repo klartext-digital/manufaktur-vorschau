@@ -68,6 +68,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .tb-soc svg{width:15px;height:15px;fill:currentColor}
 .tb-mid{flex:1;text-align:center;overflow:hidden;white-space:nowrap;min-width:0}
 .tb-mid b{color:var(--gold-bright);font-weight:600}
+.tb-mid a{color:inherit}.tb-mid a:hover b{text-decoration:underline;text-underline-offset:3px}
 .tb-right{display:flex;gap:16px;color:rgba(255,255,255,.75)}
 .tb-right span{display:inline-flex;align-items:center;gap:5px;cursor:pointer;transition:color .2s}.tb-right span:hover{color:#fff}
 .caret{width:10px;height:10px;stroke:currentColor;stroke-width:1.6;fill:none}
@@ -94,7 +95,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* HERO full-bleed rounded */
 .hero{padding-top:14px}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
-.hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform}
+.hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform;border-radius:inherit}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,rgba(12,9,6,.9) 0%,rgba(12,9,6,.66) 34%,rgba(12,9,6,.18) 58%,rgba(12,9,6,0) 78%)}
 .hero-copy{padding:clamp(30px,5vw,72px);max-width:620px;color:#fff}
@@ -106,15 +107,12 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .hero-cta .btn-outline{border-color:rgba(255,255,255,.65);color:#fff}
 .hero-cta .btn-outline::before{background:#fff}
 .hero-cta .btn-outline:hover{color:var(--ink);border-color:#fff}
-.vrail{position:absolute;left:0;top:50%;transform:translateY(-50%);transform-origin:left center;z-index:3;display:flex;flex-direction:column;align-items:center;gap:18px;
-  background:var(--ink);border-radius:0 var(--r-pill) var(--r-pill) 0;padding:22px 14px;
-  transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s}
-.vrail:hover{transform:translateY(-50%) scale(1.12);box-shadow:0 22px 54px -22px rgba(0,0,0,.55)}
-.vrail a{color:rgba(255,255,255,.78);transition:color .25s,transform .3s cubic-bezier(.2,.7,.3,1)}
-.vrail a:hover{color:var(--gold-bright);transform:scale(1.28)}
-.vrail svg{width:19px;height:19px;fill:currentColor}
-.vrail .disc{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.72rem;letter-spacing:.18em;font-weight:700;color:var(--gold-bright);margin-top:8px;padding-top:14px;border-top:1px solid var(--line-2)}
-@media(prefers-reduced-motion:reduce){.vrail,.vrail a{transition:none}.vrail:hover{transform:translateY(-50%)}.vrail a:hover{transform:none}}
+.vrail{position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:20px;
+  background:var(--ink);border-radius:0 var(--r-pill) var(--r-pill) 0;padding:22px 14px}
+.vrail a{color:rgba(255,255,255,.78);display:grid;place-items:center;transition:color .25s,transform .3s cubic-bezier(.2,.7,.3,1)}
+.vrail a:hover{color:var(--gold-bright);transform:scale(1.35)}
+.vrail svg{width:20px;height:20px;fill:currentColor}
+@media(prefers-reduced-motion:reduce){.vrail a{transition:none}.vrail a:hover{transform:none}}
 
 /* trust row */
 .hero-trust{margin-top:clamp(26px,3vw,40px)}
@@ -431,7 +429,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5zm5-1.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0zM7 4h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
       <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 2.8V9.2l4.6 2.8z"/></svg></a>
     </div>
-    <div class="tb-mid">Kostenloser Versand ab CHF 60 · <b>−20% auf dein erstes Geschenkset</b> mit Code VANILLE20</div>
+    <div class="tb-mid">Kostenloser Versand ab CHF 99 · <a href="#newsletter"><b>15 % Rabatt auf deine erste Bestellung</b></a></div>
     <div class="tb-right">
       <span>Deutsch <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
       <span>Schweiz (CHF) <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -469,7 +467,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5zm5-1.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0zM7 4h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 2.8V9.2l4.6 2.8z"/></svg></a>
-        <span class="disc">−20% RABATT</span>
       </div>
       <div class="hero-copy">
         <span class="eyebrow">Echte Herkunft · Echter Geschmack · Echte Vanille</span>
@@ -670,14 +667,14 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       </details>
       <details class="faq-item">
         <summary>Wie schnell wird geliefert?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Bestellungen versenden wir werktags innerhalb von 24 Stunden aus Schlieren. Ab CHF 60 Bestellwert ist der Versand innerhalb der Schweiz kostenlos.</div>
+        <div class="faq-a">Bestellungen versenden wir werktags innerhalb von 24 Stunden aus Schlieren. Ab CHF 99 Bestellwert ist der Versand innerhalb der Schweiz kostenlos.</div>
       </details>
     </div>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
-<section class="sec" style="padding-top:0">
+<section class="sec" id="newsletter" style="padding-top:0;scroll-margin-top:120px">
   <div class="wrap news reveal">
     <span class="eyebrow">Bleiben Sie dran</span>
     <h2 class="serif">Rezepte & neue Ernten</h2>
