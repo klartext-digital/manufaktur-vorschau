@@ -144,9 +144,9 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* categories — staged photo cards on a vanilla backdrop */
 .arrow{display:inline-block;transition:transform .35s}
 .shopsec{position:relative;overflow:hidden;background:var(--cream-1)}
-.shopsec .shop-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;z-index:0}
+.shopsec .shop-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;z-index:0}
 .shopsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(251,246,236,.42) 0%,rgba(251,246,236,.72) 46%,rgba(251,246,236,.96) 82%)}
+  background:linear-gradient(180deg,rgba(251,246,236,0) 58%,rgba(251,246,236,.9) 100%)}
 .shopsec>.wrap{position:relative;z-index:1}
 .shop-head{align-items:flex-start}
 .shop-sub{color:var(--ink-soft);margin:.7em 0 0;max-width:46ch}
@@ -155,16 +155,13 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .shop-allbtn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}.shop-allbtn:hover .arrow{transform:translateX(4px)}
 .cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.5vw,24px)}
 .cat{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;
-  color:#fff;isolation:isolate;box-shadow:0 20px 44px -26px rgba(23,22,20,.45);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
+  color:#fff;isolation:isolate;background:linear-gradient(165deg,#241a0e,#120d07);box-shadow:0 20px 44px -26px rgba(23,22,20,.45);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
 .cat:hover{transform:translateY(-8px);box-shadow:0 36px 64px -30px rgba(23,22,20,.55)}
-.cat-media2{position:absolute;inset:0;z-index:-2}
-.cat-media2 img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
-.cat:hover .cat-media2 img{transform:scale(1.06)}
-.cat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,6,3,.08) 0%,rgba(8,6,3,.12) 38%,rgba(8,6,3,.68) 76%,rgba(8,6,3,.9) 100%)}
+.cat-media2{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.cat-media2 img{width:112%;height:auto;position:absolute;left:50%;top:0;transform:translateX(-50%);transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.cat:hover .cat-media2 img{transform:translateX(-50%) scale(1.05)}
+.cat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,6,3,0) 0%,rgba(8,6,3,.05) 46%,rgba(8,6,3,.62) 74%,rgba(8,6,3,.9) 100%)}
 .cat-inner{padding:clamp(20px,1.5vw,28px);display:flex;flex-direction:column;align-items:flex-start;gap:9px}
-.cat-ico{width:clamp(46px,3.2vw,56px);height:clamp(46px,3.2vw,56px);border-radius:50%;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-  display:grid;place-items:center;margin-bottom:4px;box-shadow:0 10px 22px -8px rgba(0,0,0,.55)}
-.cat-ico svg{width:52%;height:52%;stroke:#1c1407;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .cat h3{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.35rem,1.7vw,1.75rem);color:#fff;margin:0;line-height:1.08}
 .cat p{font-size:.92rem;color:rgba(255,255,255,.84);margin:0;max-width:26ch}
 .cat .cbtn{margin-top:9px;display:inline-flex;align-items:center;gap:9px;padding:.72em 1.35em;border-radius:var(--r-pill);
@@ -237,16 +234,16 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 }
 @media(prefers-reduced-motion:reduce){.film-txt{transition:opacity .3s}}
 
-/* gift banner */
-.gift{position:relative;border-radius:var(--r-xl);overflow:hidden;color:#fff;isolation:isolate;min-height:380px;display:flex;align-items:center}
-.gift img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.gift::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,10,9,.92) 0%,rgba(10,10,9,.7) 45%,rgba(10,10,9,.15) 100%)}
-.gift-inner{padding:clamp(32px,5vw,68px);max-width:560px;min-width:0}
+/* gift banner — own section, gift-set photo centered in the box */
+.gift{position:relative;border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(145deg,#2a1f10,#130d07);color:#fff;
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2vw,24px);padding:clamp(40px,5vw,76px) clamp(24px,5vw,64px)}
 .gift .eyebrow{color:var(--gold-bright)}
-.gift h2{font-size:clamp(1.9rem,3.6vw,3rem);margin:.2em 0 .4em;color:#fff}
-.gift p{color:rgba(255,255,255,.82);margin:0 0 1.7em;max-width:42ch}
-.gift .seal{position:absolute;top:clamp(22px,3vw,44px);right:clamp(22px,3vw,44px);width:110px;height:110px;border-radius:50%;background:var(--gold);
-  display:grid;place-items:center;text-align:center;font-size:.72rem;font-weight:700;line-height:1.25;color:#fff;transform:rotate(-8deg);box-shadow:0 14px 34px -12px rgba(0,0,0,.5)}
+.gift h2{font-size:clamp(1.9rem,3.6vw,3rem);margin:0;color:#fff}
+.gift p{color:rgba(255,255,255,.82);margin:0;max-width:48ch}
+.gift-photo{position:relative;width:min(600px,94%);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 34px 70px -34px rgba(0,0,0,.7);margin:clamp(4px,1vw,12px) 0}
+.gift-photo img{width:100%;height:auto;display:block}
+.gift .seal{position:absolute;top:clamp(14px,1.6vw,22px);right:clamp(14px,1.6vw,22px);width:clamp(84px,9vw,104px);height:clamp(84px,9vw,104px);border-radius:50%;background:var(--gold);
+  display:grid;place-items:center;text-align:center;font-size:.72rem;font-weight:700;line-height:1.25;color:#fff;transform:rotate(-8deg);box-shadow:0 14px 34px -12px rgba(0,0,0,.5);z-index:2}
 
 /* quality */
 .dark{background:var(--ink);color:var(--cream-1);border-radius:var(--r-xl);overflow:hidden}
@@ -537,7 +534,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <a class="cat" href="produkt.html">
         <span class="cat-media2"><img src="img/cat-schoten.jpg" alt="Vanilleschoten"></span>
         <div class="cat-inner">
-          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M5 20c0-7.5 5-12.5 13.5-13.5C17.5 15 12.5 20 5 20z"/><path d="M5.5 19.5C9 16 12 14 15 12.8"/></svg></span>
           <h3>Vanilleschoten</h3>
           <p>Ganze Bourbon-Vanilleschoten in bester Qualität.</p>
           <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
@@ -546,7 +542,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <a class="cat" href="produkt.html">
         <span class="cat-media2"><img src="img/cat-paste.jpg" alt="Vanillepaste"></span>
         <div class="cat-inner">
-          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M7.5 9.5h9v9a1 1 0 01-1 1h-7a1 1 0 01-1-1z"/><path d="M8.5 9.5V6.5h7v3"/><path d="M9.5 4.5h5"/></svg></span>
           <h3>Vanillepaste</h3>
           <p>Intensives Aroma, vielseitig einsetzbar.</p>
           <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
@@ -555,7 +550,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <a class="cat" href="produkt.html">
         <span class="cat-media2"><img src="img/cat-pulver.jpg" alt="Vanillepulver"></span>
         <div class="cat-inner">
-          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M12 6l6.5 12.5h-13z"/><path d="M9 14.5h6"/></svg></span>
           <h3>Vanillepulver</h3>
           <p>Fein gemahlen, für puren Vanillegeschmack.</p>
           <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
@@ -564,7 +558,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <a class="cat" href="produkt.html">
         <span class="cat-media2"><img src="img/cat-geschenk.jpg" alt="Geschenksets"></span>
         <div class="cat-inner">
-          <span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M4.5 11h15v8.5h-15z"/><path d="M4.5 7.5h15V11h-15z"/><path d="M12 7.5v12"/><path d="M12 7.5C9.5 7.5 7.8 4 10 3.3c1.8-.5 2 4.2 2 4.2zM12 7.5c2.5 0 4.2-3.5 2-4.2C12.2 2.8 12 7.5 12 7.5z"/></svg></span>
           <h3>Geschenksets</h3>
           <p>Hochwertige Sets für besondere Genussmomente.</p>
           <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
@@ -605,17 +598,14 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 </section>
 
 <!-- GIFT -->
-<section class="sec" id="gift" style="padding-top:0">
+<section class="sec" id="gift">
   <div class="wrap">
     <div class="gift reveal">
-      <img src="img/hero.jpg" alt="">
-      <div class="seal">Mit Liebe<br>verpackt</div>
-      <div class="gift-inner">
-        <span class="eyebrow">Für besondere Momente</span>
-        <h2 class="serif">Das perfekte Geschenk<br>für echte Genießer.</h2>
-        <p>Edle Geschenksets mit feinster Vanille — liebevoll verpackt in unserer Manufaktur in Schlieren.</p>
-        <a class="btn btn-light" href="produkt.html"><span>Geschenksets entdecken</span> <span class="arrow">→</span></a>
-      </div>
+      <span class="eyebrow">Für besondere Momente</span>
+      <h2 class="serif">Das perfekte Geschenk für echte Genießer.</h2>
+      <div class="gift-photo"><span class="seal">Mit Liebe<br>verpackt</span><img src="img/cat-geschenk.jpg" alt="The Vanilla Geschenkset"></div>
+      <p>Edle Geschenksets mit feinster Vanille — liebevoll verpackt in unserer Manufaktur in Schlieren.</p>
+      <a class="btn btn-light" href="produkt.html"><span>Geschenksets entdecken</span> <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
