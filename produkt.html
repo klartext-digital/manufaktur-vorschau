@@ -194,6 +194,26 @@ footer a{color:rgba(255,255,255,.72);font-size:.9rem}footer a:hover{color:#fff}
   .f-top{grid-template-columns:1fr 1fr}
 }
 @media(max-width:520px){.relgrid{grid-template-columns:1fr 1fr}.f-top{grid-template-columns:1fr}}
+/* B2B / Firmenkunden */
+.b2bsec{background:var(--ink);color:var(--cream-1);margin-top:clamp(10px,2vw,28px)}
+.b2b{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,4vw,64px);align-items:center;padding-block:clamp(46px,6vw,88px)}
+.b2b .eyebrow{color:var(--gold-bright)}
+.b2b h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.04;margin:.3em 0 .5em;color:#fff}
+.b2b h2 .g{color:var(--gold-bright)}
+.b2b p{color:rgba(255,255,255,.76);max-width:46ch;margin:0 0 1.6em;line-height:1.6}
+.b2b-cta{margin-top:4px;background:var(--gold);color:#fff}
+.b2b-cta::before{background:var(--gold-bright)}
+.b2b-cta:hover{color:var(--ink);box-shadow:0 18px 40px -18px rgba(216,178,92,.5)}
+.b2b-note{display:block;margin-top:14px;font-size:.8rem;color:rgba(255,255,255,.55)}
+.b2b-tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.tier{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);padding:22px 20px;display:flex;flex-direction:column;gap:6px;transition:border-color .25s,background .25s,transform .25s}
+.tier:hover{border-color:var(--gold-bright);background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.tier .q{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:700}
+.tier b{font-family:Fraunces,serif;font-size:1.7rem;line-height:1;color:#fff}
+.tier .d{color:var(--gold-bright);font-weight:700;font-size:1.02rem}
+.tier.featured{background:linear-gradient(160deg,rgba(216,178,92,.2),rgba(216,178,92,.06));border-color:rgba(216,178,92,.5)}
+@media(max-width:820px){.b2b{grid-template-columns:1fr;gap:28px}}
+@media(max-width:460px){.b2b-tiers{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -301,6 +321,25 @@ footer a{color:rgba(255,255,255,.72);font-size:.9rem}footer a:hover{color:#fff}
     </div>
   </section>
 </main>
+
+<!-- B2B / FIRMENKUNDEN -->
+<section class="b2bsec reveal" id="b2b"><div class="wrap">
+  <div class="b2b">
+    <div class="b2b-text">
+      <span class="eyebrow">Für Unternehmen</span>
+      <h2 class="serif">Firmengeschenke in <span class="g">grösseren Mengen</span>.</h2>
+      <p>Edle Vanille-Geschenksets für Mitarbeitende, Kundinnen und Geschäftspartner — ab 50 Stück mit gestaffeltem Mengenrabatt, auf Wunsch mit individueller Veredelung und Grusskarte.</p>
+      <a class="btn b2b-cta" href="#"><span>Firmenangebot anfragen</span> <span class="arrow">→</span></a>
+      <span class="b2b-note">Antwort innerhalb von 24 h · Rechnung auf Firma · Lieferung in die ganze Schweiz</span>
+    </div>
+    <div class="b2b-tiers">
+      <div class="tier"><span class="q">ab 50 Stück</span><b>−10 %</b><span class="d">Mengenrabatt</span></div>
+      <div class="tier"><span class="q">ab 100 Stück</span><b>−15 %</b><span class="d">Mengenrabatt</span></div>
+      <div class="tier"><span class="q">ab 250 Stück</span><b>−20 %</b><span class="d">Mengenrabatt</span></div>
+      <div class="tier featured"><span class="q">ab 500 Stück</span><b>−25 %</b><span class="d">+ Logo-Veredelung</span></div>
+    </div>
+  </div>
+</div></section>
 
 <!-- QUALITY / STORY (dunkle Akzent-Section) -->
 <section class="section"><div class="wrap">
