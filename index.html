@@ -144,7 +144,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* categories — staged photo cards on a vanilla backdrop */
 .arrow{display:inline-block;transition:transform .35s}
 .shopsec{position:relative;overflow:hidden;background:var(--cream-1)}
-.shopsec .shop-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;z-index:0}
+.shopsec .shop-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%;transform:scale(1.22) translateY(-10%);transform-origin:center;z-index:0}
 .shopsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(251,246,236,0) 58%,rgba(251,246,236,.9) 100%)}
 .shopsec>.wrap{position:relative;z-index:1}
@@ -158,9 +158,8 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
   color:#fff;isolation:isolate;background:linear-gradient(165deg,#241a0e,#120d07);box-shadow:0 20px 44px -26px rgba(23,22,20,.45);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
 .cat:hover{transform:translateY(-8px);box-shadow:0 36px 64px -30px rgba(23,22,20,.55)}
 .cat-media2{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.cat-media2 .cm-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(26px) saturate(.6) brightness(.68);transform:scale(1.18)}
-.cat-media2 .cm-fg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center 42%;filter:saturate(.82);transition:transform .7s cubic-bezier(.2,.7,.3,1)}
-.cat:hover .cat-media2 .cm-fg{transform:scale(1.05)}
+.cat-media2 img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.84);transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.cat:hover .cat-media2 img{transform:scale(1.05)}
 .cat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,6,3,0) 24%,rgba(8,6,3,.32) 56%,rgba(8,6,3,.78) 84%,rgba(8,6,3,.95) 100%)}
 .cat-inner{padding:clamp(20px,1.5vw,28px);display:flex;flex-direction:column;align-items:flex-start;gap:9px}
 .cat h3{font-family:Fraunces,serif;font-weight:500;font-size:clamp(1.35rem,1.7vw,1.75rem);color:#fff;margin:0;line-height:1.08}
@@ -533,7 +532,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
     </div>
     <div class="cats reveal">
       <a class="cat" href="produkt.html">
-        <span class="cat-media2"><img class="cm-bg" src="img/cat-schoten.jpg" alt="" aria-hidden="true"><img class="cm-fg" src="img/cat-schoten.jpg" alt="Vanilleschoten"></span>
+        <span class="cat-media2"><img src="img/cat-schoten.jpg" alt="Vanilleschoten"></span>
         <div class="cat-inner">
           <h3>Vanilleschoten</h3>
           <p>Ganze Bourbon-Vanilleschoten in bester Qualität.</p>
@@ -541,7 +540,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
         </div>
       </a>
       <a class="cat" href="produkt.html">
-        <span class="cat-media2"><img class="cm-bg" src="img/cat-paste.jpg" alt="" aria-hidden="true"><img class="cm-fg" src="img/cat-paste.jpg" alt="Vanillepaste"></span>
+        <span class="cat-media2"><img src="img/cat-paste.jpg" alt="Vanillepaste"></span>
         <div class="cat-inner">
           <h3>Vanillepaste</h3>
           <p>Intensives Aroma, vielseitig einsetzbar.</p>
@@ -549,7 +548,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
         </div>
       </a>
       <a class="cat" href="produkt.html">
-        <span class="cat-media2"><img class="cm-bg" src="img/cat-pulver.jpg" alt="" aria-hidden="true"><img class="cm-fg" src="img/cat-pulver.jpg" alt="Vanillepulver"></span>
+        <span class="cat-media2"><img src="img/cat-pulver.jpg" alt="Vanillepulver"></span>
         <div class="cat-inner">
           <h3>Vanillepulver</h3>
           <p>Fein gemahlen, für puren Vanillegeschmack.</p>
@@ -557,7 +556,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
         </div>
       </a>
       <a class="cat" href="produkt.html">
-        <span class="cat-media2"><img class="cm-bg" src="img/cat-geschenk.jpg" alt="" aria-hidden="true"><img class="cm-fg" src="img/cat-geschenk.jpg" alt="Geschenksets"></span>
+        <span class="cat-media2"><img src="img/cat-geschenk.jpg" alt="Geschenksets"></span>
         <div class="cat-inner">
           <h3>Geschenksets</h3>
           <p>Hochwertige Sets für besondere Genussmomente.</p>
