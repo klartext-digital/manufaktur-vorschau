@@ -14,7 +14,7 @@
   --gold:#A9821F; --gold-2:#C09A34; --gold-bright:#D8B25C;  /* brand gold (from logo) */
   --green:#4B7A44; --green-2:#3C6537;                       /* NEU badge, like reference */
   --line:rgba(23,22,20,.12); --line-2:rgba(255,255,255,.16);
-  --maxw:none; --pad:clamp(44px,7vw,132px);
+  --maxw:none; --pad:clamp(38px,7vw,90px);
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
@@ -181,9 +181,9 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .pcard{position:relative;background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.07);
   display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s;min-width:0}
 .pcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(23,22,20,.3)}
-.pcard-media{position:relative;aspect-ratio:1;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 50% 40%,#fff,#f6f0e3)}
-.pcard-media a.pcard-link{display:grid;place-items:center;width:100%;height:100%}
-.pcard-media img{max-height:100%;width:auto;object-fit:contain;transition:transform .5s}
+.pcard-media{position:relative;aspect-ratio:1;overflow:hidden;background:#17120b}
+.pcard-media a.pcard-link{display:block;width:100%;height:100%}
+.pcard-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .pcard-body h3 a{color:inherit;text-decoration:none;transition:color .2s}
 .pcard-body h3 a:hover{color:var(--gold)}
 .pcard:hover .pcard-media img{transform:scale(1.05)}
@@ -245,15 +245,21 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 @media(prefers-reduced-motion:reduce){.film-txt{transition:opacity .3s}}
 
 /* gift banner — own section, gift-set photo centered in the box */
-.gift{position:relative;border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(145deg,#2a1f10,#130d07);color:#fff;
-  text-align:center;display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2vw,24px);padding:clamp(40px,5vw,76px) clamp(24px,5vw,64px)}
-.gift .eyebrow{color:var(--gold-bright)}
-.gift h2{font-size:clamp(1.9rem,3.6vw,3rem);margin:0;color:#fff}
-.gift p{color:rgba(255,255,255,.82);margin:0;max-width:48ch}
-.gift-photo{position:relative;width:min(600px,94%);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 34px 70px -34px rgba(0,0,0,.7);margin:clamp(4px,1vw,12px) 0}
-.gift-photo img{width:100%;height:auto;display:block}
-.gift .seal{position:absolute;top:clamp(14px,1.6vw,22px);right:clamp(14px,1.6vw,22px);width:clamp(84px,9vw,104px);height:clamp(84px,9vw,104px);border-radius:50%;background:var(--gold);
-  display:grid;place-items:center;text-align:center;font-size:.72rem;font-weight:700;line-height:1.25;color:#fff;transform:rotate(-8deg);box-shadow:0 14px 34px -12px rgba(0,0,0,.5);z-index:2}
+.gift{position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate;min-height:clamp(420px,46vw,560px);
+  display:flex;align-items:center;box-shadow:0 50px 90px -60px rgba(23,22,20,.5)}
+.gift-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%;z-index:-2}
+.gift::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(250,245,236,.94) 0%,rgba(250,245,236,.74) 30%,rgba(250,245,236,.28) 52%,transparent 70%)}
+.gift-in{max-width:540px;padding:clamp(30px,5vw,72px)}
+.gift-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+.gift-eyebrow::before{content:"";width:46px;height:1px;background:currentColor;opacity:.55}
+.gift h2{font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.05;margin:0 0 .4em;color:var(--ink)}
+.gift h2 .g{color:var(--gold)}
+.gift p{color:var(--ink-soft);margin:0 0 1.7em;max-width:40ch;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.55}
+@media(max-width:720px){
+  .gift::before{background:linear-gradient(180deg,rgba(250,245,236,.94),rgba(250,245,236,.6) 50%,rgba(250,245,236,.32))}
+  .gift-bg{object-position:60% 28%}
+}
 
 /* quality */
 .dark{background:var(--ink);color:var(--cream-1);border-radius:var(--r-xl);overflow:hidden}
@@ -717,11 +723,13 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <section class="sec" id="gift">
   <div class="wrap">
     <div class="gift reveal">
-      <span class="eyebrow">Für besondere Momente</span>
-      <h2 class="serif">Das perfekte Geschenk für echte Genießer.</h2>
-      <div class="gift-photo"><span class="seal">Mit Liebe<br>verpackt</span><img src="img/cat-geschenk.jpg" alt="The Vanilla Geschenkset"></div>
-      <p>Edle Geschenksets mit feinster Vanille — liebevoll verpackt in unserer Manufaktur in Schlieren.</p>
-      <a class="btn btn-light" href="produkt.html#b2b"><span>Geschenksets entdecken</span> <span class="arrow">→</span></a>
+      <img class="gift-bg" src="img/geschenkset-bg.jpg" alt="The Vanilla Geschenkset">
+      <div class="gift-in">
+        <span class="gift-eyebrow">Für besondere Momente</span>
+        <h2 class="serif">Das perfekte Geschenk für<br>echte <span class="g">Geniesser.</span></h2>
+        <p>Edle Geschenksets mit feinster Vanille – liebevoll verpackt in unserer Manufaktur in Schlieren.</p>
+        <a class="btn btn-gold" href="produkt.html#b2b"><span>Geschenksets entdecken</span> <span class="arrow">→</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -874,11 +882,11 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
 const products=[
- {n:"Bourbon Vanilleschoten",note:"20–21 cm · 100% Bourbon",r:"4,9",c:"237",p:"36.00",pre:"ab ",img:"p-schoten.png",new:1},
- {n:"Vanillepaste im Glas",note:"100 g · cremig & vielseitig",r:"4,8",c:"156",p:"22.00",pre:"",img:"p-paste.png",new:0},
- {n:"Gourmet Vanillepulver",note:"25 g · fein gemahlen",r:"4,9",c:"204",p:"31.50",pre:"",img:"p-pulver.png",new:1},
- {n:"The Vanilla 4-erlei",note:"Sortiment · das Geschenk-Set",r:"4,9",c:"142",p:"32.50",pre:"",img:"p-set.png",new:0},
- {n:"Geschenkpackung",note:"Zum Verschenken",r:"4,8",c:"98",p:"32.50",pre:"",img:"p-geschenk.png",new:1}
+ {n:"Bourbon Vanilleschoten",note:"20–21 cm · 100% Bourbon",r:"4,9",c:"237",p:"36.00",pre:"ab ",img:"cat-schoten.jpg",new:1},
+ {n:"Vanillepaste im Glas",note:"100 g · cremig & vielseitig",r:"4,8",c:"156",p:"22.00",pre:"",img:"cat-paste.jpg",new:0},
+ {n:"Gourmet Vanillepulver",note:"25 g · fein gemahlen",r:"4,9",c:"204",p:"31.50",pre:"",img:"cat-pulver.jpg",new:1},
+ {n:"The Vanilla 4-erlei",note:"Sortiment · das Geschenk-Set",r:"4,9",c:"142",p:"32.50",pre:"",img:"cat-geschenk.jpg",new:0},
+ {n:"Geschenkpackung",note:"Zum Verschenken",r:"4,8",c:"98",p:"32.50",pre:"",img:"geschenkset-bg.jpg",new:1}
 ];
 document.getElementById('prods').innerHTML=products.map(p=>`
  <article class="pcard">
