@@ -14,7 +14,7 @@
   --gold:#A9821F; --gold-2:#C09A34; --gold-bright:#D8B25C;  /* brand gold (from logo) */
   --green:#4B7A44; --green-2:#3C6537;                       /* NEU badge, like reference */
   --line:rgba(23,22,20,.12); --line-2:rgba(255,255,255,.16);
-  --maxw:none; --pad:clamp(34px,4.6vw,100px);
+  --maxw:none; --pad:clamp(44px,7vw,132px);
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
@@ -444,7 +444,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .tstrip b{font-weight:700;font-size:.9rem}.tstrip span{font-size:.76rem;color:var(--ink-soft);max-width:22ch}
 
 /* footer */
-footer{position:relative;color:var(--cream-1);margin-top:var(--sec-y);padding-block:clamp(56px,7vw,92px) 26px;overflow:hidden;background:#140f0a;isolation:isolate}
+footer{position:relative;color:var(--cream-1);margin-top:clamp(16px,2vw,32px);padding-block:clamp(84px,10vw,150px) clamp(34px,4vw,48px);overflow:hidden;background:#140f0a;isolation:isolate}
 .fbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
 footer::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(90deg,rgba(18,13,8,.97) 0%,rgba(18,13,8,.9) 40%,rgba(18,13,8,.62) 70%,rgba(18,13,8,.3) 100%)}
@@ -830,7 +830,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 </section>
 
 <!-- NEWSLETTER -->
-<section class="sec" id="newsletter" style="padding-top:0;scroll-margin-top:120px">
+<section class="sec" id="newsletter" style="padding-top:0;padding-bottom:clamp(30px,4vw,56px);scroll-margin-top:120px">
   <div class="nlx reveal">
     <img class="nlx-bg" src="img/newsletter-stephan.jpg" alt="Stephan in der Vanille-Manufaktur">
     <div class="nlx-in">
