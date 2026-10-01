@@ -122,16 +122,17 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .hero-trust b{font-weight:700;display:block;line-height:1.2}.hero-trust span{color:var(--ink-soft);font-size:.76rem}
 
 /* press */
-.press{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:clamp(40px,5vw,64px);background:rgba(255,255,255,.4)}
-.press .wrap{display:flex;align-items:center;justify-content:center;gap:clamp(24px,3.4vw,56px);padding-block:clamp(28px,3.4vw,44px);flex-wrap:wrap}
-.press .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
-.press .logo-txt{font-family:Fraunces,serif;font-weight:600;font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--ink);opacity:.55;transition:opacity .25s,color .25s,transform .25s;white-space:nowrap}
+.press{margin-top:clamp(40px,5vw,64px);background:transparent}
+.press .wrap{display:flex;flex-direction:column;align-items:center;gap:clamp(20px,2.4vw,34px);padding-block:clamp(36px,4.4vw,60px)}
+.press .lbl{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+.press .logos{display:flex;align-items:center;justify-content:center;gap:clamp(34px,5vw,80px);flex-wrap:wrap}
+.press .logo-txt{font-family:Fraunces,serif;font-weight:600;font-size:clamp(1.5rem,2.4vw,2.1rem);color:var(--ink);opacity:.6;transition:opacity .25s,color .25s,transform .25s;white-space:nowrap}
 .press .logo-txt:hover{opacity:1;color:var(--gold);transform:translateY(-2px)}
-.press .plogo{height:30px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.5;transition:opacity .25s,filter .25s,transform .25s}
-.press .plogo.tall{height:46px}
-.press .plogo.ll{height:40px;opacity:.7}
+.press .plogo{height:50px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.55;transition:opacity .25s,filter .25s,transform .25s}
+.press .plogo.tall{height:72px}
+.press .plogo.ll{height:64px;opacity:.75}
 .press .plogo:hover{filter:grayscale(0);opacity:1;transform:translateY(-2px)}
-@media(max-width:600px){.press .plogo{height:24px}.press .plogo.tall{height:36px}}
+@media(max-width:600px){.press .plogo{height:36px}.press .plogo.tall{height:52px}.press .plogo.ll{height:46px}.press .logo-txt{font-size:1.3rem}}
 .press .rate{display:flex;align-items:center;gap:8px;font-size:.98rem;font-weight:700}
 .press .rate .stars{color:var(--gold);letter-spacing:1px;font-size:1.05rem}.press .rate span{color:var(--ink-soft);font-weight:500;font-size:.88rem}
 
@@ -148,14 +149,10 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 
 /* categories — staged photo cards on a vanilla backdrop */
 .arrow{display:inline-block;transition:transform .35s}
-/* durchgehender "unendlicher" Hintergrund über Kategorie + Bestseller + Produkte */
-.flowbg{position:relative;isolation:isolate;background:var(--cream-1)}
-.flowbg::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:url(img/flow-bg.jpg) center top/cover;background-attachment:scroll}
-.flowbg::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(251,246,236,.55),rgba(251,246,236,.42) 46%,rgba(251,246,236,.6))}
-.flowbg>*{position:relative;z-index:1}
-.shopsec{position:relative;background:transparent;padding-top:clamp(26px,3.4vw,52px)}
+.shopsec{position:relative;overflow:hidden;background:var(--cream-1);padding-top:clamp(26px,3.4vw,52px)}
+.shopsec .shop-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%;transform:scale(1.22) translateY(-10%);transform-origin:center;z-index:0}
+.shopsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(251,246,236,0) 58%,rgba(251,246,236,.9) 100%)}
 .shopsec>.wrap{position:relative;z-index:1}
 .shop-head{align-items:flex-start}
 .shop-sub{color:var(--ink-soft);margin:.7em 0 0;max-width:46ch}
@@ -286,6 +283,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* testimonials */
 .tst{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-left:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px 10px}
 .tst::-webkit-scrollbar{display:none}
+.tst img{-webkit-user-drag:none;user-drag:none;-webkit-user-select:none;user-select:none}
 .tcard{flex:0 0 calc((100% - 66px)/4);scroll-snap-align:start;background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);display:flex;flex-direction:column;min-width:0;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
 .tcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(23,22,20,.32)}
 .tphoto{aspect-ratio:4/3;overflow:hidden;background:#f3ecdd}
@@ -384,28 +382,36 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .news input{flex:1;min-width:220px;padding:1em 1.3em;border-radius:var(--r-pill);border:1px solid var(--line);background:#fff;font:inherit}
 .news input:focus{outline:none;border-color:var(--gold)}
 
-/* newsletter v2 – foto-hintergrund */
-.nlx{position:relative;margin-inline:var(--pad);border-radius:var(--r-xl);overflow:hidden;isolation:isolate;
-  min-height:clamp(440px,50vw,600px);display:flex;align-items:center;box-shadow:0 50px 90px -60px rgba(23,22,20,.55)}
-.nlx-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% 50%;z-index:-2}
-.nlx::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(100deg,rgba(24,20,14,.86) 0%,rgba(24,20,14,.66) 32%,rgba(24,20,14,.16) 58%,transparent 76%)}
-.nlx-in{max-width:560px;padding:clamp(34px,5vw,74px);color:#fff}
-.nlx .eyebrow{color:var(--gold-bright)}
-.nlx h2{font-size:clamp(2.1rem,4.4vw,3.5rem);line-height:1.04;margin:.25em 0 .4em;color:#fff}
-.nlx h2 .g{color:var(--gold-bright)}
-.nlx > .nlx-in > p{color:rgba(255,255,255,.84);margin:0 0 1.7em;max-width:42ch}
-.nlx form{display:flex;gap:10px;flex-wrap:wrap}
-.nlx input{flex:1;min-width:230px;padding:1em 1.3em;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.32);
-  background:rgba(255,255,255,.12);color:#fff;font:inherit;backdrop-filter:blur(4px)}
-.nlx input::placeholder{color:rgba(255,255,255,.62)}
-.nlx input:focus{outline:none;border-color:var(--gold-bright);background:rgba(255,255,255,.2)}
-.nlx-note{font-size:.76rem;color:rgba(255,255,255,.62);margin:1.1em 0 0!important}
-@media(max-width:720px){
-  .nlx{min-height:0}
-  .nlx::before{background:linear-gradient(180deg,rgba(24,20,14,.52),rgba(24,20,14,.9))}
-  .nlx-bg{object-position:68% 28%}
-  .nlx-in{padding-block:clamp(52px,15vw,84px)}
+/* newsletter v2 – ganzes foto, zentriert (Mockup) */
+.nlx{position:relative;margin-inline:var(--pad);border-radius:var(--r-xl);overflow:hidden;isolation:isolate;box-shadow:0 50px 90px -60px rgba(23,22,20,.5)}
+.nlx-bg{display:block;width:100%;height:auto}
+.nlx::before{content:"";position:absolute;left:0;right:0;top:0;height:74%;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(250,246,238,.82) 0,rgba(250,246,238,.52) 40%,rgba(250,246,238,.2) 68%,rgba(250,246,238,0) 100%)}
+.nlx-in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  text-align:center;padding:clamp(28px,3.6vw,54px) clamp(20px,5vw,40px) 0;gap:clamp(10px,1.2vw,16px)}
+.nlx-eyebrow{display:inline-flex;align-items:center;gap:16px;color:var(--gold);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
+.nlx-eyebrow::before,.nlx-eyebrow::after{content:"";width:46px;height:1px;background:currentColor;opacity:.55}
+.nlx h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.08;margin:0;color:var(--ink);max-width:20ch}
+.nlx h2 .g{color:var(--gold)}
+.nlx-sub{color:var(--ink-soft);max-width:54ch;margin:0;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.55}
+.nlx-form{display:flex;align-items:center;gap:8px;background:#fff;border-radius:var(--r-pill);padding:7px 7px 7px 12px;
+  width:min(540px,100%);margin-top:clamp(8px,1vw,14px);box-shadow:0 24px 50px -30px rgba(23,22,20,.4)}
+.nlx-form input{flex:1;min-width:0;border:0;background:transparent;padding:.85em .6em;font:inherit;color:var(--ink)}
+.nlx-form input::placeholder{color:var(--ink-soft)}
+.nlx-form input:focus{outline:none}
+.nlx-form button{flex-shrink:0;display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;border:0;
+  border-radius:var(--r-pill);padding:.9em 1.5em;font:inherit;font-weight:600;cursor:pointer;transition:background .25s,transform .25s}
+.nlx-form button:hover{background:var(--gold-bright);transform:translateY(-1px)}
+.nlx-form button .arrow{transition:transform .25s}.nlx-form button:hover .arrow{transform:translateX(4px)}
+.nlx-consent{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;color:var(--ink-soft);margin:clamp(4px,.8vw,10px) 0 0}
+.nlx-consent svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.7;flex-shrink:0}
+@media(max-width:860px){
+  .nlx-bg{height:clamp(520px,82vw,680px);width:100%;object-fit:cover;object-position:50% 72%}
+  .nlx::before{height:100%;background:linear-gradient(180deg,rgba(250,246,238,.9),rgba(250,246,238,.58) 48%,rgba(250,246,238,.22))}
+  .nlx-in{padding-top:clamp(38px,10vw,58px)}
+  .nlx-form{flex-direction:column;align-items:stretch;background:transparent;box-shadow:none;padding:0;gap:10px}
+  .nlx-form input{background:#fff;border-radius:var(--r-pill);box-shadow:0 14px 30px -22px rgba(0,0,0,.4)}
+  .nlx-form button{justify-content:center}
 }
 
 /* FAQ */
@@ -449,8 +455,10 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 .pays img{height:30px;width:auto;display:block}
 
 /* bestseller hero (durchgehender Hintergrund) */
-.bsec{position:relative;background:transparent;padding-block:clamp(40px,6vw,88px) clamp(48px,7vw,104px)}
-.bsec-in{position:relative;z-index:1;max-width:1320px;margin-inline:auto}
+.bsec{position:relative;overflow:hidden;background:var(--cream-1);padding-block:clamp(40px,6vw,88px) clamp(48px,7vw,104px)}
+.bsec-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0}
+.bsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(251,246,236,.32),rgba(251,246,236,.5) 48%,rgba(251,246,236,.82))}
+.bsec-in{position:relative;z-index:1}
 .bsec-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center}
 .bsec-text{min-width:0}
 .bsec-title{font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:.98;margin:.1em 0 .3em}
@@ -579,18 +587,20 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 <div class="press reveal">
   <div class="wrap">
     <span class="lbl">Bekannt aus</span>
-    <span class="logo logo-txt">Höhle der Löwen</span>
-    <img class="plogo" src="img/press/srf.svg" alt="SRF" loading="lazy">
-    <img class="plogo tall" src="img/press/20min.svg" alt="20 Minuten" loading="lazy">
-    <img class="plogo" src="img/press/si.svg" alt="Schweizer Illustrierte" loading="lazy">
-    <img class="plogo" src="img/press/falstaff.svg" alt="Falstaff" loading="lazy">
-    <img class="plogo ll" src="img/press/landliebe.svg" alt="LandLiebe" loading="lazy">
+    <div class="logos">
+      <span class="logo-txt">Höhle der Löwen</span>
+      <img class="plogo" src="img/press/srf.svg" alt="SRF" loading="lazy">
+      <img class="plogo tall" src="img/press/20min.svg" alt="20 Minuten" loading="lazy">
+      <img class="plogo" src="img/press/si.svg" alt="Schweizer Illustrierte" loading="lazy">
+      <img class="plogo" src="img/press/falstaff.svg" alt="Falstaff" loading="lazy">
+      <img class="plogo ll" src="img/press/landliebe.svg" alt="LandLiebe" loading="lazy">
+    </div>
   </div>
 </div>
 
 <!-- CATEGORIES -->
-<div class="flowbg">
 <section class="sec shopsec" id="shop">
+  <img class="shop-bg" src="img/shop-bg.jpg" alt="">
   <div class="wrap">
     <div class="sec-head shop-head reveal">
       <div>
@@ -639,6 +649,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
 
 <!-- BESTSELLER -->
 <section class="bsec" id="bestseller">
+  <img class="bsec-bg" src="img/bestseller-bg.jpg" alt="">
   <div class="wrap bsec-in">
     <div class="bsec-hero reveal">
       <div class="bsec-text">
@@ -669,7 +680,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
     <div class="prods reveal" id="prods"></div>
   </div>
 </section>
-</div><!-- /flowbg -->
 
 <!-- VANILLIN VIDEO SCROLL -->
 <section class="filmwrap" id="vanillin">
@@ -685,7 +695,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
       <h2 class="serif">Die beste<br>Vanille<br>der Schweiz<span class="gold-dot">.</span></h2>
     </div>
     <div class="film-txt film-bottom" data-th="0.70">
-      <span>Direkter Kontakt mit den Vanille-Bauern schafft Vertrauen</span>
       <a class="btn btn-gold film-cta" href="#prods"><span>Alle Produkte entdecken</span> <span class="arrow">→</span></a>
     </div>
   </div>
@@ -812,14 +821,14 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.9rem;transition:color .2s}foo
   <div class="nlx reveal">
     <img class="nlx-bg" src="img/newsletter-stephan.jpg" alt="Stephan in der Vanille-Manufaktur">
     <div class="nlx-in">
-      <span class="eyebrow">Exklusiv für Sie</span>
-      <h2 class="serif">Rezepte, Neuheiten &amp; <span class="g">exklusive Angebote</span></h2>
-      <p>Jetzt anmelden und <b>10&nbsp;% Rabatt</b> auf die erste Bestellung sichern — dazu Vanille-Rezepte und Herkunftsgeschichten direkt ins Postfach.</p>
-      <form onsubmit="return false">
+      <span class="nlx-eyebrow">Exklusiv für Sie</span>
+      <h2 class="serif">Rezepte, Neuheiten<br>&amp; <span class="g">exklusive Angebote</span></h2>
+      <p class="nlx-sub">Erhalten Sie besondere Vanille-Rezepte, Hintergrundgeschichten und limitierte Angebote – direkt in Ihr Postfach.</p>
+      <form class="nlx-form" onsubmit="return false">
         <input type="email" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail">
-        <button class="btn btn-gold" type="submit"><span>Jetzt 10&nbsp;% Rabatt sichern</span></button>
+        <button type="submit"><span>10&nbsp;% sichern</span> <span class="arrow">→</span></button>
       </form>
-      <p class="nlx-note">Kein Spam. Abmeldung jederzeit möglich.</p>
+      <p class="nlx-consent"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Ich stimme zu, regelmässig den Newsletter zu erhalten. Abmeldung jederzeit möglich.</p>
     </div>
   </div>
 </section>
@@ -945,11 +954,11 @@ const testimonials=[
 const tstEl=document.getElementById('tst');
 if(tstEl){tstEl.innerHTML=testimonials.map(t=>`
  <article class="tcard">
-   <div class="tphoto"><img src="img/${t.img}" alt="${t.name}" loading="lazy"></div>
+   <div class="tphoto"><img src="img/${t.img}" alt="${t.name}" loading="lazy" draggable="false"></div>
    <div class="tbody">
      <div class="tmeta"><span class="stars">★★★★★</span><span class="tname">${t.name}, ${t.age} <svg class="verif" viewBox="0 0 24 24"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3.2 16l1-2.8-1-2.8 2.4-1.8 1-2.8 3 .2z"/><path d="M8.5 12l2.2 2.2 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.6"/></svg></span></div>
      <p class="tquote">„${t.q}"</p>
-     <div class="tprod"><img class="pi" src="img/${t.pi}" alt=""><div class="pt"><b>${t.prod}</b><span>${t.price}</span></div><span class="date">Gekauft am<br>${t.date}</span></div>
+     <div class="tprod"><img class="pi" src="img/${t.pi}" alt="" draggable="false"><div class="pt"><b>${t.prod}</b><span>${t.price}</span></div><span class="date">Gekauft am<br>${t.date}</span></div>
    </div>
  </article>`).join('');}
 
@@ -958,15 +967,28 @@ document.querySelectorAll('.tst-arrow').forEach(b=>b.addEventListener('click',()
   if(!tstEl)return;const card=tstEl.querySelector('.tcard');const step=card?card.offsetWidth+22:320;
   tstEl.scrollBy({left:(parseInt(b.dataset.dir,10))*step,behavior:'smooth'});
 }));
-// drag-to-scroll (grab & drag with mouse/pointer, always available)
+// drag-to-scroll (mit Maus seitlich ziehen – always available)
 if(tstEl){
   let down=false,moved=false,sx=0,sl=0;
   tstEl.style.cursor='grab';
-  tstEl.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')return;down=true;moved=false;sx=e.clientX;sl=tstEl.scrollLeft;tstEl.setPointerCapture(e.pointerId);tstEl.style.cursor='grabbing';tstEl.style.scrollSnapType='none';tstEl.style.userSelect='none';});
-  tstEl.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;tstEl.scrollLeft=sl-dx;});
+  // natives Bild-/Element-Ziehen komplett unterbinden (sonst blockiert es das Scroll-Dragging)
+  tstEl.addEventListener('dragstart',e=>e.preventDefault());
+  tstEl.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='touch'||e.button!==0)return;
+    down=true;moved=false;sx=e.clientX;sl=tstEl.scrollLeft;
+    try{tstEl.setPointerCapture(e.pointerId);}catch(_){}
+    tstEl.style.cursor='grabbing';tstEl.style.scrollSnapType='none';tstEl.style.userSelect='none';
+    e.preventDefault();
+  });
+  tstEl.addEventListener('pointermove',e=>{
+    if(!down)return;
+    const dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;
+    tstEl.scrollLeft=sl-dx;e.preventDefault();
+  });
   const endDrag=()=>{if(!down)return;down=false;tstEl.style.cursor='grab';tstEl.style.userSelect='';tstEl.style.scrollSnapType='';};
   tstEl.addEventListener('pointerup',endDrag);
   tstEl.addEventListener('pointercancel',endDrag);
+  tstEl.addEventListener('mouseleave',endDrag);
   tstEl.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();}},true);
 }
 
