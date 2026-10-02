@@ -98,13 +98,16 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* Bild-Banner so breit wie der Hero; Text bleibt auf der globalen Einzugskante (--pad) */
 #recipes>.wrap,#gift>.wrap{padding-inline:var(--pad-hero)}
 /* Kunden – echte Kundenlogos (dunkles Band wie Original) */
-.kunden{padding-block:clamp(14px,2vw,30px) clamp(30px,4vw,52px)}
+.kunden{padding-block:clamp(30px,4vw,56px) clamp(30px,4vw,52px)}
 .kunden>.wrap{padding-inline:var(--pad-hero)}
-.kunden-box{background:#121110;border-radius:var(--r-xl);padding:clamp(40px,5vw,72px) clamp(22px,4vw,64px);text-align:center;box-shadow:0 40px 80px -56px rgba(23,22,20,.6)}
-.kunden-title{font-family:"Playfair Display",Fraunces,Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(1rem,1.55vw,1.4rem);color:#F5EEDF;margin:0 0 clamp(30px,3.6vw,52px)}
-.kunden-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(26px,3.2vw,52px) clamp(30px,4vw,64px);max-width:1100px;margin-inline:auto}
-.kl{display:flex;align-items:center;justify-content:center;height:clamp(64px,7.5vw,104px);width:clamp(100px,11vw,160px)}
-.kl img{max-height:100%;max-width:100%;object-fit:contain;transition:transform .3s}
+.kunden-box{text-align:center}
+.kunden-title{font-family:"Playfair Display",Fraunces,Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(1rem,1.55vw,1.4rem);color:var(--ink);margin:0 0 clamp(30px,3.6vw,52px)}
+.kunden-logos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));justify-items:center;align-items:center;gap:clamp(26px,3.2vw,52px) clamp(20px,3vw,48px);max-width:1100px;margin-inline:auto}
+@media(max-width:700px){.kunden-logos{grid-template-columns:repeat(2,minmax(0,1fr))}.kunden-title{letter-spacing:.1em}}
+.kl{display:flex;align-items:center;justify-content:center;height:clamp(64px,7.5vw,104px);width:100%;max-width:clamp(100px,11vw,160px)}
+.kl img{max-height:100%;max-width:100%;object-fit:contain;opacity:.82;transition:transform .3s,opacity .3s}
+.kl.wide{max-width:clamp(130px,14vw,200px)}
+.kl:hover img{opacity:1}
 .kl:hover img{transform:scale(1.05)}
 /* Karten-Boxen (Kategorien, Produkte, Bewertungen) so breit wie die Hero-Box */
 .cats,.prods,.tst{margin-inline:calc(var(--pad-hero) - var(--pad))}
@@ -616,16 +619,16 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
     <div class="kunden-box">
       <h2 class="kunden-title">Kunden die unsere Qualität lieben</h2>
       <div class="kunden-logos">
-        <span class="kl"><img src="img/kunden/razzia-fl.png" alt="razzia × FL" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/patisserie-schmid.png" alt="La Patisserie David Schmid" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/a-logo.png" alt="Kundenlogo A" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/vitznauerhof.png" alt="Vitznauerhof" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/wein-sein.png" alt="wein &amp; sein" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/hirschen.png" alt="Restaurant zum Hirschen" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/casino-bern.png" alt="Casino Bern" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/ornellaia.png" alt="Ornellaia Ristorante" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/kle.png" alt="KLE" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/krone.png" alt="Krone Sihlbrugg" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/razzia-fl.png" alt="razzia × FL" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/patisserie-schmid.png" alt="La Patisserie David Schmid" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/a-logo.png" alt="Kundenlogo A" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/vitznauerhof.png" alt="Vitznauerhof" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/wein-sein.png" alt="wein &amp; sein" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/hirschen.png" alt="Restaurant zum Hirschen" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/casino-bern.png" alt="Casino Bern" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/dunkel/ornellaia.png" alt="Ornellaia Ristorante" loading="lazy"></span>
+        <span class="kl wide"><img src="img/kunden/dunkel/kle.png" alt="KLE" loading="lazy"></span>
+        <span class="kl wide"><img src="img/kunden/dunkel/krone.png" alt="Krone Sihlbrugg" loading="lazy"></span>
       </div>
     </div>
   </div>
