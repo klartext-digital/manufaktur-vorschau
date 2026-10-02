@@ -97,9 +97,17 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .hero>.wrap{padding-inline:var(--pad-hero)}
 /* Bild-Banner so breit wie der Hero; Text bleibt auf der globalen Einzugskante (--pad) */
 #recipes>.wrap,#gift>.wrap{padding-inline:var(--pad-hero)}
+/* Kunden – echte Kundenlogos (dunkles Band wie Original) */
+.kunden{padding-block:clamp(14px,2vw,30px) clamp(30px,4vw,52px)}
+.kunden>.wrap{padding-inline:var(--pad-hero)}
+.kunden-box{background:#121110;border-radius:var(--r-xl);padding:clamp(40px,5vw,72px) clamp(22px,4vw,64px);text-align:center;box-shadow:0 40px 80px -56px rgba(23,22,20,.6)}
+.kunden-title{font-family:"Playfair Display",Fraunces,Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(1rem,1.55vw,1.4rem);color:#F5EEDF;margin:0 0 clamp(30px,3.6vw,52px)}
+.kunden-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(26px,3.2vw,52px) clamp(30px,4vw,64px);max-width:1100px;margin-inline:auto}
+.kl{display:flex;align-items:center;justify-content:center;height:clamp(64px,7.5vw,104px);width:clamp(100px,11vw,160px)}
+.kl img{max-height:100%;max-width:100%;object-fit:contain;transition:transform .3s}
+.kl:hover img{transform:scale(1.05)}
 /* Karten-Boxen (Kategorien, Produkte, Bewertungen) so breit wie die Hero-Box */
 .cats,.prods,.tst{margin-inline:calc(var(--pad-hero) - var(--pad))}
-.press>.wrap{padding-inline:var(--pad-hero)}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
 .hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform;border-radius:inherit;transform:scale(1.05)}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
@@ -128,20 +136,6 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .hero-trust b{font-weight:700;display:block;line-height:1.2}.hero-trust span{color:var(--ink-soft);font-size:.76rem}
 
 /* press */
-.press{margin-top:0;background:transparent}
-.press .wrap{display:flex;flex-direction:column;align-items:center;gap:clamp(18px,2.2vw,30px);padding-block:clamp(14px,2vw,30px) clamp(30px,4vw,52px)}
-.press .lbl{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
-.press .logos{display:flex;align-items:center;justify-content:center;gap:clamp(24px,3.6vw,64px);flex-wrap:wrap}
-.press .logo-txt{font-family:Fraunces,serif;font-weight:600;font-size:clamp(1.5rem,2.4vw,2.1rem);color:var(--ink);opacity:.6;transition:opacity .25s,color .25s,transform .25s;white-space:nowrap}
-.press .logo-txt:hover{opacity:1;color:var(--gold);transform:translateY(-2px)}
-.press .plogo{height:50px;width:auto;object-fit:contain;opacity:.95;transition:opacity .25s,transform .25s}
-.press .plogo.tall{height:72px}
-.press .plogo.ll{height:64px}
-.press .plogo.hdl{height:70px}
-.press .plogo:hover{opacity:1;transform:translateY(-3px)}
-@media(max-width:600px){.press .plogo{height:38px}.press .plogo.tall{height:54px}.press .plogo.ll{height:48px}.press .plogo.hdl{height:52px}}
-.press .rate{display:flex;align-items:center;gap:8px;font-size:.98rem;font-weight:700}
-.press .rate .stars{color:var(--gold);letter-spacing:1px;font-size:1.05rem}.press .rate span{color:var(--ink-soft);font-weight:500;font-size:.88rem}
 
 /* section head */
 .sec{padding-block:var(--sec-y)}
@@ -616,20 +610,26 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   </div>
 </section>
 
-<!-- PRESS -->
-<div class="press reveal">
+<!-- KUNDEN (echte Kundenlogos von the-vanilla.ch) -->
+<section class="kunden reveal" aria-label="Kunden">
   <div class="wrap">
-    <span class="lbl">Bekannt aus</span>
-    <div class="logos">
-      <img class="plogo hdl" src="img/press/hdl.png" alt="Die Höhle der Löwen" loading="lazy">
-      <img class="plogo" src="img/press/srf.svg" alt="SRF" loading="lazy">
-      <img class="plogo tall" src="img/press/20min.svg" alt="20 Minuten" loading="lazy">
-      <img class="plogo" src="img/press/si.svg" alt="Schweizer Illustrierte" loading="lazy">
-      <img class="plogo" src="img/press/falstaff.svg" alt="Falstaff" loading="lazy">
-      <img class="plogo ll" src="img/press/landliebe.svg" alt="LandLiebe" loading="lazy">
+    <div class="kunden-box">
+      <h2 class="kunden-title">Kunden die unsere Qualität lieben</h2>
+      <div class="kunden-logos">
+        <span class="kl"><img src="img/kunden/razzia-fl.png" alt="razzia × FL" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/patisserie-schmid.png" alt="La Patisserie David Schmid" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/a-logo.png" alt="Kundenlogo A" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/vitznauerhof.png" alt="Vitznauerhof" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/wein-sein.png" alt="wein &amp; sein" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/hirschen.png" alt="Restaurant zum Hirschen" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/casino-bern.png" alt="Casino Bern" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/ornellaia.png" alt="Ornellaia Ristorante" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/kle.png" alt="KLE" loading="lazy"></span>
+        <span class="kl"><img src="img/kunden/krone.png" alt="Krone Sihlbrugg" loading="lazy"></span>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- CATEGORIES -->
 <section class="sec shopsec" id="shop">
