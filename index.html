@@ -95,6 +95,8 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 /* HERO full-bleed rounded */
 .hero{padding-top:14px}
 .hero>.wrap{padding-inline:var(--pad-hero)}
+/* Bild-Banner so breit wie der Hero; Text bleibt auf der globalen Einzugskante (--pad) */
+#recipes>.wrap,#gift>.wrap{padding-inline:var(--pad-hero)}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
 .hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform;border-radius:inherit;transform:scale(1.05)}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
@@ -255,7 +257,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .gift-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%;z-index:-2}
 .gift::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,rgba(250,245,236,.95) 0%,rgba(250,245,236,.8) 32%,rgba(250,245,236,.34) 54%,transparent 72%)}
-.gift-in{max-width:620px;padding:clamp(30px,4vw,64px)}
+.gift-in{max-width:560px;padding:clamp(30px,4vw,64px);padding-left:calc(var(--pad) - var(--pad-hero))}
 .gift-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
 .gift-eyebrow::before{content:"";width:46px;height:1px;background:currentColor;opacity:.55}
 .gift h2{font-size:clamp(2rem,3.4vw,3.1rem);line-height:1.08;margin:0 0 .4em;color:var(--ink)}
@@ -371,9 +373,9 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 }
 
 /* recipes full-bleed */
-.recipes{position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate;min-height:min(72vh,620px);display:flex;
-  align-items:center;justify-content:center;text-align:center;color:var(--ink)}
-.recipes img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.recipes{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(72vh,620px);display:flex;
+  align-items:center;justify-content:center;text-align:center;color:var(--ink);background:var(--cream-1);isolation:isolate}
+.recipes-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.03);will-change:transform;border-radius:inherit}
 .recipes::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 45%,rgba(251,246,236,.86),rgba(251,246,236,.62))}
 .recipes-inner{padding:40px;max-width:620px}
 .recipes .eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold)}
@@ -397,7 +399,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .news input:focus{outline:none;border-color:var(--gold)}
 
 /* newsletter v2 – ganzes foto, zentriert (Mockup) */
-.nlx{position:relative;margin-inline:var(--pad);border-radius:var(--r-xl);overflow:hidden;isolation:isolate;box-shadow:0 50px 90px -60px rgba(23,22,20,.5)}
+.nlx{position:relative;margin-inline:var(--pad-hero);border-radius:var(--r-xl);overflow:hidden;isolation:isolate;box-shadow:0 50px 90px -60px rgba(23,22,20,.5)}
 .nlx-bg{display:block;width:100%;height:auto}
 .nlx::before{content:"";position:absolute;left:0;right:0;top:0;height:74%;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(250,246,238,.82) 0,rgba(250,246,238,.52) 40%,rgba(250,246,238,.2) 68%,rgba(250,246,238,0) 100%)}
@@ -481,7 +483,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 /* bestseller hero (durchgehender Hintergrund) */
 .bsec{position:relative;overflow:hidden;background:var(--cream-1);padding-block:clamp(40px,6vw,88px) clamp(48px,7vw,104px)}
 .bsec-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0}
-.bsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(251,246,236,.32),rgba(251,246,236,.5) 48%,rgba(251,246,236,.82))}
+.bsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,var(--cream-1) 0%,rgba(251,246,236,.6) 12%,rgba(251,246,236,.5) 50%,rgba(251,246,236,.85) 100%)}
 .bsec-in{position:relative;z-index:1}
 .bsec-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center}
 .bsec-text{min-width:0}
@@ -779,8 +781,8 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <!-- RECIPES full-bleed -->
 <section class="sec" id="recipes" style="padding-top:0">
   <div class="wrap">
-    <div class="recipes reveal">
-      <img src="img/rezepte-bg.jpg" alt="">
+    <div class="recipes">
+      <img class="recipes-bg" src="img/rezepte-bg.jpg" alt="">
       <div class="recipes-inner">
         <span class="eyebrow">Inspiration</span>
         <h2 class="serif">Rezepte, die begeistern</h2>
