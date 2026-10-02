@@ -97,6 +97,9 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .hero>.wrap{padding-inline:var(--pad-hero)}
 /* Bild-Banner so breit wie der Hero; Text bleibt auf der globalen Einzugskante (--pad) */
 #recipes>.wrap,#gift>.wrap{padding-inline:var(--pad-hero)}
+/* Karten-Boxen (Kategorien, Produkte, Bewertungen) so breit wie die Hero-Box */
+.cats,.prods,.tst{margin-inline:calc(var(--pad-hero) - var(--pad))}
+.press>.wrap{padding-inline:var(--pad-hero)}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
 .hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform;border-radius:inherit;transform:scale(1.05)}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
@@ -128,7 +131,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .press{margin-top:0;background:transparent}
 .press .wrap{display:flex;flex-direction:column;align-items:center;gap:clamp(18px,2.2vw,30px);padding-block:clamp(14px,2vw,30px) clamp(30px,4vw,52px)}
 .press .lbl{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
-.press .logos{display:flex;align-items:center;justify-content:center;gap:clamp(34px,5vw,80px);flex-wrap:wrap}
+.press .logos{display:flex;align-items:center;justify-content:center;gap:clamp(24px,3.6vw,64px);flex-wrap:wrap}
 .press .logo-txt{font-family:Fraunces,serif;font-weight:600;font-size:clamp(1.5rem,2.4vw,2.1rem);color:var(--ink);opacity:.6;transition:opacity .25s,color .25s,transform .25s;white-space:nowrap}
 .press .logo-txt:hover{opacity:1;color:var(--gold);transform:translateY(-2px)}
 .press .plogo{height:50px;width:auto;object-fit:contain;opacity:.95;transition:opacity .25s,transform .25s}
