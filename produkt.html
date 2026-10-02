@@ -171,8 +171,8 @@ main.pdp{padding-inline:var(--pad-hero)}
 .relgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .rcard{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.06);transition:transform .35s,box-shadow .35s}
 .rcard:hover{transform:translateY(-6px);box-shadow:0 30px 56px -30px rgba(23,22,20,.3)}
-.rcard .m{aspect-ratio:1;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 50% 40%,#fff,#f5efe1)}
-.rcard .m img{max-height:100%;width:auto;object-fit:contain;filter:drop-shadow(0 16px 20px rgba(30,20,4,.16))}
+.rcard .m{aspect-ratio:1;overflow:hidden;background:#17120b}
+.rcard .m img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.rcard:hover .m img{transform:scale(1.05)}
 .rcard .b{padding:16px 18px 20px}.rcard h3{font-family:Inter;font-weight:600;font-size:.98rem;margin:0 0 4px}
 .rcard .p{color:var(--gold);font-weight:700}
 /* footer — dark (wie Startseite) */
@@ -265,13 +265,13 @@ footer a{color:rgba(255,255,255,.72);font-size:.92rem}footer a:hover{color:#fff}
   <section class="gallery">
     <div class="gmain">
       <span class="gbadge">Bestseller</span>
-      <img id="gmain" src="img/cat-paste.jpg" alt="Bourbon Vanillepaste">
+      <img id="gmain" src="img/produkte/paste-1.jpg" alt="Vanillepaste im Glas">
     </div>
     <div class="gthumbs" id="gthumbs">
-      <button class="active" data-src="img/cat-paste.jpg" data-fit="cover"><img src="img/cat-paste.jpg" alt=""></button>
+      <button class="active" data-src="img/produkte/paste-1.jpg" data-fit="cover"><img src="img/produkte/paste-1.jpg" alt=""></button>
+      <button data-src="img/produkte/paste-2.jpg" data-fit="cover"><img src="img/produkte/paste-2.jpg" alt=""></button>
+      <button data-src="img/produkte/paste-3.jpg" data-fit="cover"><img src="img/produkte/paste-3.jpg" alt=""></button>
       <button data-src="img/recipes.jpg" data-fit="cover"><img src="img/recipes.jpg" alt=""></button>
-      <button data-src="img/header-vanille.jpg" data-fit="cover"><img src="img/header-vanille.jpg" alt=""></button>
-      <button data-src="img/hero.jpg" data-fit="cover"><img src="img/hero.jpg" alt=""></button>
     </div>
   </section>
 
@@ -394,10 +394,10 @@ footer a{color:rgba(255,255,255,.72);font-size:.92rem}footer a:hover{color:#fff}
 <section class="section rel reveal" style="padding-top:0"><div class="wrap">
   <h2 class="serif">Das könnte dir auch schmecken</h2>
   <div class="relgrid">
-    <a class="rcard" href="produkt.html"><div class="m"><img src="img/p-schoten.png" alt=""></div><div class="b"><h3>Bourbon Vanilleschoten</h3><div class="p">ab CHF 36.00</div></div></a>
-    <a class="rcard" href="produkt.html"><div class="m"><img src="img/p-pulver.png" alt=""></div><div class="b"><h3>Gourmet Vanillepulver</h3><div class="p">CHF 31.50</div></div></a>
-    <a class="rcard" href="produkt.html"><div class="m"><img src="img/p-set.png" alt=""></div><div class="b"><h3>The Vanilla 4-erlei</h3><div class="p">CHF 32.50</div></div></a>
-    <a class="rcard" href="produkt.html"><div class="m"><img src="img/p-geschenk.png" alt=""></div><div class="b"><h3>Geschenkpackung</h3><div class="p">CHF 32.50</div></div></a>
+    <a class="rcard" href="produkte.html#schoten"><div class="m"><img src="img/produkte/schoten-1.jpg" alt="Vanilleschoten Extra im Reagenzglas"></div><div class="b"><h3>Vanilleschoten «Extra»</h3><div class="p">CHF 14.00</div></div></a>
+    <a class="rcard" href="produkte.html#pulver"><div class="m"><img src="img/produkte/pulver-1.jpg" alt="Gourmet Vanillepulver"></div><div class="b"><h3>Gourmet Vanillepulver</h3><div class="p">CHF 31.50</div></div></a>
+    <a class="rcard" href="produkte.html#pulver"><div class="m"><img src="img/produkte/zucker-1.jpg" alt="Zucker mit Vanille"></div><div class="b"><h3>Zucker mit Vanille</h3><div class="p">ab CHF 10.50</div></div></a>
+    <a class="rcard" href="produkte.html#salz"><div class="m"><img src="img/produkte/salz-fein-1.jpg" alt="Vanille-Salz fein"></div><div class="b"><h3>Vanille-Salz fein</h3><div class="p">ab CHF 9.50</div></div></a>
   </div>
 </div></section>
 
