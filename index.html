@@ -665,7 +665,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
         <span class="cat-media2"><img src="img/cat-schoten.jpg" alt="Vanilleschoten"></span>
         <div class="cat-inner">
           <h3>Vanilleschoten</h3>
-          <p>Ganze Bourbon-Vanilleschoten in bester Qualität.</p>
+          <p>Planifolia, Tahitensis &amp; Pompona – Grade A.</p>
           <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
         </div>
       </a>
@@ -748,7 +748,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <section class="sec" id="gift">
   <div class="wrap">
     <div class="gift reveal">
-      <img class="gift-bg" src="img/geschenkset-section.jpg" alt="The Vanilla Geschenkset">
+      <img class="gift-bg" src="img/geschenkset-section.jpg" alt="The Vanilla Geschenkpackung">
       <div class="gift-in">
         <span class="gift-eyebrow">Für besondere Momente</span>
         <h2 class="serif">Das perfekte<br>Geschenk für<br>echte <span class="g">Geniesser.</span></h2>
@@ -907,11 +907,11 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
 const products=[
- {n:"Bourbon Vanilleschoten",note:"20–21 cm · 100% Bourbon",r:"4,9",c:"237",p:"36.00",pre:"ab ",img:"cat-schoten.jpg",vid:"vid-schoten.mp4",new:1},
- {n:"Vanillepaste im Glas",note:"100 g · cremig & vielseitig",r:"4,8",c:"156",p:"22.00",pre:"",img:"produkte/paste-1.jpg",vid:"vid-paste.mp4",new:0},
- {n:"Gourmet Vanillepulver",note:"25 g · fein gemahlen",r:"4,9",c:"204",p:"31.50",pre:"",img:"produkte/pulver-1.jpg",vid:"vid-pulver.mp4",new:1},
- {n:"The Vanilla 4-erlei",note:"Sortiment · das Geschenk-Set",r:"4,9",c:"142",p:"32.50",pre:"",img:"cat-geschenk.jpg",vid:"vid-4erlei.mp4",link:"geschenkset.html",new:0},
- {n:"Geschenkpackung",note:"Zum Verschenken",r:"4,8",c:"98",p:"32.50",pre:"",img:"geschenkset-bg.jpg",vid:"vid-geschenk.mp4",link:"geschenkset.html",new:1}
+ {n:"Planifolia Vanilleschoten",note:"20–21 cm · Grade A · Indonesien",link:"produkt.html?p=planifolia",r:"4,9",c:"237",p:"36.00",pre:"ab ",img:"cat-schoten.jpg",vid:"vid-schoten.mp4",new:1},
+ {n:"Vanillepaste im Glas",note:"100 g · ohne Alkohol · auch für Kinder",link:"produkt.html?p=vanillepaste",r:"4,8",c:"156",p:"22.00",pre:"",img:"produkte/paste-1.jpg",vid:"vid-paste.mp4",new:0},
+ {n:"Gourmet Vanillepulver",note:"25 g · 100 % rein",link:"produkt.html?p=vanillepulver",r:"4,9",c:"204",p:"31.50",pre:"",img:"produkte/pulver-1.jpg",vid:"vid-pulver.mp4",new:1},
+ {n:"The Vanilla 4-erlei",note:"4 Mini-Gläser in der Geschenkbox",r:"4,9",c:"142",p:"32.50",pre:"",img:"cat-geschenk.jpg",vid:"vid-4erlei.mp4",link:"geschenkset.html",new:0},
+ {n:"Geschenkpackung",note:"3 Mini-Gläser + 2 Vanilleschoten",r:"4,8",c:"98",p:"32.50",pre:"",img:"geschenkset-bg.jpg",vid:"vid-geschenk.mp4",link:"geschenkset.html",new:1}
 ];
 document.getElementById('prods').innerHTML=products.map(p=>`
  <article class="pcard">
@@ -997,12 +997,12 @@ if(film&&canvas){
 
 // Testimonials
 const testimonials=[
- {img:"tst1.jpg",name:"Sarah M.",age:34,q:"Die aromatischste Vanille, die ich je hatte. Meine Desserts schmecken plötzlich nach mehr.",pi:"p-paste.png",prod:"Bourbon Vanillepaste",price:"CHF 22.00",date:"20. März 2026"},
- {img:"tst2.jpg",name:"Marco R.",age:45,q:"Als Hobbybäcker merke ich den Unterschied sofort — voll, echt, kein Kunstaroma.",pi:"p-schoten.png",prod:"Bourbon Vanilleschoten",price:"ab CHF 36.00",date:"14. Juni 2026"},
+ {img:"tst1.jpg",name:"Sarah M.",age:34,q:"Die aromatischste Vanille, die ich je hatte. Meine Desserts schmecken plötzlich nach mehr.",pi:"p-paste.png",prod:"Vanillepaste im Glas",price:"CHF 22.00",date:"20. März 2026"},
+ {img:"tst2.jpg",name:"Marco R.",age:45,q:"Als Hobbybäcker merke ich den Unterschied sofort — voll, echt, kein Kunstaroma.",pi:"p-schoten.png",prod:"Planifolia Vanilleschoten",price:"ab CHF 36.00",date:"14. Juni 2026"},
  {img:"tst3.jpg",name:"Lena K.",age:28,q:"Ein Teelöffel und der ganze Teig duftet. Absolute Empfehlung!",pi:"p-pulver.png",prod:"Gourmet Vanillepulver",price:"CHF 31.50",date:"2. Mai 2026"},
  {img:"tst4.jpg",name:"Thomas B.",age:52,q:"Endlich Schweizer Qualität, der man vertraut. Herkunft und Aroma top.",pi:"p-set.png",prod:"The Vanilla 4-erlei",price:"CHF 32.50",date:"9. Februar 2026"},
  {img:"tst5.jpg",name:"Rita H.",age:61,q:"Verschenke die Sets regelmässig — kommt immer hervorragend an.",pi:"p-geschenk.png",prod:"Geschenkpackung",price:"CHF 32.50",date:"28. November 2025"},
- {img:"tst6.jpg",name:"David O.",age:31,q:"Sogar im Kaffee ein Genuss. Qualität schmeckt man einfach.",pi:"p-paste.png",prod:"Bourbon Vanillepaste",price:"CHF 22.00",date:"5. Januar 2026"}
+ {img:"tst6.jpg",name:"David O.",age:31,q:"Sogar im Kaffee ein Genuss. Qualität schmeckt man einfach.",pi:"p-paste.png",prod:"Vanillepaste im Glas",price:"CHF 22.00",date:"5. Januar 2026"}
 ];
 const tstEl=document.getElementById('tst');
 if(tstEl){tstEl.innerHTML=testimonials.map(t=>`
