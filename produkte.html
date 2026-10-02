@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Vanilla — Manufaktur (Redesign-Vorschau)</title>
+<title>Alle Produkte — The Vanilla</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -549,6 +549,53 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   .f-top{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+
+/* ---------- PRODUKTE (Übersicht) ---------- */
+.pl-head{padding-block:clamp(26px,3.4vw,48px) clamp(22px,2.6vw,36px)}
+.crumb{font-size:.8rem;color:var(--ink-soft);display:flex;gap:.6em;align-items:center;margin-bottom:clamp(16px,2vw,26px)}
+.crumb a{color:inherit;text-decoration:none}.crumb a:hover{color:var(--gold)}
+.pl-title{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.pl-title h1{font-family:Fraunces,serif;font-weight:400;font-size:clamp(2.6rem,5.4vw,4.8rem);line-height:1;margin:.12em 0 0;letter-spacing:-.01em}
+.pl-title h1 .gold-dot{color:var(--gold)}
+.pl-title p{color:var(--ink-soft);max-width:44ch;margin:.9em 0 0;font-size:1.02rem;line-height:1.55}
+.pl-tools{position:sticky;top:var(--head-h,76px);z-index:20;background:color-mix(in srgb,var(--cream-1) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-block:1px solid var(--line)}
+.pl-tools .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:14px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:-4px;padding:4px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font:inherit;font-size:.84rem;font-weight:600;padding:.72em 1.1em;border-radius:var(--r-pill);border:1px solid rgba(23,22,20,.16);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.chip small{font-weight:500;opacity:.55;margin-left:.35em}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip:focus-visible,.pl-sort select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pl-sort{display:flex;align-items:center;gap:10px;flex:none;font-size:.84rem;color:var(--ink-soft)}
+.pl-sort select{font:inherit;font-size:.84rem;font-weight:600;color:var(--ink);background:transparent;border:1px solid rgba(23,22,20,.16);border-radius:var(--r-pill);padding:.68em 2.4em .68em 1.1em;appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23171614' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9em center;background-size:14px}
+.pl-count{font-size:.84rem;color:var(--ink-soft);margin:clamp(22px,2.6vw,34px) 0 16px}
+.pl-main{padding-bottom:var(--sec-y)}
+.shopgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,24px);margin-inline:calc(var(--pad-hero) - var(--pad))}
+.shopgrid .pcard{display:flex;flex-direction:column}
+.shopgrid .pcard[hidden]{display:none}
+.shopgrid .pcard-media{aspect-ratio:1}
+.shopgrid .pcard-body>.btn{margin-top:auto}
+.shopgrid .pnote,.shopgrid .psizes{margin-bottom:12px}
+.shopgrid .btn{white-space:nowrap}
+@media(min-width:861px){.pl-sort .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+.pcard-media .pimg-alt{position:absolute;inset:0;opacity:0;transition:opacity .45s ease,transform .5s;z-index:1;pointer-events:none}
+.pcard:hover .pimg-alt{opacity:1}
+.badge-aktion{position:absolute;top:14px;left:14px;z-index:2;background:var(--gold);color:#fff;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.45em .9em;border-radius:var(--r-pill)}
+.psizes{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.psizes span{font-size:.7rem;font-weight:600;color:var(--ink-soft);border:1px solid var(--line);border-radius:var(--r-pill);padding:.3em .7em}
+.pl-empty{grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:60px 0}
+.pl-cta{margin-top:clamp(56px,6vw,90px);margin-inline:calc(var(--pad-hero) - var(--pad));background:var(--ink);color:#fff;border-radius:var(--r-xl);padding:clamp(34px,4.4vw,64px) clamp(26px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.pl-cta h2{font-family:Fraunces,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.6rem);margin:.2em 0 .25em;line-height:1.1}
+.pl-cta p{margin:0;color:rgba(255,255,255,.72);max-width:52ch}
+.pl-cta .eyebrow{color:var(--gold-bright)}
+@media(max-width:1160px){.shopgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1240px){.chips{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);padding-right:40px}}
+@media(max-width:860px){.shopgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pl-tools .wrap{flex-direction:column;align-items:stretch;gap:10px}.pl-sort{justify-content:space-between}}
+@media(max-width:520px){.shopgrid .pcard-body{padding:14px 14px 16px}.shopgrid .pcard-body h3{font-size:1rem}
+  .shopgrid .pnote,.shopgrid .psizes{display:none}.shopgrid .pcard-body h3{margin-bottom:12px}.shopgrid .btn{padding:.95em .4em;font-size:.76rem}}
 </style>
 </head>
 <body>
@@ -561,7 +608,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
       <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5zm5-1.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0zM7 4h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
       <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 2.8V9.2l4.6 2.8z"/></svg></a>
     </div>
-    <div class="tb-mid">Kostenloser Versand ab CHF 99 · <a href="#newsletter"><b>15 % Rabatt auf deine erste Bestellung</b></a></div>
+    <div class="tb-mid">Kostenloser Versand ab CHF 99 · <a href="index.html#newsletter"><b>15 % Rabatt auf deine erste Bestellung</b></a></div>
     <div class="tb-right">
       <span>Deutsch <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
       <span>Schweiz (CHF) <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -572,13 +619,13 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <!-- HEADER -->
 <header id="head">
   <div class="wrap nav">
-    <a class="brand" href="#"><img src="img/logo.png" alt="The Vanilla"></a>
+    <a class="brand" href="index.html"><img src="img/logo.png" alt="The Vanilla"></a>
     <nav class="menu">
       <a href="produkte.html">Shop <svg class="cap" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
       <a href="#">Vanillewissen</a>
-      <a href="#recipes">Rezepte</a>
-      <a href="#story">Über uns</a>
-      <a href="#gift">Geschenke</a>
+      <a href="index.html#recipes">Rezepte</a>
+      <a href="index.html#story">Über uns</a>
+      <a href="index.html#gift">Geschenke</a>
     </nav>
     <div class="nav-ico">
       <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
@@ -590,280 +637,49 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<main>
+<section class="pl-head">
   <div class="wrap">
-    <div class="hero-card reveal">
-      <img class="bg" id="heroImg" src="img/header-final.jpg" alt="Stephan Stemminger in der Vanille-Szene">
-      <div class="vrail">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8.5A3.5 3.5 0 1012 15.5 3.5 3.5 0 0012 8.5zm5-1.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0zM7 4h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 2.8V9.2l4.6 2.8z"/></svg></a>
-      </div>
-      <div class="hero-copy">
-        <span class="eyebrow">Echte Herkunft · Echter Geschmack · Echte Vanille</span>
-        <h1 class="serif">Die beste<br>Vanille der<br>Schweiz<span class="gold-dot">.</span></h1>
-        <p class="hero-sub">Handverlesen von <b>Stephan Stemminger</b>. Für alle, die das Besondere schmecken.</p>
-        <div class="hero-cta">
-          <a class="btn btn-gold" href="#bestseller"><span>Jetzt entdecken</span> <span class="arrow">→</span></a>
-          <a class="btn btn-outline" href="#story"><span>Mehr über uns</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- KUNDEN (echte Kundenlogos von the-vanilla.ch) -->
-<section class="kunden reveal" aria-label="Kunden">
-  <div class="wrap">
-    <div class="kunden-box">
-      <h2 class="kunden-title">Kunden die unsere Qualität lieben</h2>
-      <div class="kunden-logos">
-        <span class="kl"><img src="img/kunden/dunkel/razzia-fl.png" alt="razzia × FL" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/patisserie-schmid.png" alt="La Patisserie David Schmid" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/a-logo.png" alt="Kundenlogo A" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/vitznauerhof.png" alt="Vitznauerhof" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/wein-sein.png" alt="wein &amp; sein" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/hirschen.png" alt="Restaurant zum Hirschen" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/casino-bern.png" alt="Casino Bern" loading="lazy"></span>
-        <span class="kl"><img src="img/kunden/dunkel/ornellaia.png" alt="Ornellaia Ristorante" loading="lazy"></span>
-        <span class="kl wide"><img src="img/kunden/dunkel/kle.png" alt="KLE" loading="lazy"></span>
-        <span class="kl wide"><img src="img/kunden/dunkel/krone.png" alt="Krone Sihlbrugg" loading="lazy"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="sec shopsec" id="shop">
-  <img class="shop-bg" src="img/shop-bg.jpg" alt="">
-  <div class="wrap">
-    <div class="sec-head shop-head reveal">
+    <nav class="crumb" aria-label="Brotkrumen"><a href="index.html">Startseite</a><span>/</span><span>Shop</span></nav>
+    <div class="pl-title">
       <div>
         <span class="eyebrow">Sortiment</span>
-        <h2>Shop nach Kategorie</h2>
-        <p class="shop-sub">Entdecke unsere hochwertigen Vanilleprodukte – direkt von ausgewählten Bauern, mit Leidenschaft und in höchster Qualität.</p>
+        <h1>Alle Produkte<span class="gold-dot">.</span></h1>
       </div>
-      <a class="shop-allbtn" href="produkte.html">Alle Produkte ansehen <i class="arrow">→</i></a>
-    </div>
-    <div class="cats reveal">
-      <a class="cat" href="produkte.html#schoten">
-        <span class="cat-media2"><img src="img/cat-schoten.jpg" alt="Vanilleschoten"></span>
-        <div class="cat-inner">
-          <h3>Vanilleschoten</h3>
-          <p>Ganze Bourbon-Vanilleschoten in bester Qualität.</p>
-          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
-        </div>
-      </a>
-      <a class="cat" href="produkte.html#glas">
-        <span class="cat-media2"><img src="img/cat-paste.jpg" alt="Vanille im Glas"></span>
-        <div class="cat-inner">
-          <h3>Vanille im Glas</h3>
-          <p>Paste, Sirup &amp; mehr — intensiv und vielseitig.</p>
-          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
-        </div>
-      </a>
-      <a class="cat" href="produkte.html#pulver">
-        <span class="cat-media2"><img src="img/cat-pulver.jpg" alt="Vanillepulver"></span>
-        <div class="cat-inner">
-          <h3>Vanillepulver</h3>
-          <p>Fein gemahlen, für puren Vanillegeschmack.</p>
-          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
-        </div>
-      </a>
-      <a class="cat" href="geschenkset.html">
-        <span class="cat-media2"><img src="img/cat-geschenk.jpg" alt="Geschenksets"></span>
-        <div class="cat-inner">
-          <h3>Geschenksets</h3>
-          <p>Hochwertige Sets für besondere Genussmomente.</p>
-          <span class="cbtn">Jetzt entdecken <i class="arrow">→</i></span>
-        </div>
-      </a>
+      <p>Vanilleschoten, Paste, Pulver, Salz und Geschenke – von Hand abgefüllt in unserer Manufaktur in Schlieren.</p>
     </div>
   </div>
 </section>
 
-<!-- BESTSELLER -->
-<section class="bsec" id="bestseller">
-  <img class="bsec-bg" src="img/bestseller-bg.jpg" alt="">
-  <div class="wrap bsec-in">
-    <div class="bsec-hero reveal">
-      <div class="bsec-text">
-        <span class="eyebrow">Bestseller</span>
-        <h2 class="serif bsec-title">Unsere<br><span class="g">Bestseller</span></h2>
-        <p class="bsec-sub">Die beliebtesten Vanilleprodukte – ausgewählt für intensives Aroma, höchste Qualität und echten Vanillegenuss.</p>
-        <div class="bsec-cta">
-          <a class="btn btn-gold" href="produkte.html"><span>Alle Produkte ansehen</span> <span class="arrow">→</span></a>
-          <a class="bsec-video" href="#vanillin"><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span>Unsere Bestseller<br>im Video entdecken</span></a>
-        </div>
-        <div class="bsec-trust">
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M5 20c0-7.5 5-12.5 13.5-13.5C17.5 15 12.5 20 5 20z"/><path d="M5.5 19.5C9 16 12 14 15 12.8"/></svg><div><b>Höchste Qualität</b><span>Sorgfältig ausgewählte Vanille aus besten Anbaugebieten.</span></div></div>
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M3 11l5-3 4 2 4-2 5 3M3 11v4l5 3M21 11v4l-5 3M8 12l4 2 4-2"/></svg><div><b>Direkt von ausgewählten Bauern</b><span>Faire Partnerschaften und echte Herkunft.</span></div></div>
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Natürlich &amp; rein</b><span>Ohne künstliche Zusätze, 100% natürliche Vanille.</span></div></div>
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg><div><b>Von Vanille-Liebhabern geschätzt</b><span>Tausende zufriedene Kunden in der Schweiz.</span></div></div>
-        </div>
-      </div>
-      <div class="bsec-portrait"><img src="img/stephan-portrait.jpg" alt="Stephan – The Vanilla Manufaktur"></div>
-    </div>
-
-
-    <div class="prods reveal" id="prods"></div>
-  </div>
-</section>
-
-<!-- VANILLIN VIDEO SCROLL -->
-<section class="filmwrap" id="vanillin">
-  <div class="filmstick">
-    <canvas class="filmcanvas" id="filmCanvas"></canvas>
-    <div class="film-scrim"></div>
-    <div class="film-txt film-left" data-th="0.10">
-      <div class="film-stat serif">2,63&thinsp;<span>%</span></div>
-      <div class="film-stat-2 serif">Vanillin</div>
-      <p>Sensationeller Vanillin-Gehalt — der höchste je gemessene Wert (Stand 2022).</p>
-    </div>
-    <div class="film-txt film-right" data-th="0.42">
-      <h2 class="serif">Die beste<br>Vanille<br>der Schweiz<span class="gold-dot">.</span></h2>
-    </div>
-    <div class="film-txt film-bottom" data-th="0.70">
-      <a class="btn btn-gold film-cta" href="produkte.html"><span>Alle Produkte entdecken</span> <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- GIFT -->
-<section class="sec" id="gift">
+<div class="pl-tools">
   <div class="wrap">
-    <div class="gift reveal">
-      <img class="gift-bg" src="img/geschenkset-bg.jpg" alt="The Vanilla Geschenkset">
-      <div class="gift-in">
-        <span class="gift-eyebrow">Für besondere Momente</span>
-        <h2 class="serif">Das perfekte<br>Geschenk für<br>echte <span class="g">Geniesser.</span></h2>
-        <p>Edle Geschenksets mit feinster Vanille – liebevoll verpackt in unserer Manufaktur in Schlieren.</p>
-        <a class="btn btn-gold" href="geschenkset.html"><span>Geschenksets entdecken</span> <span class="arrow">→</span></a>
-      </div>
-    </div>
+    <div class="chips" role="tablist" aria-label="Kategorien"><button class="chip on" data-cat="alle" type="button">Alle<small>21</small></button><button class="chip" data-cat="schoten" type="button">Vanilleschoten<small>5</small></button><button class="chip" data-cat="glas" type="button">Paste & Sirup<small>3</small></button><button class="chip" data-cat="pulver" type="button">Pulver & Zucker<small>4</small></button><button class="chip" data-cat="salz" type="button">Salz & Würze<small>4</small></button><button class="chip" data-cat="geschenk" type="button">Geschenke<small>2</small></button><button class="chip" data-cat="merch" type="button">Bekleidung<small>3</small></button></div>
+    <label class="pl-sort"><span class="lbl">Sortieren</span>
+      <select id="sort">
+        <option value="empf">Empfohlen</option>
+        <option value="auf">Preis aufsteigend</option>
+        <option value="ab">Preis absteigend</option>
+        <option value="az">Name A–Z</option>
+      </select>
+    </label>
   </div>
-</section>
+</div>
 
-
-<!-- COMPARISON -->
-<section class="cmpsec reveal" id="vergleich">
-  <img class="bgimg" src="img/header-vanille.jpg" alt="">
-  <div class="scrim"></div>
-  <div class="cmp-photo" aria-hidden="true"><img src="img/pod-vanilla.png" alt="Frische Vanilleschote, aufgeschnitten mit Vanillemark, und Vanilleblüte"></div>
-  <div class="cmp-in">
-    <div class="cmp-head">
-      <span class="eyebrow">Der Unterschied</span>
-      <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
-      <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
-    </div>
-    <div class="ctable">
-      <div class="glow"></div>
-      <div class="ccrit"></div>
-      <div class="chdr tv col-tv"><img class="chdr-logo" src="img/logo.png" alt="The Vanilla"></div>
-      <div class="chdr other">Herkömmliche<br>Vanille</div>
-
-      <div class="ccrit">Vanillin-Gehalt</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>bis 2,63 %</small></div>
-      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>~1,4 %</small></div>
-
-      <div class="ccrit">Aroma</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>natürlich &amp; 100 % echt</small></div>
-      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>künstlich verstärkt</small></div>
-
-      <div class="ccrit">Herkunft</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>direkt von der Farm</small></div>
-      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>anonyme Zwischenhändler</small></div>
-
-      <div class="ccrit">Verarbeitung</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>handverlesen in Schlieren&nbsp;<span class="flag">🇨🇭</span></small></div>
-      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>industriell</small></div>
-
-      <div class="ccrit">Fairness</div>
-      <div class="cell yes col-tv"><svg class="ic ic-yes" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><small>fair gehandelt</small></div>
-      <div class="cell no col-other"><svg class="ic ic-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><small>unklar</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- RECIPES full-bleed -->
-<section class="sec" id="recipes">
+<section class="pl-main">
   <div class="wrap">
-    <div class="recipes">
-      <img class="recipes-bg" src="img/rezepte-bg.jpg" alt="">
-      <div class="recipes-inner">
-        <span class="eyebrow">Inspiration</span>
-        <h2 class="serif">Rezepte, die begeistern</h2>
-        <p>Von der cremigen Crème brûlée bis zum Vanille-Gipfeli — entdecken Sie, was echte Vanille möglich macht.</p>
-        <a class="btn btn-dark" href="#"><span>Alle Rezepte entdecken</span> <span class="arrow">→</span></a>
+    <div class="pl-count" id="count" aria-live="polite"></div>
+    <div class="shopgrid" id="grid"></div>
+    <div class="pl-cta">
+      <div>
+        <span class="eyebrow">Für Unternehmen</span>
+        <h2>Geschenksets ab 10 Stück.</h2>
+        <p>Für Kunden, Mitarbeitende und Partner – mit Mengenrabatt und auf Wunsch mit eurem Logo.</p>
       </div>
+      <a class="btn btn-gold" href="geschenkset.html"><span>Firmengeschenke ansehen</span> <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
-
-<!-- VOICES -->
-<section class="sec" id="story" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center reveal"><div><span class="eyebrow">★★★★★ 4,9 · über 2'000 Bewertungen</span><h2>Echte Stimmen. Echter Genuss.</h2><p>Was unsere Kundinnen und Kunden sagen.</p></div></div>
-    <div class="tst reveal" id="tst"></div>
-    <div class="tst-ctrl reveal"><button class="tst-arrow" data-dir="-1" aria-label="Vorherige Bewertungen">&#8249;</button><button class="tst-arrow" data-dir="1" aria-label="Weitere Bewertungen">&#8250;</button></div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec" id="faq" style="padding-top:0">
-  <div class="wrap faq reveal">
-    <div class="faq-head">
-      <span class="eyebrow-b">Häufige Fragen</span>
-      <h2 class="serif">Gut zu wissen</h2>
-      <p>Die Fragen, die uns am häufigsten gestellt werden — kurz und ehrlich beantwortet.</p>
-      <a class="btn btn-outline" href="#"><span>Noch Fragen? Kontakt</span> <span class="arrow">→</span></a>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Warum ist eure Vanille teurer als aus dem Supermarkt?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Weil echte Qualität ihren Preis hat: Wir kaufen direkt bei unseren Partnerfarmen zu fairen Preisen, verzichten auf Zwischenhändler und selektieren jede Schote von Hand. Das Ergebnis ist ein Vanillin-Gehalt von bis zu 2,63 % — rund doppelt so viel wie im Branchenschnitt.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Wie bewahre ich Vanilleschoten richtig auf?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Am besten luftdicht, kühl und dunkel — zum Beispiel im mitgelieferten Glas. So bleiben die Schoten monatelang aromatisch und geschmeidig. Bitte nicht im Kühlschrank lagern, dort können sie austrocknen und schimmeln.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Woher stammt eure Vanille?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Aus drei Herkünften: Planifolia (Madagaskar), Tahitensis und die seltene Pompona. Wir kennen jede Farm und jede Familie persönlich und besuchen sie regelmässig — abgefüllt und veredelt wird alles in unserer Manufaktur in Schlieren bei Zürich.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Was bedeutet der Vanillin-Gehalt von 2,63 %?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Vanillin ist der wichtigste Aromastoff der Vanille. 2,63 % ist der höchste je bei uns gemessene Wert — deutlich über dem Branchenschnitt von rund 1,4 %. Kurz gesagt: intensiveres Aroma, weniger Schote pro Rezept nötig.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Wie verwende ich Vanillepaste und -pulver?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Die Paste ist ideal für Cremes, Glacé und Teige — ein Teelöffel ersetzt etwa eine Schote. Das Pulver eignet sich perfekt zum Backen und für Getränke, da es sich fein verteilt und schön dunkel färbt.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Wie schnell wird geliefert?<span class="faq-ico"></span></summary>
-        <div class="faq-a">Bestellungen versenden wir werktags innerhalb von 24 Stunden aus Schlieren. Ab CHF 99 Bestellwert ist der Versand innerhalb der Schweiz kostenlos.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="sec" id="newsletter" style="padding-top:0;padding-bottom:clamp(30px,4vw,56px);scroll-margin-top:120px">
-  <div class="nlx reveal">
-    <img class="nlx-bg" src="img/newsletter-stephan.jpg" alt="Stephan in der Vanille-Manufaktur">
-    <div class="nlx-in">
-      <span class="nlx-eyebrow">Exklusiv für Sie</span>
-      <h2 class="serif">Rezepte, Neuheiten<br>&amp; <span class="g">exklusive Angebote</span></h2>
-      <p class="nlx-sub">Erhalten Sie besondere Vanille-Rezepte, Hintergrundgeschichten und limitierte Angebote – direkt in Ihr Postfach.</p>
-      <form class="nlx-form" onsubmit="return false">
-        <input type="email" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail">
-        <button type="submit"><span>10&nbsp;% sichern</span> <span class="arrow">→</span></button>
-      </form>
-      <p class="nlx-consent"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Ich stimme zu, regelmässig den Newsletter zu erhalten. Abmeldung jederzeit möglich.</p>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
   <img class="fbg" src="img/footer-bg.jpg" alt="">
@@ -892,154 +708,57 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
-const products=[
- {n:"Bourbon Vanilleschoten",note:"20–21 cm · 100% Bourbon",r:"4,9",c:"237",p:"36.00",pre:"ab ",img:"cat-schoten.jpg",vid:"vid-schoten.mp4",new:1},
- {n:"Vanillepaste im Glas",note:"100 g · cremig & vielseitig",r:"4,8",c:"156",p:"22.00",pre:"",img:"cat-paste.jpg",vid:"vid-paste.mp4",new:0},
- {n:"Gourmet Vanillepulver",note:"25 g · fein gemahlen",r:"4,9",c:"204",p:"31.50",pre:"",img:"cat-pulver.jpg",vid:"vid-pulver.mp4",new:1},
- {n:"The Vanilla 4-erlei",note:"Sortiment · das Geschenk-Set",r:"4,9",c:"142",p:"32.50",pre:"",img:"cat-geschenk.jpg",vid:"vid-4erlei.mp4",link:"geschenkset.html",new:0},
- {n:"Geschenkpackung",note:"Zum Verschenken",r:"4,8",c:"98",p:"32.50",pre:"",img:"geschenkset-bg.jpg",vid:"vid-geschenk.mp4",link:"geschenkset.html",new:1}
-];
-document.getElementById('prods').innerHTML=products.map(p=>`
- <article class="pcard">
+// Echte Produktdaten (Namen, Preise, Grössen, Verfügbarkeit) aus dem Live-Shop the-vanilla.ch
+const items=[{"h": "planifolia", "cat": "schoten", "n": "Planifolia Vanilleschoten", "note": "20–21 cm", "p": 36.0, "pre": "ab ", "sizes": ["50 g", "100 g"], "avail": true, "i": 0, "img": "cat-schoten.jpg", "staged": true, "alt": "", "vid": "vid-schoten.mp4", "link": "produkt.html?p=planifolia", "badge": "", "new": 0}, {"h": "planifolia-extra", "cat": "schoten", "n": "Planifolia Extra Vanilleschoten", "note": "21–23 cm", "p": 39.5, "pre": "ab ", "sizes": ["50 g", "100 g", "250 g", "500 g", "1 kg"], "avail": true, "i": 1, "img": "shop/planifolia-extra.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=planifolia-extra", "badge": "", "new": 0}, {"h": "jumbofinger", "cat": "schoten", "n": "Pompona „Jumbo Finger“", "note": "24–30 cm Vanilleschoten", "p": 21.0, "pre": "", "sizes": [], "avail": true, "i": 2, "img": "shop/jumbofinger.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=jumbofinger", "badge": "", "new": 0}, {"h": "vanille-tahitensis-aktion-frisch-aus-madagaskar", "cat": "schoten", "n": "Vanille Tahitensis", "note": "Frisch aus Madagaskar", "p": 27.5, "pre": "ab ", "sizes": ["50 g", "1 kg"], "avail": true, "i": 3, "img": "shop/vanille-tahitensis-aktion-frisch-aus-madagaskar.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanille-tahitensis-aktion-frisch-aus-madagaskar", "badge": "Aktion", "new": 0}, {"h": "vanilleschoten-extra-21-23cm-im-reagenzglas", "cat": "schoten", "n": "Vanilleschoten „Extra“ im Reagenzglas", "note": "21–23 cm", "p": 14.0, "pre": "", "sizes": [], "avail": true, "i": 4, "img": "shop/vanilleschoten-extra-21-23cm-im-reagenzglas.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanilleschoten-extra-21-23cm-im-reagenzglas", "badge": "", "new": 0}, {"h": "vanillepaste", "cat": "glas", "n": "Vanillepaste im Glas", "note": "Auch für Kinder geeignet", "p": 22.0, "pre": "", "sizes": ["100 g"], "avail": true, "i": 5, "img": "cat-paste.jpg", "staged": true, "alt": "", "vid": "vid-paste.mp4", "link": "produkt.html?p=vanillepaste", "badge": "", "new": 0}, {"h": "vanillepaste-im-mini-glas-20g", "cat": "glas", "n": "Vanillepaste Mini", "note": "Mini-Glas · auch für Kinder geeignet", "p": 7.0, "pre": "", "sizes": ["20 g"], "avail": true, "i": 6, "img": "shop/vanillepaste-im-mini-glas-20g.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanillepaste-im-mini-glas-20g", "badge": "", "new": 0}, {"h": "vanille-sirup", "cat": "glas", "n": "Vanille-Sirup", "note": "Flasche", "p": 18.0, "pre": "", "sizes": ["400 ml"], "avail": true, "i": 7, "img": "shop/vanille-sirup.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanille-sirup", "badge": "", "new": 0}, {"h": "vanillepulver", "cat": "pulver", "n": "Gourmet Vanillepulver", "note": "Fein gemahlen", "p": 31.5, "pre": "ab ", "sizes": ["25 g", "1 kg"], "avail": true, "i": 8, "img": "cat-pulver.jpg", "staged": true, "alt": "", "vid": "vid-pulver.mp4", "link": "produkt.html?p=vanillepulver", "badge": "", "new": 0}, {"h": "vanillepulver-mini", "cat": "pulver", "n": "Gourmet Vanillepulver Mini", "note": "Mini-Glas", "p": 15.0, "pre": "", "sizes": ["8 g"], "avail": true, "i": 9, "img": "shop/vanillepulver-mini.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanillepulver-mini", "badge": "", "new": 0}, {"h": "vanillezucker", "cat": "pulver", "n": "Zucker mit Vanille", "note": "Dose oder Vakuumbeutel", "p": 10.5, "pre": "ab ", "sizes": ["80 g Dose", "1 kg Beutel"], "avail": true, "i": 10, "img": "shop/vanillezucker.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanillezucker", "badge": "", "new": 0}, {"h": "vanillezucker-mini", "cat": "pulver", "n": "Zucker mit Vanille Mini", "note": "Mini-Glas", "p": 5.0, "pre": "", "sizes": ["20 g"], "avail": true, "i": 11, "img": "shop/vanillezucker-mini.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanillezucker-mini", "badge": "", "new": 0}, {"h": "vanille-salz-feine-kornung", "cat": "salz", "n": "Vanille-Salz fein", "note": "Meersalz mit 5,4 % Vanille", "p": 9.5, "pre": "ab ", "sizes": ["20 g", "100 g", "1 kg"], "avail": true, "i": 12, "img": "produkte/salz-fein-1.jpg", "staged": true, "alt": "produkte/salz-fein-2.jpg", "vid": "", "link": "produkt.html?p=vanille-salz-feine-kornung", "badge": "", "new": 1}, {"h": "vanille-salz-grob", "cat": "salz", "n": "Vanille-Salz grob", "note": "Grobe Körnung", "p": 9.5, "pre": "ab ", "sizes": ["20 g", "100 g", "1 kg"], "avail": true, "i": 13, "img": "shop/vanille-salz-grob.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=vanille-salz-grob", "badge": "", "new": 0}, {"h": "schwarze-vanille-wurze-fein", "cat": "salz", "n": "Schwarze Vanille-Würze fein", "note": "Feine Körnung", "p": 9.5, "pre": "ab ", "sizes": ["20 g", "100 g", "1 kg"], "avail": true, "i": 14, "img": "shop/schwarze-vanille-wurze-fein.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=schwarze-vanille-wurze-fein", "badge": "", "new": 0}, {"h": "schwarze-vanille-wurze-grobe-kornung", "cat": "salz", "n": "Schwarze Vanille-Würze grob", "note": "Grobe Körnung", "p": 9.5, "pre": "ab ", "sizes": ["20 g", "100 g", "1 kg"], "avail": true, "i": 15, "img": "shop/schwarze-vanille-wurze-grobe-kornung.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=schwarze-vanille-wurze-grobe-kornung", "badge": "", "new": 0}, {"h": "the-vanilla-4-erlei", "cat": "geschenk", "n": "The Vanilla 4-erlei", "note": "Sortiment in der Geschenkbox", "p": 32.5, "pre": "", "sizes": [], "avail": true, "i": 16, "img": "shop/the-vanilla-4-erlei.jpg", "staged": false, "alt": "", "vid": "", "link": "geschenkset.html", "badge": "", "new": 0}, {"h": "geschenkpackung", "cat": "geschenk", "n": "Geschenkpackung", "note": "Sortiment 1 oder 2", "p": 32.5, "pre": "", "sizes": ["Sortiment 1", "Sortiment 2"], "avail": true, "i": 17, "img": "cat-geschenk.jpg", "staged": true, "alt": "", "vid": "vid-geschenk.mp4", "link": "geschenkset.html", "badge": "", "new": 0}, {"h": "the-vanilla-hoodie", "cat": "merch", "n": "The Vanilla Hoodie", "note": "Grössen XS – 6XL", "p": 99.9, "pre": "", "sizes": [], "avail": true, "i": 18, "img": "shop/the-vanilla-hoodie.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=the-vanilla-hoodie", "badge": "", "new": 0}, {"h": "softshell-jacke-damen", "cat": "merch", "n": "Softshell Jacke Damen", "note": "Grössen XS – 6XL", "p": 149.9, "pre": "", "sizes": [], "avail": true, "i": 19, "img": "shop/softshell-jacke-damen.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=softshell-jacke-damen", "badge": "", "new": 0}, {"h": "softshell-jacke-herren", "cat": "merch", "n": "Softshell Jacke Herren", "note": "Grössen XS – 6XL", "p": 149.9, "pre": "", "sizes": [], "avail": true, "i": 20, "img": "shop/softshell-jacke-herren.jpg", "staged": false, "alt": "", "vid": "", "link": "produkt.html?p=softshell-jacke-herren", "badge": "", "new": 0}];
+const chf=n=>n.toLocaleString('de-CH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const grid=document.getElementById('grid'), count=document.getElementById('count'), sortEl=document.getElementById('sort');
+grid.innerHTML=items.map(p=>`
+ <article class="pcard" data-cat="${p.cat}" data-i="${p.i}" data-p="${p.p}" data-n="${p.n}">
    <div class="pcard-media">
-     ${p.new?'<span class="badge-new">Neu</span>':''}
+     ${p.badge?`<span class="badge-aktion">${p.badge}</span>`:(p.new?'<span class="badge-new">Neu</span>':'')}
      <div class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg></div>
-     <a class="pcard-link" href="${p.link||'produkt.html'}" aria-label="${p.n} ansehen"><img src="img/${p.img}" alt="${p.n}" loading="lazy"></a>
+     <a class="pcard-link" href="${p.link}" aria-label="${p.n} ansehen"><img src="img/${p.img}" alt="${p.n}" loading="lazy"></a>
+     ${p.alt?`<img class="pimg-alt" src="img/${p.alt}" alt="" loading="lazy">`:''}
      ${p.vid?`<video class="pcard-vid" muted loop playsinline preload="none" poster="img/${p.img}"><source src="img/vid/${p.vid}" type="video/mp4"></video>`:''}
    </div>
    <div class="pcard-body">
-     <div class="pprice"><small>${p.pre}</small>CHF ${p.p}</div>
-     <h3><a href="${p.link||'produkt.html'}">${p.n}</a></h3>
-     <div class="rating"><span class="stars">★★★★★</span> ${p.r} <span>(${p.c})</span></div>
+     <div class="pprice"><small>${p.pre}</small>CHF ${chf(p.p)}</div>
+     <h3><a href="${p.link}">${p.n}</a></h3>
      <div class="pnote">${p.note}</div>
+     ${p.sizes.length?`<div class="psizes">${p.sizes.map(s=>`<span>${s}</span>`).join('')}</div>`:''}
      <button class="btn btn-outline btn-block"><span>In den Warenkorb</span></button>
-     <div class="pavail"><span class="dot"></span> Sofort ab Lager lieferbar</div>
-     <div class="pattr" title="Vegan · Glutenfrei">
-       <svg viewBox="0 0 24 24"><path d="M12 3c5 2 7 6 7 10a7 7 0 01-14 0c0-4 2-8 7-10z"/></svg>
-       <svg viewBox="0 0 24 24"><path d="M12 2v20M8 6l4 3 4-3M7 11l5 3 5-3"/></svg>
-     </div>
+     <div class="pavail"><span class="dot"></span> ${p.avail?'Verfügbar':'Zurzeit ausverkauft'}</div>
    </div>
  </article>`).join('');
-
-document.getElementById('prods').addEventListener('click',e=>{const h=e.target.closest('.heart');if(h)h.classList.toggle('on')});
-// Hover: kurzes Produktvideo abspielen
-document.querySelectorAll('#prods .pcard').forEach(card=>{
-  const v=card.querySelector('.pcard-vid'); if(!v)return;
-  let loaded=false;
-  card.addEventListener('pointerenter',()=>{ if(!loaded){v.load();loaded=true;} try{v.currentTime=0;const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{});}catch(_){ } });
-  card.addEventListener('pointerleave',()=>{ try{v.pause();v.currentTime=0;}catch(_){ } });
+const cards=[...grid.children];
+let cat='alle';
+function apply(){
+  const s=sortEl.value;
+  const cmp={empf:(a,b)=>a.dataset.i-b.dataset.i,auf:(a,b)=>a.dataset.p-b.dataset.p||a.dataset.i-b.dataset.i,ab:(a,b)=>b.dataset.p-a.dataset.p||a.dataset.i-b.dataset.i,az:(a,b)=>a.dataset.n.localeCompare(b.dataset.n,'de')}[s];
+  cards.sort(cmp).forEach(c=>{c.hidden=!(cat==='alle'||c.dataset.cat===cat);grid.appendChild(c)});
+  const n=cards.filter(c=>!c.hidden).length;
+  count.textContent=n+(n===1?' Produkt':' Produkte');
+  document.querySelectorAll('.chip').forEach(c=>{const on=c.dataset.cat===cat;c.classList.toggle('on',on);c.setAttribute('aria-selected',on)});
+}
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{cat=c.dataset.cat;history.replaceState(null,'',cat==='alle'?location.pathname:'#'+cat);apply()}));
+sortEl.addEventListener('change',apply);
+const fromHash=location.hash.slice(1); if(document.querySelector(`.chip[data-cat="${fromHash}"]`)) cat=fromHash;
+apply();
+grid.addEventListener('click',e=>{const h=e.target.closest('.heart');if(h)h.classList.toggle('on')});
+// Hover: Produktvideo bzw. zweites Foto
+cards.forEach(card=>{
+  const v=card.querySelector('.pcard-vid'); if(!v)return; let loaded=false;
+  card.addEventListener('pointerenter',()=>{ if(!loaded){v.load();loaded=true;} try{v.currentTime=0;const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{});}catch(_){} });
+  card.addEventListener('pointerleave',()=>{ try{v.pause();v.currentTime=0;}catch(_){} });
 });
 const head=document.getElementById('head');
-addEventListener('scroll',()=>{head.classList.toggle('scrolled',scrollY>30);
-  const img=document.getElementById('heroImg');if(img)img.style.transform='scale(1.05) translateY('+(scrollY*0.03)+'px)';});
-const io=new IntersectionObserver((es)=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
+document.documentElement.style.setProperty('--head-h',head.offsetHeight+'px');
+addEventListener('scroll',()=>head.classList.toggle('scrolled',scrollY>30),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// Vanillin scroll section: frame-by-frame video scrub driven by scroll
-const film=document.getElementById('vanillin');
-const canvas=document.getElementById('filmCanvas');
-if(film&&canvas){
-  const ctx=canvas.getContext('2d');
-  const FRAMES=151, PAD=3, BASE='media/seq/f';
-  const imgs=new Array(FRAMES);
-  let curIdx=-1, targetP=0, rafPending=false;
-  for(let i=0;i<FRAMES;i++){
-    const im=new Image();
-    im.onload=()=>{ if(i===0) draw(0); };
-    im.src=BASE+String(i+1).padStart(PAD,'0')+'.jpg';
-    imgs[i]=im;
-  }
-  function resize(){
-    const dpr=Math.min(devicePixelRatio||1,2);
-    canvas.width=Math.max(1,Math.round(canvas.clientWidth*dpr));
-    canvas.height=Math.max(1,Math.round(canvas.clientHeight*dpr));
-    const idx=curIdx<0?0:curIdx; curIdx=-1; draw(idx);
-  }
-  function draw(idx){
-    const im=imgs[idx];
-    if(!im||!im.complete||!im.naturalWidth) return;
-    if(idx===curIdx) return;
-    const cw=canvas.width,ch=canvas.height,iw=im.naturalWidth,ih=im.naturalHeight;
-    const s=Math.max(cw/iw,ch/ih), w=iw*s, h=ih*s;
-    ctx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);
-    curIdx=idx;
-  }
-  const txts=[...film.querySelectorAll('.film-txt')];
-  function apply(){
-    rafPending=false;
-    draw(Math.min(FRAMES-1,Math.max(0,Math.round(targetP*(FRAMES-1)))));
-    txts.forEach(t=>t.classList.toggle('in', targetP>=parseFloat(t.dataset.th||0)));
-  }
-  function onScroll(){
-    const r=film.getBoundingClientRect();
-    const total=film.offsetHeight-innerHeight;
-    targetP = total>0 ? Math.min(1,Math.max(0,-r.top/total)) : 0;
-    if(!rafPending){ rafPending=true; requestAnimationFrame(apply); }
-  }
-  addEventListener('scroll',onScroll,{passive:true});
-  addEventListener('resize',()=>{ resize(); onScroll(); });
-  resize(); onScroll();
-}
-
-// Testimonials
-const testimonials=[
- {img:"tst1.jpg",name:"Sarah M.",age:34,q:"Die aromatischste Vanille, die ich je hatte. Meine Desserts schmecken plötzlich nach mehr.",pi:"p-paste.png",prod:"Bourbon Vanillepaste",price:"CHF 22.00",date:"20. März 2026"},
- {img:"tst2.jpg",name:"Marco R.",age:45,q:"Als Hobbybäcker merke ich den Unterschied sofort — voll, echt, kein Kunstaroma.",pi:"p-schoten.png",prod:"Bourbon Vanilleschoten",price:"ab CHF 36.00",date:"14. Juni 2026"},
- {img:"tst3.jpg",name:"Lena K.",age:28,q:"Ein Teelöffel und der ganze Teig duftet. Absolute Empfehlung!",pi:"p-pulver.png",prod:"Gourmet Vanillepulver",price:"CHF 31.50",date:"2. Mai 2026"},
- {img:"tst4.jpg",name:"Thomas B.",age:52,q:"Endlich Schweizer Qualität, der man vertraut. Herkunft und Aroma top.",pi:"p-set.png",prod:"The Vanilla 4-erlei",price:"CHF 32.50",date:"9. Februar 2026"},
- {img:"tst5.jpg",name:"Rita H.",age:61,q:"Verschenke die Sets regelmässig — kommt immer hervorragend an.",pi:"p-geschenk.png",prod:"Geschenkpackung",price:"CHF 32.50",date:"28. November 2025"},
- {img:"tst6.jpg",name:"David O.",age:31,q:"Sogar im Kaffee ein Genuss. Qualität schmeckt man einfach.",pi:"p-paste.png",prod:"Bourbon Vanillepaste",price:"CHF 22.00",date:"5. Januar 2026"}
-];
-const tstEl=document.getElementById('tst');
-if(tstEl){tstEl.innerHTML=testimonials.map(t=>`
- <article class="tcard">
-   <div class="tphoto"><img src="img/${t.img}" alt="${t.name}" loading="lazy" draggable="false"></div>
-   <div class="tbody">
-     <div class="tmeta"><span class="stars">★★★★★</span><span class="tname">${t.name}, ${t.age} <svg class="verif" viewBox="0 0 24 24"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3.2 16l1-2.8-1-2.8 2.4-1.8 1-2.8 3 .2z"/><path d="M8.5 12l2.2 2.2 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.6"/></svg></span></div>
-     <p class="tquote">„${t.q}"</p>
-     <div class="tprod"><img class="pi" src="img/${t.pi}" alt="" draggable="false"><div class="pt"><b>${t.prod}</b><span>${t.price}</span></div><span class="date">Gekauft am<br>${t.date}</span></div>
-   </div>
- </article>`).join('');}
-
-// testimonials slider arrows (swipe on touch, buttons on desktop)
-document.querySelectorAll('.tst-arrow').forEach(b=>b.addEventListener('click',()=>{
-  if(!tstEl)return;const card=tstEl.querySelector('.tcard');const step=card?card.offsetWidth+22:320;
-  tstEl.scrollBy({left:(parseInt(b.dataset.dir,10))*step,behavior:'smooth'});
-}));
-// drag-to-scroll (mit Maus seitlich ziehen – always available)
-if(tstEl){
-  let down=false,moved=false,sx=0,sl=0;
-  tstEl.style.cursor='grab';
-  // natives Bild-/Element-Ziehen komplett unterbinden (sonst blockiert es das Scroll-Dragging)
-  tstEl.addEventListener('dragstart',e=>e.preventDefault());
-  tstEl.addEventListener('pointerdown',e=>{
-    if(e.pointerType==='touch'||e.button!==0)return;
-    down=true;moved=false;sx=e.clientX;sl=tstEl.scrollLeft;
-    try{tstEl.setPointerCapture(e.pointerId);}catch(_){}
-    tstEl.style.cursor='grabbing';tstEl.style.scrollSnapType='none';tstEl.style.userSelect='none';
-    e.preventDefault();
-  });
-  tstEl.addEventListener('pointermove',e=>{
-    if(!down)return;
-    const dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;
-    tstEl.scrollLeft=sl-dx;e.preventDefault();
-  });
-  const endDrag=()=>{if(!down)return;down=false;tstEl.style.cursor='grab';tstEl.style.userSelect='';tstEl.style.scrollSnapType='';};
-  tstEl.addEventListener('pointerup',endDrag);
-  tstEl.addEventListener('pointercancel',endDrag);
-  tstEl.addEventListener('mouseleave',endDrag);
-  tstEl.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();}},true);
-}
-
-// Smooth scroll site-wide (Lenis) — inertial, makes the frame-scrub fluid
 if(window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const lenis=new Lenis({ duration:1.2, easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)), smoothWheel:true, touchMultiplier:1.6 });
-  function lraf(t){ lenis.raf(t); requestAnimationFrame(lraf); }
-  requestAnimationFrame(lraf);
-  // in-page anchor links scroll smoothly too
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{ const id=a.getAttribute('href'); if(id&&id.length>1){ const el=document.querySelector(id); if(el){ e.preventDefault(); lenis.scrollTo(el,{offset:-90}); } } });
-  });
+  const lenis=new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true,touchMultiplier:1.6});
+  (function lraf(t){lenis.raf(t);requestAnimationFrame(lraf)})(0);
 }
 </script>
 </body>
