@@ -376,9 +376,10 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .recipes img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .recipes::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 45%,rgba(251,246,236,.86),rgba(251,246,236,.62))}
 .recipes-inner{padding:40px;max-width:620px}
-.recipes .eyebrow{color:var(--gold)}
-.recipes h2{font-size:clamp(2.6rem,6vw,5rem);margin:.15em 0 .5em;line-height:1}
-.recipes p{color:var(--ink-2);margin:0 0 1.8em;font-size:1.05rem}
+.recipes .eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold)}
+.recipes .eyebrow::before,.recipes .eyebrow::after{content:"";width:44px;height:1px;background:currentColor;opacity:.55}
+.recipes h2{font-size:clamp(2.6rem,6vw,5rem);margin:.15em 0 .5em;line-height:1.02}
+.recipes p{color:var(--ink-2);margin:0 0 1.8em;font-size:1.05rem;max-width:46ch;margin-inline:auto}
 
 /* voices */
 .voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -779,7 +780,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <section class="sec" id="recipes" style="padding-top:0">
   <div class="wrap">
     <div class="recipes reveal">
-      <img src="img/recipes.jpg" alt="">
+      <img src="img/rezepte-bg.jpg" alt="">
       <div class="recipes-inner">
         <span class="eyebrow">Inspiration</span>
         <h2 class="serif">Rezepte, die begeistern</h2>
