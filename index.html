@@ -14,7 +14,7 @@
   --gold:#A9821F; --gold-2:#C09A34; --gold-bright:#D8B25C;  /* brand gold (from logo) */
   --green:#4B7A44; --green-2:#3C6537;                       /* NEU badge, like reference */
   --line:rgba(23,22,20,.12); --line-2:rgba(255,255,255,.16);
-  --maxw:none; --pad:clamp(38px,7vw,90px);
+  --maxw:none; --pad:clamp(40px,12vw,162px); --pad-hero:clamp(38px,7vw,90px);
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
@@ -94,6 +94,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 
 /* HERO full-bleed rounded */
 .hero{padding-top:14px}
+.hero>.wrap{padding-inline:var(--pad-hero)}
 .hero-card{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:min(84vh,780px);display:flex;align-items:center;isolation:isolate}
 .hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform;border-radius:inherit;transform:scale(1.05)}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
