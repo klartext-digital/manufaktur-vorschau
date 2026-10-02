@@ -14,7 +14,7 @@
   --gold:#A9821F; --gold-2:#C09A34; --gold-bright:#D8B25C;  /* brand gold (from logo) */
   --green:#4B7A44; --green-2:#3C6537;                       /* NEU badge, like reference */
   --line:rgba(23,22,20,.12); --line-2:rgba(255,255,255,.16);
-  --maxw:none; --pad-hero:clamp(38px,7vw,90px); --hero-in:clamp(30px,5vw,72px); --pad:calc(var(--pad-hero) + var(--hero-in));
+  --maxw:none; --pad-hero:clamp(38px,7vw,90px); --hero-in:clamp(40px,7.8vw,112px); --pad:calc(var(--pad-hero) + var(--hero-in));
   --r:16px; --r-md:22px; --r-lg:30px; --r-xl:38px; --r-pill:100px;
   --sec-y:clamp(64px,8vw,132px);
   --title:clamp(2.3rem,4.6vw,4.1rem);
@@ -117,7 +117,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .hero-card img.bg,.hero-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% center;z-index:-2;will-change:transform;border-radius:inherit;transform:scale(1.05)}
 .hero-card::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,rgba(12,9,6,.9) 0%,rgba(12,9,6,.66) 34%,rgba(12,9,6,.18) 58%,rgba(12,9,6,0) 78%)}
-.hero-copy{padding:var(--hero-in);max-width:620px;color:#fff}
+.hero-copy{padding:clamp(30px,5vw,72px) var(--hero-in);max-width:calc(476px + 2*var(--hero-in));color:#fff}
 .hero-copy .eyebrow{margin-bottom:18px;color:var(--gold-bright)}
 .hero h1{font-size:clamp(2.8rem,5.6vw,5.4rem);line-height:1.02;margin:0 0 .45em;color:#fff}
 .hero-sub{font-size:clamp(1.02rem,1.4vw,1.2rem);color:rgba(255,255,255,.9);max-width:38ch;margin:0 0 1.9em}
@@ -259,7 +259,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 .gift-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2}
 .gift::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,rgba(28,18,10,.78) 0%,rgba(28,18,10,.55) 30%,rgba(28,18,10,.18) 52%,transparent 66%)}
-.gift-in{max-width:560px;padding:clamp(30px,4vw,64px);padding-left:calc(var(--pad) - var(--pad-hero))}
+.gift-in{max-width:calc(488px + var(--hero-in));padding:clamp(30px,4vw,64px);padding-left:calc(var(--pad) - var(--pad-hero))}
 .gift-eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold-bright);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
 .gift-eyebrow::before{content:"";width:46px;height:1px;background:currentColor;opacity:.55}
 .gift h2{font-size:clamp(2rem,3.4vw,3.1rem);line-height:1.08;margin:0 0 .4em;color:#FBF6EC}
@@ -562,6 +562,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   .f-top{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+@media(max-width:340px){.brand img{height:30px}.nav-ico{gap:11px}}
 
 /* ---------- PRODUKTE (Übersicht) ---------- */
 .pl-head{padding-block:clamp(26px,3.4vw,48px) clamp(22px,2.6vw,36px)}

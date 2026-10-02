@@ -14,7 +14,7 @@
   --gold:#A9821F;--gold-2:#C09A34;--gold-bright:#D8B25C;--green:#4B7A44;--amber:#B4772A;--red:#B4472F;
   --line:rgba(23,22,20,.12);--line-2:rgba(255,255,255,.14);
   --dtxt:#F4ECDC;--dtxt-soft:rgba(244,236,220,.68);--dtxt-dim:rgba(244,236,220,.44);--dline:rgba(216,178,92,.22);
-  --maxw:none;--pad-hero:clamp(38px,7vw,90px);--hero-in:clamp(30px,5vw,72px);--pad:calc(var(--pad-hero) + var(--hero-in));--r:14px;--r-md:20px;--r-lg:28px;--r-pill:100px;
+  --maxw:none;--pad-hero:clamp(38px,7vw,90px);--hero-in:clamp(40px,7.8vw,112px);--pad:calc(var(--pad-hero) + var(--hero-in));--r:14px;--r-md:20px;--r-lg:28px;--r-pill:100px;
   --topbar-h:44px;--head-h:82px;
 }
 *{box-sizing:border-box}
@@ -235,6 +235,7 @@ footer a{color:rgba(255,255,255,.72);font-size:.92rem}footer a:hover{color:#fff}
 @media(max-width:460px){.b2b-tiers{grid-template-columns:1fr}}
 .qual,.rev-grid,.relgrid{margin-inline:calc(var(--pad-hero) - var(--pad))}
 .qual-in{padding-inline:var(--hero-in)}
+@media(max-width:340px){.brand img{height:30px}.nav-ico{gap:11px}}
 </style>
 </head>
 <body>
