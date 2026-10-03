@@ -591,7 +591,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 @media(max-width:600px){.brand img{height:min(48px,11.2vw)}}
 @media(max-width:340px){.brand img{height:32px}}
 .pcard-vid{object-position:50% 74%}
-.cat-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%;opacity:0;transition:opacity .45s ease;pointer-events:none}
+.cat-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 50%;opacity:0;transition:opacity .45s ease;pointer-events:none}
 .cat:hover .cat-vid{opacity:1}
 </style>
 </head>
@@ -698,7 +698,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
         </div>
       </a>
       <a class="cat" href="produkte.html#glas">
-        <span class="cat-media2"><img src="img/produkte/paste-1.jpg" alt="Vanille im Glas"><video class="cat-vid" muted loop playsinline preload="none" poster="img/vid/paste-tropfen-hoch-poster.jpg"><source src="img/vid/paste-tropfen-hoch.mp4" type="video/mp4"></video></span>
+        <span class="cat-media2"><img src="img/produkte/paste-1.jpg" alt="Vanille im Glas"><video class="cat-vid" muted loop playsinline preload="none" poster="img/vid/paste-tropfen-quer-poster.jpg"><source src="img/vid/paste-tropfen-quer.mp4" type="video/mp4"></video></span>
         <div class="cat-inner">
           <h3>Vanille im Glas</h3>
           <p>Paste, Sirup &amp; mehr — intensiv und vielseitig.</p>
@@ -929,7 +929,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
 const products=[
- {n:"Vanillepaste im Glas",note:"100 g · ohne Alkohol · auch für Kinder",link:"produkt.html?p=vanillepaste",r:"",c:"",p:"22.00",pre:"",img:"produkte/paste-1.jpg",vid:"paste-hoch.mp4",new:1},
+ {n:"Vanillepaste im Glas",note:"100 g · ohne Alkohol · auch für Kinder",link:"produkt.html?p=vanillepaste",r:"",c:"",p:"22.00",pre:"",img:"produkte/paste-1.jpg",vid:"paste-quer.mp4",vpos:"55% 50%",new:1},
  {n:"Gourmet Vanillepulver",note:"25 g · 100 % rein",link:"produkt.html?p=vanillepulver",r:"",c:"",p:"31.50",pre:"ab ",img:"produkte/pulver-1.jpg",new:1},
  {n:"Vanilleschoten «Extra» im Reagenzglas",note:"21–23 cm · 2 Stück",link:"produkt.html?p=vanilleschoten-extra-21-23cm-im-reagenzglas",r:"",c:"",p:"14.00",pre:"",img:"produkte/schoten-1.jpg",new:0},
  {n:"Vanille-Salz fein",note:"Meersalz mit 5,4 % Vanille",link:"produkt.html?p=vanille-salz-feine-kornung",r:"",c:"",p:"9.50",pre:"ab ",img:"produkte/salz-fein-1.jpg",new:0},
@@ -941,7 +941,7 @@ document.getElementById('prods').innerHTML=products.map(p=>`
      ${p.new?'<span class="badge-new">Neu</span>':''}
      <div class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg></div>
      <a class="pcard-link" href="${p.link||'produkt.html'}" aria-label="${p.n} ansehen"><img src="img/${p.img}" alt="${p.n}" loading="lazy"></a>
-     ${p.vid?`<video class="pcard-vid" muted loop playsinline preload="none" poster="img/${p.img}"><source src="img/vid/${p.vid}" type="video/mp4"></video>`:''}
+     ${p.vid?`<video class="pcard-vid" muted loop playsinline preload="none" poster="img/${p.img}"${p.vpos?` style="object-position:${p.vpos}"`:''}><source src="img/vid/${p.vid}" type="video/mp4"></video>`:''}
    </div>
    <div class="pcard-body">
      <div class="pprice"><small>${p.pre}</small>CHF ${p.p}</div>
