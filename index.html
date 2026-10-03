@@ -414,12 +414,12 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 
 /* newsletter v2 – ganzes foto, zentriert (Mockup) */
 .nlx{position:relative;margin-inline:var(--pad-hero);border-radius:var(--r-xl);overflow:hidden;isolation:isolate;box-shadow:0 50px 90px -60px rgba(23,22,20,.5);background:#120e0a}
-.nlx{height:clamp(720px,57vw,980px)}
-.nlx-bg{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
+.nlx{height:max(726px,calc((100vw - 2*var(--pad-hero))/2.3))}
+.nlx-bg{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.12);transform-origin:50% 2%}
 .nlx::before{content:"";position:absolute;left:0;right:0;top:0;height:74%;z-index:1;pointer-events:none;
   background:radial-gradient(ellipse 60% 70% at 50% 18%,rgba(12,9,6,.55),rgba(12,9,6,0) 75%)}
 .nlx-in{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-  text-align:center;padding:clamp(28px,3.6vw,54px) clamp(20px,5vw,40px) 0;gap:clamp(10px,1.2vw,16px)}
+  text-align:center;padding:clamp(26px,2.6vw,40px) clamp(20px,5vw,40px) 0;gap:clamp(8px,1vw,13px)}
 .nlx-eyebrow{display:inline-flex;align-items:center;gap:16px;color:var(--gold-bright);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
 .nlx-eyebrow::before,.nlx-eyebrow::after{content:"";width:46px;height:1px;background:currentColor;opacity:.55}
 .nlx h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.08;margin:0;color:#FBF6EC;max-width:20ch}
@@ -439,7 +439,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 @media(max-width:860px){
   .nlx{display:flex;flex-direction:column-reverse;height:auto}
   .nlx::before{display:none}
-  .nlx-bg{height:auto;aspect-ratio:1/1;object-fit:cover;object-position:51% 100%;margin-top:-40px;transform:scale(1.45);transform-origin:51% 96%;
+  .nlx-bg{height:auto;position:relative;inset:auto;aspect-ratio:1/1;object-fit:cover;object-position:51% 100%;margin-top:-40px;transform:scale(1.45);transform-origin:51% 96%;
     -webkit-mask-image:linear-gradient(180deg,transparent,#000 22%);mask-image:linear-gradient(180deg,transparent,#000 22%)}
   .nlx-in{position:relative;inset:auto;padding:clamp(38px,10vw,58px) clamp(20px,6vw,40px) 0;z-index:2}
   .nlx-form{flex-direction:column;align-items:stretch;background:transparent;box-shadow:none;padding:0;gap:10px}
@@ -877,7 +877,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <!-- NEWSLETTER -->
 <section class="sec" id="newsletter" style="padding-top:0;padding-bottom:clamp(30px,4vw,56px);scroll-margin-top:120px">
   <div class="nlx reveal">
-    <img class="nlx-bg" src="img/newsletter-stephan-v2.jpg" alt="Stephan Stemminger prüft Vanilleschoten in der Manufaktur">
+    <img class="nlx-bg" src="img/newsletter-stephan-v3.jpg" alt="Stephan Stemminger prüft Vanilleschoten in der Manufaktur">
     <div class="nlx-in">
       <span class="nlx-eyebrow">Exklusiv für Sie</span>
       <h2 class="serif">Rezepte, Neuheiten<br>&amp; <span class="g">exklusive Angebote</span></h2>
