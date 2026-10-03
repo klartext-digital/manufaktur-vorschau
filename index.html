@@ -575,6 +575,21 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   .hero-copy{position:relative;margin-top:-56px;padding-top:0}
 }
 /*ecken*/.hero-card{clip-path:inset(0 round var(--r-xl));-webkit-clip-path:inset(0 round var(--r-xl))}.gift,.recipes,.nlx{transform:translateZ(0)}
+/*titel-gross*/
+.faq-head h2,.sec-head h2,.nlx h2,.gift h2,.recipes h2,.cmp-head h2{line-height:1.05}
+.brand{flex:none}.brand img{width:auto;max-width:none}
+.menu a{white-space:nowrap}
+@media(min-width:901px) and (max-width:1180px){.brand img{height:50px!important}.menu{gap:clamp(12px,1.6vw,26px)}.nav-ico{gap:16px}}
+:root{--title:clamp(2.6rem,5.2vw,4.6rem)}
+.gift h2{font-size:clamp(2.3rem,3.9vw,3.6rem)}
+.quality h2{font-size:clamp(2.3rem,4.7vw,3.7rem)}
+.cmp-head h2{font-size:clamp(2.3rem,5.2vw,4.2rem)}
+.recipes h2{font-size:clamp(2.7rem,5.2vw,5rem)}
+.nlx h2{font-size:clamp(2.3rem,4.8vw,4rem)}
+@media(min-width:821px){.hero h1{font-size:clamp(3rem,6vw,5.9rem)}.film-right h2{font-size:clamp(2.8rem,6.2vw,5.7rem)}}
+.brand img{height:66px}
+@media(max-width:600px){.brand img{height:min(48px,11.2vw)}}
+@media(max-width:340px){.brand img{height:32px}}
 </style>
 </head>
 <body>
@@ -627,7 +642,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 2.8V9.2l4.6 2.8z"/></svg></a>
       </div>
       <div class="hero-copy">
-        <span class="eyebrow">Echte Herkunft · Echter Geschmack · Echte Vanille</span>
         <h1 class="serif">Die beste<br>Vanille der<br>Schweiz<span class="gold-dot">.</span></h1>
         <p class="hero-sub">Handverlesen von <b>Stephan Stemminger</b>. Für alle, die das Besondere schmecken.</p>
         <div class="hero-cta">
@@ -666,7 +680,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   <div class="wrap">
     <div class="sec-head shop-head reveal">
       <div>
-        <span class="eyebrow">Sortiment</span>
         <h2>Shop nach Kategorie</h2>
         <p class="shop-sub">Entdecke unsere hochwertigen Vanilleprodukte – direkt von ausgewählten Bauern, mit Leidenschaft und in höchster Qualität.</p>
       </div>
@@ -715,7 +728,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   <div class="wrap bsec-in">
     <div class="bsec-hero reveal">
       <div class="bsec-text">
-        <span class="eyebrow">Bestseller</span>
         <h2 class="serif bsec-title">Unsere<br><span class="g">Bestseller</span></h2>
         <p class="bsec-sub">Die beliebtesten Vanilleprodukte – ausgewählt für intensives Aroma, höchste Qualität und echten Vanillegenuss.</p>
         <div class="bsec-cta">
@@ -762,7 +774,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
     <div class="gift reveal">
       <img class="gift-bg" src="img/geschenkset-section.jpg" alt="The Vanilla Geschenkpackung">
       <div class="gift-in">
-        <span class="gift-eyebrow">Für besondere Momente</span>
         <h2 class="serif">Das perfekte<br>Geschenk für<br>echte <span class="g">Geniesser.</span></h2>
         <p>Edle Geschenksets mit feinster Vanille – liebevoll verpackt in unserer Manufaktur in Schlieren.</p>
         <a class="btn btn-gold" href="geschenkset.html"><span>Geschenksets entdecken</span> <span class="arrow">→</span></a>
@@ -779,7 +790,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
   <div class="cmp-photo" aria-hidden="true"><img src="img/pod-vanilla.png" alt="Frische Vanilleschote, aufgeschnitten mit Vanillemark, und Vanilleblüte"></div>
   <div class="cmp-in">
     <div class="cmp-head">
-      <span class="eyebrow">Der Unterschied</span>
       <h2 class="serif">Herkömmliche Vanille vs. <span class="g">The Vanilla</span></h2>
       <p>Warum echte Manufaktur-Vanille in einer anderen Liga spielt.</p>
     </div>
@@ -818,7 +828,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
     <div class="recipes">
       <img class="recipes-bg" src="img/rezepte-bg.jpg" alt="">
       <div class="recipes-inner">
-        <span class="eyebrow">Inspiration</span>
         <h2 class="serif">Rezepte, die begeistern</h2>
         <p>Von der cremigen Crème brûlée bis zum Vanille-Gipfeli — entdecken Sie, was echte Vanille möglich macht.</p>
         <a class="btn btn-dark" href="#"><span>Alle Rezepte entdecken</span> <span class="arrow">→</span></a>
@@ -830,7 +839,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <!-- VOICES -->
 <section class="sec" id="story" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head center reveal"><div><span class="eyebrow">★★★★★ 4,9 · über 2'000 Bewertungen</span><h2>Echte Stimmen. Echter Genuss.</h2><p>Was unsere Kundinnen und Kunden sagen.</p></div></div>
+    <div class="sec-head center reveal"><div><h2>Echte Stimmen. Echter Genuss.</h2><p>Was unsere Kundinnen und Kunden sagen.</p></div></div>
     <div class="tst reveal" id="tst"></div>
     <div class="tst-ctrl reveal"><button class="tst-arrow" data-dir="-1" aria-label="Vorherige Bewertungen">&#8249;</button><button class="tst-arrow" data-dir="1" aria-label="Weitere Bewertungen">&#8250;</button></div>
   </div>
@@ -840,7 +849,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <section class="sec" id="faq" style="padding-top:0">
   <div class="wrap faq reveal">
     <div class="faq-head">
-      <span class="eyebrow-b">Häufige Fragen</span>
       <h2 class="serif">Gut zu wissen</h2>
       <p>Die Fragen, die uns am häufigsten gestellt werden — kurz und ehrlich beantwortet.</p>
       <a class="btn btn-outline" href="#"><span>Noch Fragen? Kontakt</span> <span class="arrow">→</span></a>
@@ -877,9 +885,8 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <!-- NEWSLETTER -->
 <section class="sec" id="newsletter" style="padding-top:0;padding-bottom:clamp(30px,4vw,56px);scroll-margin-top:120px">
   <div class="nlx reveal">
-    <img class="nlx-bg" src="img/newsletter-stephan-v3.jpg" alt="Stephan Stemminger prüft Vanilleschoten in der Manufaktur">
+    <img class="nlx-bg" src="img/newsletter-stephan-v4.jpg" alt="Stephan Stemminger prüft Vanilleschoten in der Manufaktur">
     <div class="nlx-in">
-      <span class="nlx-eyebrow">Exklusiv für Sie</span>
       <h2 class="serif">Rezepte, Neuheiten<br>&amp; <span class="g">exklusive Angebote</span></h2>
       <p class="nlx-sub">Erhalten Sie besondere Vanille-Rezepte, Hintergrundgeschichten und limitierte Angebote – direkt in Ihr Postfach.</p>
       <form class="nlx-form" onsubmit="return false">
