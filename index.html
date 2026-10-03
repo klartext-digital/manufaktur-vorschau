@@ -854,7 +854,7 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
       <a class="btn btn-outline" href="#"><span>Noch Fragen? Kontakt</span> <span class="arrow">→</span></a>
     </div>
     <div class="faq-list">
-      <details class="faq-item" open>
+      <details class="faq-item">
         <summary>Warum ist eure Vanille teurer als aus dem Supermarkt?<span class="faq-ico"></span></summary>
         <div class="faq-a">Weil echte Qualität ihren Preis hat: Wir kaufen direkt bei unseren Partnerfarmen zu fairen Preisen, verzichten auf Zwischenhändler und selektieren jede Schote von Hand. Das Ergebnis ist ein Vanillin-Gehalt von bis zu 2,63 % — rund doppelt so viel wie im Branchenschnitt.</div>
       </details>
@@ -1016,21 +1016,20 @@ if(film&&canvas){
 
 // Testimonials
 const testimonials=[
- {img:"tst1.jpg",name:"Sarah M.",age:34,q:"Die aromatischste Vanille, die ich je hatte. Meine Desserts schmecken plötzlich nach mehr.",pi:"p-paste.png",prod:"Vanillepaste im Glas",price:"CHF 22.00",date:"20. März 2026"},
- {img:"tst2.jpg",name:"Marco R.",age:45,q:"Als Hobbybäcker merke ich den Unterschied sofort — voll, echt, kein Kunstaroma.",pi:"p-schoten.png",prod:"Planifolia Vanilleschoten",price:"ab CHF 36.00",date:"14. Juni 2026"},
- {img:"tst3.jpg",name:"Lena K.",age:28,q:"Ein Teelöffel und der ganze Teig duftet. Absolute Empfehlung!",pi:"p-pulver.png",prod:"Gourmet Vanillepulver",price:"CHF 31.50",date:"2. Mai 2026"},
- {img:"tst4.jpg",name:"Thomas B.",age:52,q:"Endlich Schweizer Qualität, der man vertraut. Herkunft und Aroma top.",pi:"p-set.png",prod:"The Vanilla 4-erlei",price:"CHF 32.50",date:"9. Februar 2026"},
- {img:"tst5.jpg",name:"Rita H.",age:61,q:"Verschenke die Sets regelmässig — kommt immer hervorragend an.",pi:"p-geschenk.png",prod:"Geschenkpackung",price:"CHF 32.50",date:"28. November 2025"},
- {img:"tst6.jpg",name:"David O.",age:31,q:"Sogar im Kaffee ein Genuss. Qualität schmeckt man einfach.",pi:"p-paste.png",prod:"Vanillepaste im Glas",price:"CHF 22.00",date:"5. Januar 2026"}
+ {img:"tst1-amateur.jpg",name:"Sarah M.",age:34,q:"Die aromatischste Vanille, die ich je hatte. Meine Desserts schmecken plötzlich nach mehr.",pi:"p-paste.png",prod:"Vanillepaste im Glas",price:"CHF 22.00",date:"20. März 2026"},
+ {img:"tst2-amateur.jpg",name:"Marco R.",age:45,q:"Als Hobbybäcker merke ich den Unterschied sofort — voll, echt, kein Kunstaroma.",pi:"p-schoten.png",prod:"Planifolia Vanilleschoten",price:"ab CHF 36.00",date:"14. Juni 2026"},
+ {img:"tst3-amateur.jpg",name:"Lena K.",age:28,q:"Ein Teelöffel und der ganze Teig duftet. Absolute Empfehlung!",pi:"p-pulver.png",prod:"Gourmet Vanillepulver",price:"CHF 31.50",date:"2. Mai 2026"},
+ {img:"tst4-amateur.jpg",name:"Thomas B.",age:52,q:"Endlich Schweizer Qualität, der man vertraut. Herkunft und Aroma top.",pi:"p-set.png",prod:"The Vanilla 4-erlei",price:"CHF 32.50",date:"9. Februar 2026"},
+ {img:"tst5-amateur.jpg",name:"Rita H.",age:61,q:"Verschenke die Sets regelmässig — kommt immer hervorragend an.",pi:"p-geschenk.png",prod:"Geschenkpackung",price:"CHF 32.50",date:"28. November 2025"},
+ {img:"tst6-amateur.jpg",name:"David O.",age:31,q:"Sogar im Kaffee ein Genuss. Qualität schmeckt man einfach.",pi:"p-paste.png",prod:"Vanillepaste im Glas",price:"CHF 22.00",date:"5. Januar 2026"}
 ];
 const tstEl=document.getElementById('tst');
 if(tstEl){tstEl.innerHTML=testimonials.map(t=>`
  <article class="tcard">
    <div class="tphoto"><img src="img/${t.img}" alt="${t.name}" loading="lazy" draggable="false"></div>
    <div class="tbody">
-     <div class="tmeta"><span class="stars">★★★★★</span><span class="tname">${t.name}, ${t.age} <svg class="verif" viewBox="0 0 24 24"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3.2 16l1-2.8-1-2.8 2.4-1.8 1-2.8 3 .2z"/><path d="M8.5 12l2.2 2.2 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.6"/></svg></span></div>
+     <div class="tmeta"><span class="stars">★★★★★</span><span class="tname">${t.name} <svg class="verif" viewBox="0 0 24 24"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3.2 16l1-2.8-1-2.8 2.4-1.8 1-2.8 3 .2z"/><path d="M8.5 12l2.2 2.2 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.6"/></svg></span></div>
      <p class="tquote">„${t.q}"</p>
-     <div class="tprod"><img class="pi" src="img/${t.pi}" alt="" draggable="false"><div class="pt"><b>${t.prod}</b><span>${t.price}</span></div><span class="date">Gekauft am<br>${t.date}</span></div>
    </div>
  </article>`).join('');}
 
