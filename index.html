@@ -183,7 +183,7 @@ header.scrolled{box-shadow:0 6px 26px -20px rgba(23,22,20,.6);border-color:var(-
 
 /* product cards — Local structure */
 .prods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
-#bestseller .prods{margin-top:clamp(46px,5.5vw,84px)}
+
 .pcard{position:relative;background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(23,22,20,.07);
   display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s;min-width:0}
 .pcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(23,22,20,.3)}
@@ -502,41 +502,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 .bsec-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0}
 .bsec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,var(--cream-1) 0%,rgba(251,246,236,.6) 12%,rgba(251,246,236,.5) 50%,rgba(251,246,236,.85) 100%)}
 .bsec-in{position:relative;z-index:1}
-.bsec-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center}
-.bsec-text{min-width:0}
-.bsec-title{font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:.98;margin:.1em 0 .3em}
-.bsec-title .g{color:var(--gold)}
-.bsec-sub{color:var(--ink-soft);font-size:clamp(1.02rem,1.3vw,1.2rem);max-width:46ch;margin:0 0 1.6em}
-.bsec-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:clamp(28px,3.5vw,48px)}
-.bsec-video{display:inline-flex;align-items:center;gap:14px;font-weight:600;font-size:.92rem;color:var(--ink);line-height:1.2}
-.bsec-video .playbtn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;flex-shrink:0;transition:background .25s,transform .25s}
-.bsec-video .playbtn svg{width:18px;height:18px;fill:var(--gold);margin-left:2px}
-.bsec-video:hover .playbtn{background:var(--gold);transform:scale(1.06)}.bsec-video:hover .playbtn svg{fill:#fff}
-.bsec-trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,30px)}
-.bsec-trust .bt{display:flex;flex-direction:column;gap:9px;min-width:0}
-.bsec-trust .bt-ic{width:30px;height:30px;stroke:var(--gold);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.bsec-trust .bt b{font-size:.92rem;line-height:1.25;display:block}
-.bsec-trust .bt span{font-size:.78rem;color:var(--ink-soft);line-height:1.4}
-.bsec-portrait{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3.4;box-shadow:0 40px 80px -46px rgba(23,22,20,.4)}
-.bsec-portrait img{width:100%;height:100%;object-fit:cover}
-.bsec-ph{position:absolute;top:12px;left:12px;background:rgba(23,22,20,.62);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:var(--r-pill)}
-.bsec-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,22px);align-items:center;
-  background:rgba(255,255,255,.72);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:clamp(20px,2.4vw,34px) clamp(22px,3vw,48px);margin:clamp(28px,4vw,56px) 0 clamp(36px,5vw,64px);box-shadow:0 26px 54px -34px rgba(23,22,20,.3)}
-.bstat{display:flex;align-items:center;gap:14px;min-width:0;position:relative}
-.bstat:not(:last-child)::after{content:"";position:absolute;right:calc(-1 * clamp(7px,1vw,11px));top:12%;bottom:12%;width:1px;background:var(--line)}
-.bstat-ic{width:38px;height:38px;stroke:var(--gold);stroke-width:1.3;fill:none;flex-shrink:0}
-.bstat-stars{color:var(--gold);font-size:1.1rem;letter-spacing:1px;flex-shrink:0}
-.bstat b{font-family:Fraunces,serif;font-size:clamp(1.3rem,1.9vw,1.7rem);display:block;line-height:1.1}
-.bstat span{font-size:.76rem;color:var(--ink-soft);line-height:1.35}
-@media(max-width:1000px){
-  .bsec-hero{grid-template-columns:1fr}
-  .bsec-portrait{order:-1;aspect-ratio:16/10}
-  .bsec-trust{grid-template-columns:1fr 1fr}
-  .bsec-stats{grid-template-columns:1fr 1fr;gap:20px 26px}
-  .bstat:nth-child(2)::after{display:none}
-}
-@media(max-width:560px){.bsec-trust,.bsec-stats{grid-template-columns:1fr}.bstat::after{display:none}}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
@@ -729,25 +694,6 @@ footer ul a{color:rgba(255,255,255,.72);font-size:.92rem;transition:color .2s}fo
 <section class="bsec" id="bestseller">
   <img class="bsec-bg" src="img/bestseller-bg.jpg" alt="">
   <div class="wrap bsec-in">
-    <div class="bsec-hero reveal">
-      <div class="bsec-text">
-        <h2 class="serif bsec-title">Unsere<br><span class="g">Bestseller</span></h2>
-        <p class="bsec-sub">Die beliebtesten Vanilleprodukte – ausgewählt für intensives Aroma, höchste Qualität und echten Vanillegenuss.</p>
-        <div class="bsec-cta">
-          <a class="btn btn-gold" href="produkte.html"><span>Alle Produkte ansehen</span> <span class="arrow">→</span></a>
-          <a class="bsec-video" href="#vanillin"><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span>Unsere Bestseller<br>im Video entdecken</span></a>
-        </div>
-        <div class="bsec-trust">
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M5 20c0-7.5 5-12.5 13.5-13.5C17.5 15 12.5 20 5 20z"/><path d="M5.5 19.5C9 16 12 14 15 12.8"/></svg><div><b>Höchste Qualität</b><span>Sorgfältig ausgewählte Vanille aus besten Anbaugebieten.</span></div></div>
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M3 11l5-3 4 2 4-2 5 3M3 11v4l5 3M21 11v4l-5 3M8 12l4 2 4-2"/></svg><div><b>Direkt von ausgewählten Bauern</b><span>Faire Partnerschaften und echte Herkunft.</span></div></div>
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Natürlich &amp; rein</b><span>Ohne künstliche Zusätze, 100% natürliche Vanille.</span></div></div>
-          <div class="bt"><svg class="bt-ic" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg><div><b>Von Vanille-Liebhabern geschätzt</b><span>Tausende zufriedene Kunden in der Schweiz.</span></div></div>
-        </div>
-      </div>
-      <div class="bsec-portrait"><img src="img/stephan-portrait.jpg" alt="Stephan – The Vanilla Manufaktur"></div>
-    </div>
-
-
     <div class="prods reveal" id="prods"></div>
   </div>
 </section>
